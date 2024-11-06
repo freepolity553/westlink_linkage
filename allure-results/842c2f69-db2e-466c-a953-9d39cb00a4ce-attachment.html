@@ -1,0 +1,69 @@
+<div>POST to https://dev-stroytransgaz.april-inn.ru/api/v1/pmc</div>
+
+    <h4>Body</h4>
+    <div>
+    <pre class="preformated-text">
+{
+    &quot;data&quot;: [
+        {
+            &quot;file_link&quot;: &quot;Ссылка на документ 66&quot;,
+            &quot;num&quot;: 1,
+            &quot;sheet&quot;: [
+                {
+                    &quot;note&quot;: &quot;Комментарий к листу 22&quot;,
+                    &quot;num&quot;: 2,
+                    &quot;reason_code&quot;: 1
+                }
+            ],
+            &quot;vol_id&quot;: 1
+        }
+    ],
+    &quot;pmc&quot;: {
+        &quot;approver_id&quot;: 2,
+        &quot;author_id&quot;: 2,
+        &quot;changer_id&quot;: 1,
+        &quot;cpe_id&quot;: 1,
+        &quot;normal_inspector_id&quot;: 1,
+        &quot;note&quot;: &quot;random&quot;,
+        &quot;num&quot;: 1
+    }
+}    </pre>
+    </div>
+
+    <h4>Headers</h4>
+    <div>
+            <div>Accept: */*</div>
+            <div>Content-Type: application/json</div>
+    </div>
+
+
+
+    <h4>Curl</h4>
+    <div>
+        curl -v -X POST &#39;https://dev-stroytransgaz.april-inn.ru/api/v1/pmc&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;data&quot;: [
+        {
+            &quot;file_link&quot;: &quot;Ссылка на документ 66&quot;,
+            &quot;num&quot;: 1,
+            &quot;sheet&quot;: [
+                {
+                    &quot;note&quot;: &quot;Комментарий к листу 22&quot;,
+                    &quot;num&quot;: 2,
+                    &quot;reason_code&quot;: 1
+                }
+            ],
+            &quot;vol_id&quot;: 1
+        }
+    ],
+    &quot;pmc&quot;: {
+        &quot;approver_id&quot;: 2,
+        &quot;author_id&quot;: 2,
+        &quot;changer_id&quot;: 1,
+        &quot;cpe_id&quot;: 1,
+        &quot;normal_inspector_id&quot;: 1,
+        &quot;note&quot;: &quot;random&quot;,
+        &quot;num&quot;: 1
+    }
+}&#39;
+    </div>
+
