@@ -50,7 +50,7 @@ public class APX_4addDocumentTest extends WebDriverSettings {
 
         //Номер версии
         driver.findElement(By.xpath("//input[contains(@type,'number')]")).clear();
-        driver.findElement(By.xpath("//input[contains(@type,'number')]")).sendKeys(randomValue.versionNum(1));
+        driver.findElement(By.xpath("//input[contains(@type,'number')]")).sendKeys(randomValue.randomInt(1));
 
         //Добавить файл
         File uploadFile = new File("src/test/resources/Акт_списания.pdf");

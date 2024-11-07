@@ -31,7 +31,7 @@ public class LoginPage {
     @FindBy(xpath="//span[@class='hidden'][contains(.,'Архив')]")
     WebElement menuArchive;
 
-    @FindBy(xpath = "//a[@routerlink='/projects'][contains(.,'Проекты')]")
+    @FindBy(xpath = "//span[@class='hidden'][contains(.,'Проекты')]")
     WebElement menuProjects;
 
 

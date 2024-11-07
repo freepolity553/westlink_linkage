@@ -49,7 +49,7 @@ public class RandomValue {
 
 
     }
-    public CharSequence versionNum (int length) {
+    public CharSequence randomInt(int length) {
         String numbers = "0123456789";
         Random randomGenerator = new Random();
         StringBuilder sb = new StringBuilder();

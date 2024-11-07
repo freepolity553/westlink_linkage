@@ -29,7 +29,8 @@ public class WebDriverSettings {
     public String url = "https://next-stroytransgaz.april-inn.ru/";
 
     //public String urlDraft = "https://dev-stroytransgaz.april-inn.ru/new-archive/projects/1";
-    public String urlApi = "https://dev-stroytransgaz.april-inn.ru/api/v1";
+    //public String urlApi = "https://dev-stroytransgaz.april-inn.ru/api/v1";
+    public String urlApi = "https://next-stroytransgaz.april-inn.ru/api/v1";
     public String cardTitle = "";
 
     public String cardTitle2 = "";
