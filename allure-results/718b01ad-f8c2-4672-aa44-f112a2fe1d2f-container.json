@@ -1,1 +1,0 @@
-{"uuid":"718b01ad-f8c2-4672-aa44-f112a2fe1d2f","name":"archive.ui.E2E_DocumentCancellationTest","children":["38f49a64-4af7-4f9a-8af6-0a5a6b5dedf5"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1730292713277,"stop":1730292717105}],"afters":[],"start":1730292713215,"stop":1730292723455}

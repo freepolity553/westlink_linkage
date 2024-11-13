@@ -1,1 +1,0 @@
-{"uuid":"d856cd86-b98d-4d02-b481-ce0520cd913e","name":"archive.ui.E2E_DocumentRegistration_PMCTest","children":["6490fb77-df99-4336-afe7-76e7aeb11ce9"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1730366385237,"stop":1730366387732}],"afters":[],"start":1730366385174,"stop":1730366395167}

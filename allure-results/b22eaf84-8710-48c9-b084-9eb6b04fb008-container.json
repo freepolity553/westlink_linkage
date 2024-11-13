@@ -1,1 +1,0 @@
-{"uuid":"b22eaf84-8710-48c9-b084-9eb6b04fb008","name":"archive.ui.E2ETest","children":["f7470063-2381-48de-8f03-7b8122979f5e"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1730204571459,"stop":1730204574192}],"afters":[],"start":1730204571399,"stop":1730204613276}

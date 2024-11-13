@@ -70,13 +70,14 @@ public class ArchivePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void closeButton () {
-		closeButton.click();
-	}
+
 	public void clickRoleMenu () {
 		roleMenu.click();
 	}
 	public void accessArchive () {
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//		WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(menuArchive));
+//		elem.click();
 		menuArchive.click();
 	}
 	public void accessProjectModule () {
@@ -84,6 +85,9 @@ public class ArchivePage {
 	}
 
 	public void selectTestProject () {
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//		WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(dropdownProjectGIP));
+//		elem.click();
 		dropdownProjectGIP.click();
 		testProject.click();
 	}
