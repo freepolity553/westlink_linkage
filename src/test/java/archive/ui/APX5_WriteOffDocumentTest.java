@@ -16,7 +16,7 @@ import utilites.RandomValue;
 import java.io.File;
 import java.time.Duration;
 
-public class APX_5writeOffDocumentTest extends WebDriverSettings {
+public class APX5_WriteOffDocumentTest extends WebDriverSettings {
 
     ArchivePage objArchivePage;
 
@@ -25,7 +25,6 @@ public class APX_5writeOffDocumentTest extends WebDriverSettings {
         LoginPage login = new LoginPage(driver);
         RandomValue randomValue = new RandomValue(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
-        QueryDBui db = new QueryDBui();
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         objArchivePage.clickRoleMenu();

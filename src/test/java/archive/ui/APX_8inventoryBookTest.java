@@ -24,9 +24,8 @@ public class APX_8inventoryBookTest extends WebDriverSettings {
     public void inventoryBookTest() throws InterruptedException {
 
         LoginPage login = new LoginPage(driver);
-        RandomValue randomValue = new RandomValue(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
-        QueryDBui db = new QueryDBui();
+
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         objArchivePage.clickRoleMenu();

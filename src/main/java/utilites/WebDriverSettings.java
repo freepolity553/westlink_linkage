@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 
 //import org.testng.annotations.BeforeClass;
 
@@ -23,7 +24,7 @@ public class WebDriverSettings {
     public static WebDriver driver;
 
 
-    //public String url = "https://dev-stroytransgaz.april-inn.ru";
+    //public static String url = "https://dev-stroytransgaz.april-inn.ru";
     public static String url = "https://next-stroytransgaz.april-inn.ru/";
 
     //public String urlDraft = "https://dev-stroytransgaz.april-inn.ru/new-archive/projects/1";
@@ -59,10 +60,10 @@ public class WebDriverSettings {
 
 
     }
-    @AfterClass
-    public void tearDown(){
-        driver.quit();
-    }
+//    @AfterClass
+//    public void tearDown(){
+//        driver.quit();
+//    }
 
     /**
      * Метод генерирует  случайное число в диапазоне от 1 до полученного количества товаров и переходит на страницу товара

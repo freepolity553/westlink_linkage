@@ -69,31 +69,26 @@ public class APX1_CreatePMC {
         public void addEmployees() {
             ArchivePage objArchivePage = new ArchivePage(driver);
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-            //Добавить сотрудников
 
 //        objArchivePage.addEmployees();
 
             //Добавить сотрудников
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-//        objArchivePage.addEmployees();
 
             //Изменения внес
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
             WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Изменения внес'])[1]/following::*[name()='svg'][1]")));
             elem.click();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             WebElement elem1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Отдел'])[1]/following::div[4]")));
             elem1.click();
-//            driver.findElement(By.xpath("")).click();
-//            driver.findElement(By.xpath("")).click();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
             //Составил
             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Составил'])[1]/following::*[name()='svg'][1]")));
             element.click();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Отдел'])[1]/following::div[4]")));
             element1.click();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
             //ГИП
             WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='ГИП'])[1]/following::*[name()='svg'][1]")));

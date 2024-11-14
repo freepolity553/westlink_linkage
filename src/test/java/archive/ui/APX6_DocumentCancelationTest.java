@@ -17,7 +17,7 @@ import utilites.RandomValue;
 import java.time.Duration;
 
 
-public class APX_6docCancelationTest extends WebDriverSettings {
+public class APX6_DocumentCancelationTest extends WebDriverSettings {
 
     ArchivePage objArchivePage;
 

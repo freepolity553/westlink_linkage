@@ -1,60 +1,52 @@
-package archive.ui;
+package archive;
 
-import archive.ArchivePage;
-import archive.QueryDBui;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import settings.WebDriverSettings;
 import utilites.LoginPage;
 import utilites.RandomValue;
 
 import java.time.Duration;
 
 
-public class APX_7docIssueTest extends WebDriverSettings {
+public class APX7_DocumentExternalSupply  {
 
 
-    ArchivePage objArchivePage;
+    private final WebDriver driver;
 
-    @Test
-    public void docIssueTest() throws InterruptedException {
+    public APX7_DocumentExternalSupply (WebDriver driver) {
+        this.driver = driver;
+    }
+
+
+    public void documentExternalSupply()  {
 
         LoginPage login = new LoginPage(driver);
-        RandomValue randomValue = new RandomValue(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
-        QueryDBui db = new QueryDBui();
-        driver.get(url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-        objArchivePage.clickRoleMenu();
-        login.loginKGIP();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        driver.get(utilites.WebDriverSettings.url);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         //Войти в Архив как ГИП
+        objArchivePage.clickRoleMenu();
+        login.loginKGIP();
         objArchivePage.accessArchive();
 
         //Выбрать тестовый проект
         objArchivePage.selectTestProject();
-//        WebElement project = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
-//        project.click();
-//        driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')]")).click();
 
+        //Выбрать документ для выдачи
         driver.findElement(By.xpath("(//div[contains(@class,'mtable__col col__payload')])[1]")).click();
-
-
-
         driver.findElement(By.xpath("(//div[@class='mtable__col col__status'][contains(.,'Служебный')])[1]")).click();
-
         driver.findElement(By.xpath("(//button[@class='primary-outline'][contains(.,'Выдать')])[2]")).click();
 
-
+        //Заполнить форму выдачи
         driver.findElement(By.xpath("//input[contains(@class,'ng-untouched ng-pristine ng-valid')]")).sendKeys("ООО Тестовская");
-
         driver.findElement(By.xpath("//textarea[contains(@class,'ng-untouched ng-pristine ng-valid')]")).sendKeys("Выдать документ ООО Тестовская");
-
         driver.findElement(By.xpath("//button[@class='primary'][contains(.,'ВЫДАТЬ')]")).click();
 
 

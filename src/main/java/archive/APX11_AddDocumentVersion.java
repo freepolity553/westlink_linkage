@@ -19,8 +19,7 @@ public class APX11_AddDocumentVersion {
         this.driver = driver;
     }
 
-@Step("Выбор проекта и тома для загрузки новой версии")
-    public void selectProjectVolume() {
+    public void addVersion() {
 
     LoginPage login = new LoginPage(driver);
     ArchivePage objArchivePage = new ArchivePage(driver);
@@ -51,18 +50,12 @@ public class APX11_AddDocumentVersion {
 
     driver.findElement(By.xpath("//button[@type='primary-outline'][contains(.,'Выберите шифр')]")).click();
     driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'ТОМ 1-AQA')]")).click();
-}
-    @Step("Проверка статуса версии = Служебный")
-    public void versionStatusAssert() {
+
+
         WebElement status = driver.findElement(By.xpath("//div[@class='value'][contains(.,'Служебный')]"));
         String actualStatus = status.getText();
         Assert.assertEquals(actualStatus, "Служебный", "Неправильное значение");
 
-    }
-    @Step("Загрузка файла и версии документа")
-    public void createVersion() {
-        ArchivePage objArchivePage = new ArchivePage(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         //Добавить файл
         objArchivePage.uploadFile();
 

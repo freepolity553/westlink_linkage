@@ -75,7 +75,7 @@ public class ArchivePage {
 		roleMenu.click();
 	}
 	public void accessArchive () {
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 //		WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(menuArchive));
 //		elem.click();
 		menuArchive.click();
@@ -85,9 +85,11 @@ public class ArchivePage {
 	}
 
 	public void selectTestProject () {
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 //		WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(dropdownProjectGIP));
 //		elem.click();
+//		WebElement elem1 = wait.until(ExpectedConditions.elementToBeClickable(testProject));
+//		elem1.click();
 		dropdownProjectGIP.click();
 		testProject.click();
 	}

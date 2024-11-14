@@ -1,28 +1,36 @@
-package archive.ui;
+package archive;
 
 
-import archive.ArchivePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import settings.WebDriverSettings;
+
 import utilites.LoginPage;
+import utilites.RandomValue;
 
 import java.time.Duration;
 
-public class E2E_DocumentCancellationTest extends WebDriverSettings {
 
-    ArchivePage objArchivePage;
+public class APX6_DocumentCancelation  {
 
-    @Test(priority=1)
-    public void documentCancellationTest() {
+    private final WebDriver driver;
+
+    public APX6_DocumentCancelation(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    @Step("Аннулирование версий документов")
+    public void docCancelation()  {
 
         LoginPage login = new LoginPage(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
-        driver.get(url);
+        driver.get(utilites.WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
         login.loginKGIP();
@@ -37,7 +45,7 @@ public class E2E_DocumentCancellationTest extends WebDriverSettings {
         objArchivePage.selectTestProject();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-        objArchivePage.addDocVersion();
+        //objArchivePage.addDocVersion();
 
         //Выбрать тестовый проект
         objArchivePage.selectTestProject();
@@ -73,6 +81,7 @@ public class E2E_DocumentCancellationTest extends WebDriverSettings {
         Actions action = new Actions(driver);
         WebElement element = driver.findElement(By.xpath("//app-icon-button[@class='close-btn'][1]"));
         action.click(element).perform();
+
 
 
     }

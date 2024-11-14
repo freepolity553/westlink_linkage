@@ -14,7 +14,7 @@ import utilites.RandomValue;
 import java.io.File;
 import java.time.Duration;
 
-public class APX_4addDocumentTest extends WebDriverSettings {
+public class APX4_AddDocumentTest extends WebDriverSettings {
 
     ArchivePage objArchivePage;
 
@@ -33,10 +33,7 @@ public class APX_4addDocumentTest extends WebDriverSettings {
         //Войти в Архив как Архивриус
         objArchivePage.accessArchive();
 
-        //Выбрать тестовый проект
-//        WebElement project = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
-//        project.click();
-//        driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')]")).click();
+
 
         WebElement addDocument = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='primary-outline'][contains(.,'Документ')]")));
         addDocument.click();

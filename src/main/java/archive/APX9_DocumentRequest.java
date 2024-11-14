@@ -29,10 +29,11 @@ public class APX9_DocumentRequest {
         objArchivePage.clickRoleMenu();
         login.loginKGIP();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         //Войти в Архив как КГИП
         objArchivePage.accessArchive();
+
         WebElement inventory = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='button'][contains(.,'Инвент. журнал')]")));
         inventory.click();
 
@@ -42,13 +43,18 @@ public class APX9_DocumentRequest {
 
 
         //Выбрать документ для запроса
-        WebElement doc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//app-checkbox[1]/app-icon-button[1]/span[1]/app-icon[1]/span[1]/*[name()='svg'][1]")));
-        doc.click();
+//        WebElement doc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//app-checkbox[1]/app-icon-button[1]/span[1]/app-icon[1]/span[1]/*[name()='svg'][1]")));
+//        doc.click();
+        WebElement version = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(@class,'mtable__col col__name')])[1]")));
+        version.click();
 
         //driver.findElement(By.xpath("(//button[@type='button'][contains(.,'Запросить')])[2]")).click();
-        WebElement request = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='primary'][contains(.,'Запросить выдачу')]")));
+//        WebElement request = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='primary'][contains(.,'Запросить выдачу')]")));
+//        request.click();
+
+        WebElement request = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[@type='button'][contains(.,'Запросить')])[2]")));
         request.click();
-        //driver.findElement(By.xpath("//button[@class='primary'][contains(.,'Запросить выдачу : 1')]")).click();
+//        driver.findElement(By.xpath("(//button[@type='button'][contains(.,'Запросить')])[2]")).click();
 
 
         driver.findElement(By.xpath("//textarea[contains(@class,'ng-untouched ng-pristine ng-valid')]")).sendKeys("Комментарий для выдачи");
