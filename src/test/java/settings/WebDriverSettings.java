@@ -66,8 +66,8 @@ public class WebDriverSettings {
 
         options.setAcceptInsecureCerts(true);
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        Duration duration = Duration.of(2, ChronoUnit.SECONDS);
-        options.setImplicitWaitTimeout(duration);
+        //Duration duration = Duration.of(2, ChronoUnit.SECONDS);
+        //options.setImplicitWaitTimeout(duration);
         driver = new ChromeDriver(options);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
