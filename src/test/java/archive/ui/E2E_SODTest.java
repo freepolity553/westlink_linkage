@@ -9,7 +9,7 @@ import settings.WebDriverSettings;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 
-public class E2E_Registration_PMC_Request_WriteOffTest extends WebDriverSettings {
+public class E2E_SODTest extends WebDriverSettings {
 
 
     @Test(priority = 1)

@@ -4,8 +4,11 @@ package archive.ui;
 import archive.ArchivePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,6 +17,7 @@ import utilites.LoginPage;
 import utilites.RandomValue;
 
 import java.time.Duration;
+import java.util.List;
 
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
@@ -38,7 +42,7 @@ public class APX11_AddDocumentVersionTest extends WebDriverSettings {
     public void step1(){
         LoginPage login = new LoginPage(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
-        RandomValue randomValue = new RandomValue(driver);
+        Actions action = new Actions(driver);
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
@@ -50,22 +54,36 @@ public class APX11_AddDocumentVersionTest extends WebDriverSettings {
         objArchivePage.accessArchive();
 
         //Выбрать тестовый проект
-        WebElement project = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
-        project.click();
-        driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')]")).click();
+        WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
+        projectMenu.click();
+
+
+        WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
+        action.moveToElement(project).click().perform();
+
+//        String option = "AQA123 AQA Проект";
+//        driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')]")).click();
+//        WebElement customOption=driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(text(), '"+option+"')]"));
+//        customOption.click();
+
+//        driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')]")).click();
 
 
         //Нажать кнопку Версия
         driver.findElement(By.xpath("//button[@type='button'][contains(.,'Версия')]")).click();
 
         //Выбрать тестовый проект
-
         driver.findElement(By.xpath("//button[@type='primary-outline'][contains(.,'Выберите проект')]")).click();
-        driver.findElement(By.xpath("(//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')])[2]")).click();
+        WebElement projectVersion = driver.findElement(By.xpath("(//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')])[2]"));
+        action.moveToElement(projectVersion).click().perform();
 
-
+        //Выбрать шифр тома проекта
         driver.findElement(By.xpath("//button[@type='primary-outline'][contains(.,'Выберите шифр')]")).click();
-        driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'ТОМ 1-AQA')]")).click();
+        WebElement projectVol = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='dropdown-item'][contains(.,'ТОМ 1-AQA')]")));
+        //projectMenu.click();
+        //WebElement projectVol = driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'ТОМ 1-AQA')]"));
+        action.moveToElement(projectVol).click().perform();
+//        driver.findElement(By.xpath("")).click();
     }
     @Step("Проверка статуса для версии - Служебный")
     public void step2(){
