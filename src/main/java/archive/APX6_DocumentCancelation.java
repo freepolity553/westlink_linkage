@@ -9,10 +9,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import utilites.LoginPage;
-import utilites.RandomValue;
+import utilites.ui.LoginPage;
 
 import java.time.Duration;
 
@@ -30,6 +28,8 @@ public class APX6_DocumentCancelation  {
 
         LoginPage login = new LoginPage(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
+        Actions action = new Actions(driver);
+
         driver.get(utilites.WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
@@ -42,8 +42,10 @@ public class APX6_DocumentCancelation  {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         //Выбрать тестовый проект
-        objArchivePage.selectTestProject();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
+        projectMenu.click();
+        WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
+        action.moveToElement(project).click().perform();
 
         //objArchivePage.addDocVersion();
 
@@ -78,7 +80,7 @@ public class APX6_DocumentCancelation  {
         Assert.assertEquals(actualstatus,"Служебный","Некорректный статус версии");
 
 
-        Actions action = new Actions(driver);
+        //Actions action = new Actions(driver);
         WebElement element = driver.findElement(By.xpath("//app-icon-button[@class='close-btn'][1]"));
         action.click(element).perform();
 

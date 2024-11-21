@@ -4,9 +4,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utilites.LoginPage;
+import utilites.ui.LoginPage;
 
 import java.time.Duration;
 
@@ -24,8 +25,9 @@ public class APX9_DocumentRequest {
 
         LoginPage login = new LoginPage(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
+        Actions action = new Actions(driver);
+
         driver.get(utilites.WebDriverSettings.url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
         login.loginKGIP();
 
@@ -39,21 +41,24 @@ public class APX9_DocumentRequest {
 
 
         //Выбрать тестовый проект
-        objArchivePage.selectTestProject();
+        WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
+        projectMenu.click();
+        WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
+        action.moveToElement(project).click().perform();
 
 
         //Выбрать документ для запроса
-//        WebElement doc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//app-checkbox[1]/app-icon-button[1]/span[1]/app-icon[1]/span[1]/*[name()='svg'][1]")));
-//        doc.click();
-        WebElement version = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(@class,'mtable__col col__name')])[1]")));
-        version.click();
+        WebElement doc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//app-checkbox[1]/app-icon-button[1]/span[1]/app-icon[1]/span[1]/*[name()='svg'][1]")));
+        doc.click();
+//        WebElement version = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(@class,'mtable__col col__name')])[1]")));
+//        version.click();
 
         //driver.findElement(By.xpath("(//button[@type='button'][contains(.,'Запросить')])[2]")).click();
-//        WebElement request = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='primary'][contains(.,'Запросить выдачу')]")));
-//        request.click();
-
-        WebElement request = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[@type='button'][contains(.,'Запросить')])[2]")));
+        WebElement request = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='primary'][contains(.,'Запросить выдачу')]")));
         request.click();
+
+//        WebElement request = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[@type='button'][contains(.,'Запросить')])[2]")));
+//        request.click();
 //        driver.findElement(By.xpath("(//button[@type='button'][contains(.,'Запросить')])[2]")).click();
 
 

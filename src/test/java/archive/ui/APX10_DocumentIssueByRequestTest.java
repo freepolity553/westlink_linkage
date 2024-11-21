@@ -4,13 +4,14 @@ import archive.ArchivePage;
 import archive.QueryDBui;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import settings.WebDriverSettings;
-import utilites.LoginPage;
-import utilites.RandomValue;
+import utilites.ui.LoginPage;
+import utilites.ui.RandomValue;
 
 import java.time.Duration;
 
@@ -26,6 +27,8 @@ public class APX10_DocumentIssueByRequestTest extends WebDriverSettings {
         LoginPage login = new LoginPage(driver);
         RandomValue randomValue = new RandomValue(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
+        Actions action = new Actions(driver);
+
         QueryDBui db = new QueryDBui();
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));

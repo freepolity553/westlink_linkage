@@ -11,8 +11,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import archive.ArchivePage;
 import settings.WebDriverSettings;
-import utilites.LoginPage;
-import utilites.RandomValue;
+import utilites.ui.LoginPage;
+import utilites.ui.RandomValue;
 
 import java.time.Duration;
 
@@ -27,6 +27,8 @@ public class APX6_DocumentCancelationTest extends WebDriverSettings {
         LoginPage login = new LoginPage(driver);
         RandomValue randomValue = new RandomValue(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
+        Actions action = new Actions(driver);
+
         QueryDBui db = new QueryDBui();
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
@@ -39,9 +41,10 @@ public class APX6_DocumentCancelationTest extends WebDriverSettings {
         objArchivePage.accessArchive();
 
         //Выбрать тестовый проект
-        WebElement project = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
-        project.click();
-        driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')]")).click();
+        WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
+        projectMenu.click();
+        WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
+        action.moveToElement(project).click().perform();
 
         driver.findElement(By.xpath("(//div[contains(@class,'mtable__col col__payload')])[1]")).click();
 
@@ -61,7 +64,7 @@ public class APX6_DocumentCancelationTest extends WebDriverSettings {
         String actualCancelation = cancelation.getText();
         Assert.assertEquals(actualCancelation,"Аннулирован","Missing Confirmation");
         Thread.sleep(2000);
-        Actions action = new Actions(driver);
+
         WebElement element = driver.findElement(By.xpath("//app-icon-button[@class='close-btn'][1]"));
         action.click(element).perform();
 

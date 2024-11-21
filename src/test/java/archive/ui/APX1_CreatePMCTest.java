@@ -4,21 +4,19 @@ package archive.ui;
 
 
 import archive.ArchivePage;
-import archive.QueryDBui;
 import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import settings.WebDriverSettings;
-import utilites.LoginPage;
-import utilites.RandomValue;
+import utilites.ui.LoginPage;
+import utilites.ui.RandomValue;
 
-import java.io.File;
-import java.sql.*;
 import java.time.Duration;
 
 import static io.qameta.allure.SeverityLevel.CRITICAL;
@@ -39,6 +37,7 @@ public class APX1_CreatePMCTest extends WebDriverSettings {
     public void addPMCTest() {
 
         LoginPage login = new LoginPage(driver);
+        Actions action = new Actions(driver);
         RandomValue randomValue = new RandomValue(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
 
@@ -54,7 +53,10 @@ public class APX1_CreatePMCTest extends WebDriverSettings {
 
 
         //Выбрать тестовый проект
-        objArchivePage.selectTestProject();
+        WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
+        projectMenu.click();
+        WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
+        action.moveToElement(project).click().perform();
 
 
         //Выбрать первый документ из списка

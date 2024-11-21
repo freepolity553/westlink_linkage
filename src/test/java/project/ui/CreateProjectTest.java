@@ -3,13 +3,9 @@ package project.ui;
 //import baseSettings.WebDriverSettings;
 
 
-import archive.ArchivePage;
-import archive.QueryDBui;
 import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
-import org.json.JSONException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -17,15 +13,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import settings.WebDriverSettings;
-import utilites.LoginPage;
-import utilites.RandomValue;
+import utilites.ui.LoginPage;
+import utilites.ui.RandomValue;
 
-import java.io.File;
-import java.sql.SQLException;
 import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
 public class CreateProjectTest extends WebDriverSettings {
     RandomValue randomValue = new RandomValue(driver);

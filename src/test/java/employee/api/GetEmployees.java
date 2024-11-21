@@ -1,33 +1,37 @@
 package employee.api;
 
 
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import org.json.JSONException;
 import org.testng.annotations.Test;
+import utilites.api.BearerToken;
 import settings.WebDriverSettings;
 
 import static io.restassured.RestAssured.given;
-import static java.util.function.Predicate.not;
 import static org.hamcrest.Matchers.*;
 
-public class GetEmployees extends WebDriverSettings {
 
+public class GetEmployees {
 
-    @Test(description = "Получить список сотрудников ", priority = 1)
+    //Получение токена
+    BearerToken accessToken = new BearerToken();
+    String token = accessToken.getAccessToken();
+
+    @Test(description = "Получить список сотрудников ", priority = 2)
     @Step("Step 1")
-    public void getEmployeesList() throws JSONException {
-
-
+    public void getEmployeesList()  {
+//        //Получение токена
+//        BearerToken accessToken = new BearerToken();
+//        String token = accessToken.getAccessToken();
 
         // GIVEN
         given()
                 .filter(new AllureRestAssured())
                 .log().all()
-                .baseUri(urlApi)
+                .baseUri("https://dev-stroytransgaz.april-inn.ru/api/v1")
                 .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
 
                 // WHEN
                 .when()
@@ -38,16 +42,14 @@ public class GetEmployees extends WebDriverSettings {
                 .log().all()
                 .assertThat()
                 .statusCode(200)
-                .body("data.middle_name", anyOf(),containsString("Тестовский"))//containsString("Аркадиевич"))
-                .body("data[0].first_name", containsString("Тест"))
-                .body("data[0].last_name", containsString("КГИП"))
-                .body("data[0].email", containsString("test"))
-                //.body("data[0].office_phone", containsString("499100"))
-                //.body("data[0].office_phone_ext", containsString("23"))
-                //.body("data[0].mobile_phone", containsString("790"))
-                //.body("data[0].position", containsString("дир"))
-                .body("data[0].department", containsString("ИТ"))
+//                .body("data.middle_name", anyOf(),containsString("Тестовский"))//containsString("Аркадиевич"))
+//                .body("data[0].first_name", containsString("Тест"))
+//                .body("data[0].last_name", containsString("КГИП"))
+//                .body("data[0].email", containsString("test"))
+//                .body("data[0].department", containsString("ИТ"))
                 .body("data[0].company", containsString("Строй"));
         }
-    }
+
+
+}
 

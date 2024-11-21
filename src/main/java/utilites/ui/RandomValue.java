@@ -1,4 +1,4 @@
-package utilites;
+package utilites.ui;
 
 import org.openqa.selenium.WebDriver;
 

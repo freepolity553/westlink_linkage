@@ -8,12 +8,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import utilites.LoginPage;
-import utilites.RandomValue;
+import utilites.ui.LoginPage;
+import utilites.ui.RandomValue;
 
 import java.time.Duration;
 
@@ -31,6 +32,7 @@ public class APX1_CreatePMC {
         LoginPage login = new LoginPage(driver);
         RandomValue randomValue = new RandomValue(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
+        Actions action = new Actions(driver);
 
         driver.get(utilites.WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -44,7 +46,10 @@ public class APX1_CreatePMC {
 
 
         //Выбрать тестовый проект
-        objArchivePage.selectTestProject();
+        WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
+        projectMenu.click();
+        WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
+        action.moveToElement(project).click().perform();
 
 
         //Выбрать первый документ из списка

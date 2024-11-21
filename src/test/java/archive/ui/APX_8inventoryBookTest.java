@@ -2,16 +2,15 @@ package archive.ui;
 
 import archive.ArchivePage;
 
-import archive.QueryDBui;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import settings.WebDriverSettings;
-import utilites.LoginPage;
-import utilites.RandomValue;
+import utilites.ui.LoginPage;
 
 import java.time.Duration;
 
@@ -25,6 +24,7 @@ public class APX_8inventoryBookTest extends WebDriverSettings {
 
         LoginPage login = new LoginPage(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
+        Actions action = new Actions(driver);
 
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
@@ -36,10 +36,11 @@ public class APX_8inventoryBookTest extends WebDriverSettings {
         //Войти в Архив как ГИП
         objArchivePage.accessArchive();
 
-        //Выбрать тестовый проект
-        WebElement project = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
-        project.click();
-        driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')]")).click();
+//Выбрать тестовый проект
+        WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
+        projectMenu.click();
+        WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
+        action.moveToElement(project).click().perform();
 
         driver.findElement(By.xpath("//button[@type='button'][contains(.,'Инвент. журнал')]")).click();
 

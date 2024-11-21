@@ -4,8 +4,9 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import utilites.LoginPage;
+import utilites.ui.LoginPage;
 
 import java.time.Duration;
 
@@ -23,6 +24,8 @@ public class APX10_DocumentIssueConfirmation {
 
         LoginPage login = new LoginPage(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
+        Actions action = new Actions(driver);
+
         driver.get(utilites.WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();

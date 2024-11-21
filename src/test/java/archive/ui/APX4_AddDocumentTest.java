@@ -2,14 +2,15 @@ package archive.ui;
 
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import archive.ArchivePage;
 import settings.WebDriverSettings;
-import utilites.LoginPage;
-import utilites.RandomValue;
+import utilites.ui.LoginPage;
+import utilites.ui.RandomValue;
 
 import java.io.File;
 import java.time.Duration;
@@ -23,6 +24,8 @@ public class APX4_AddDocumentTest extends WebDriverSettings {
         LoginPage login = new LoginPage(driver);
         RandomValue randomValue = new RandomValue(driver);
         ArchivePage objArchivePage = new ArchivePage(driver);
+        Actions action = new Actions(driver);
+
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         objArchivePage.clickRoleMenu();
@@ -40,8 +43,14 @@ public class APX4_AddDocumentTest extends WebDriverSettings {
         //driver.findElement(By.xpath("//button[@type='primary-outline'][contains(.,'Выберите шифр')]")).click();
 
         //Выбрать тестовый проект и шифр
-        driver.findElement(By.xpath("//button[@type='primary-outline'][contains(.,'Выберите проект')]")).click();
-        driver.findElement(By.xpath("(//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')])[2]")).click();
+        //Выбрать тестовый проект
+        WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='primary-outline'][contains(.,'Выберите проект')]")));
+        projectMenu.click();
+        WebElement project = driver.findElement(By.xpath("(//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')])[2]"));
+        action.moveToElement(project).click().perform();
+
+//        driver.findElement(By.xpath("//button[@type='primary-outline'][contains(.,'Выберите проект')]")).click();
+//        driver.findElement(By.xpath("(//button[@class='dropdown-item'][contains(.,'AQA123 AQA Проект')])[2]")).click();
         driver.findElement(By.xpath("//button[@type='primary-outline'][contains(.,'Выберите шифр')]")).click();
         driver.findElement(By.xpath("//button[@class='dropdown-item'][contains(.,'ТОМ 1-AQA')]")).click();
 
