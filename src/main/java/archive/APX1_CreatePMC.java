@@ -15,6 +15,7 @@ import org.testng.Assert;
 
 import utilites.ui.LoginPage;
 import utilites.ui.RandomValue;
+import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
 
@@ -34,7 +35,7 @@ public class APX1_CreatePMC {
         ArchivePage objArchivePage = new ArchivePage(driver);
         Actions action = new Actions(driver);
 
-        driver.get(utilites.WebDriverSettings.url);
+        driver.get(WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
         login.loginKGIP();

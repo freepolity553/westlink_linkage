@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utilites.ui.LoginPage;
+import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
 
@@ -30,7 +31,7 @@ public class APX7_DocumentExternalSupply  {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        driver.get(utilites.WebDriverSettings.url);
+        driver.get(WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         //Войти в Архив как ГИП

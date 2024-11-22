@@ -5,21 +5,27 @@ import archive.TestdataAPI;
 import io.restassured.http.ContentType;
 import org.json.JSONException;
 import org.testng.annotations.Test;
+import settings.DriverSettingsAPI;
 import settings.WebDriverSettings;
+import utilites.api.BearerToken;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class GetArchivalDocument extends WebDriverSettings {
+public class GetArchivalDocument  {
 
+    //Получение токена
+    BearerToken accessToken = new BearerToken();
+    String token = accessToken.getAccessToken();
 
     @Test(description = "детальная информация о документе ", priority = 1)
     public void getArchivalDocument() throws JSONException {
         // GIVEN
         given()
                 .log().all()
-                .baseUri(urlApi)
+                .baseUri(DriverSettingsAPI.urlApi)
                 .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
 
 
                 // WHEN

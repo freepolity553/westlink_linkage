@@ -9,20 +9,24 @@ import settings.WebDriverSettings;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.testng.annotations.Test;
+import utilites.api.BearerToken;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class GetArchivalDocumentVersionList extends WebDriverSettings {
-
+public class GetArchivalDocumentVersionList  {
+    //Получение токена
+    BearerToken accessToken = new BearerToken();
+    String token = accessToken.getAccessToken();
 
     @Test(description = "детальная информация о документе ", priority = 1)
     public void getArchivalDocument() throws JSONException {
         // GIVEN
         given()
                 .log().all()
-                .baseUri(urlApi)
+                .baseUri("https://dev-stroytransgaz.april-inn.ru/api/v1")
                 .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
 
 
                 // WHEN

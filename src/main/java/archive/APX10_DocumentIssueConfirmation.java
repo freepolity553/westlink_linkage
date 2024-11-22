@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import utilites.ui.LoginPage;
+import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
 
@@ -26,7 +27,7 @@ public class APX10_DocumentIssueConfirmation {
         ArchivePage objArchivePage = new ArchivePage(driver);
         Actions action = new Actions(driver);
 
-        driver.get(utilites.WebDriverSettings.url);
+        driver.get(WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
         login.loginKGIP();

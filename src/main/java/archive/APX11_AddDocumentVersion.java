@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utilites.ui.LoginPage;
+import utilites.ui.WebDriverSettings;
+
 import java.time.Duration;
 
 
@@ -24,7 +26,7 @@ public class APX11_AddDocumentVersion {
     LoginPage login = new LoginPage(driver);
     ArchivePage objArchivePage = new ArchivePage(driver);
     Actions action = new Actions(driver);
-    driver.get(utilites.WebDriverSettings.url);
+    driver.get(WebDriverSettings.url);
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     objArchivePage.clickRoleMenu();
     login.loginKGIP();

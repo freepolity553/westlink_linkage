@@ -4,11 +4,13 @@ package employee.api;
 import io.qameta.allure.*;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import utilites.api.BearerToken;
 import settings.WebDriverSettings;
 
 import static io.restassured.RestAssured.given;
+
 import static org.hamcrest.Matchers.*;
 
 
@@ -24,6 +26,7 @@ public class GetEmployees {
 //        //Получение токена
 //        BearerToken accessToken = new BearerToken();
 //        String token = accessToken.getAccessToken();
+
 
         // GIVEN
         given()
@@ -42,12 +45,10 @@ public class GetEmployees {
                 .log().all()
                 .assertThat()
                 .statusCode(200)
-//                .body("data.middle_name", anyOf(),containsString("Тестовский"))//containsString("Аркадиевич"))
-//                .body("data[0].first_name", containsString("Тест"))
-//                .body("data[0].last_name", containsString("КГИП"))
-//                .body("data[0].email", containsString("test"))
-//                .body("data[0].department", containsString("ИТ"))
-                .body("data[0].company", containsString("Строй"));
+                .root("data")
+                .body("", hasItems(hasEntry("middle_name", "Тестовский"), hasEntry("company", "Стройтрансгаз")),
+                        "", hasItems(hasEntry("email", "m.davydov@stroytransgaz.com"), hasEntry("first_name", "Козлов")));
+
         }
 
 

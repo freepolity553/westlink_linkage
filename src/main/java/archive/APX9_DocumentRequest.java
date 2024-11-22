@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilites.ui.LoginPage;
+import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
 
@@ -27,7 +28,7 @@ public class APX9_DocumentRequest {
         ArchivePage objArchivePage = new ArchivePage(driver);
         Actions action = new Actions(driver);
 
-        driver.get(utilites.WebDriverSettings.url);
+        driver.get(WebDriverSettings.url);
         objArchivePage.clickRoleMenu();
         login.loginKGIP();
 

@@ -21,7 +21,7 @@ public class DriverSettingsAPI {
     public WebDriver driver;
 
 
-    public String urlApi = "https://dev-stroytransgaz.april-inn.ru/api/v1";
+    public static String urlApi = "https://dev-stroytransgaz.april-inn.ru/api/v1";
     //public String urlApi = "https://next-stroytransgaz.april-inn.ru/api/v1";
 
 
