@@ -32,7 +32,7 @@ public class APX9_DocumentRequest {
         objArchivePage.clickRoleMenu();
         login.loginKGIP();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         //Войти в Архив как КГИП
         objArchivePage.accessArchive();

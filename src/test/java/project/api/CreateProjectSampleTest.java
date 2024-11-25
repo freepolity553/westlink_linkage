@@ -2,41 +2,42 @@ package project.api;
 
 
 import io.qameta.allure.Step;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import org.openqa.selenium.json.Json;
 import org.testng.annotations.Test;
-import settings.DriverSettingsAPI;
 import utilites.api.BearerToken;
 import utilites.ui.RandomValue;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.hasEntry;
-import static org.hamcrest.Matchers.hasItems;
+
+public class CreateProjectSampleTest {
 
 
-public class CreateProject {
 
-    //Получение токена
-    BearerToken accessToken = new BearerToken();
-    String token = accessToken.getAccessToken();
-    ValidatableResponse validatableResponse;
 
     @Test(description = "Создать проект ", priority = 1)
     @Step("Step 1")
-    public void createProject()  {
+    public void createProject() {
         //Получение токена
         BearerToken accessToken = new BearerToken();
         String token = accessToken.getAccessToken();
-//        RandomValue randomNum = new RandomValue();
+
+        // Get the current date and time
+        LocalDateTime now = LocalDateTime.now();
+        // Define the format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        // Format the current date and time
+        String createdDate = now.format(formatter);
+        // Print the formatted date and time
+        System.out.println("Current Timestamp:" + createdDate);
+
 
         List<String> randomValueList = new ArrayList<>();
 
@@ -51,23 +52,25 @@ public class CreateProject {
             randomValueList.add(salt.toString());
         }
         String json = "{\"type\":\"Проектная документация\"," +
-                "\"num\":\""+ randomValueList.remove(0) +"\"," +
+                "\"num\":\"" + randomValueList.remove(0) + "\"," +
                 "\"name\":\"Проект Тест QA\"," +
-                "\"contract\":\"Договор №12345\"," +
+                //"\"contract\":\"Договор №12345\"," +
+                "\"contract\":\"Договор № " + randomValueList.remove(1) + "\"," +
                 "\"location\":\"Волгоград\"," +
                 "\"type_of_work\":\"Строительство\"," +
                 "\"funding_source\":\"Прямое финансирование\"," +
                 "\"bim\":\"ИМ здания РД\"," +
-                "\"launch_dt\":\"2024-11-22T00:00:00.000Z\"," +
+                //"\"launch_dt\":\"2024-11-22T00:00:00.000Z\"," +
+                "\"launch_dt\":\"" + createdDate + "T00:00:00.000Z\"," +
                 "\"completion_dt\":\"\"," +
                 "\"template_id\":3," +
                 "\"note\":\"<p>Описание проекта</p>\"," +
                 "\"participants\":" +
                 "[{\"role_id\":2,\"employee_id\":28},{\"role_id\":1,\"employee_id\":8}]}";
 
-Response resp= RestAssured.
+        Response resp = RestAssured.
                 // GIVEN
-                  given()
+                 given()
                 .log().all()
                 .baseUri("https://dev-stroytransgaz.april-inn.ru/api/v1")
                 .contentType(ContentType.JSON)
@@ -77,28 +80,38 @@ Response resp= RestAssured.
                 // WHEN
                 .when().post("/projects");
 
-                // THEN
+        // THEN
         resp.then().log().all().assertThat()
                 .statusCode(201)
                 .statusLine("HTTP/1.1 201 Created");
 
-        //Fetch response parameters
-        JsonPath js = new JsonPath(resp.asString());
-        String status = js.getString("status");
-        String id = js.getString("data.project_id");
-        System.out.println("Id " + id);
-        int projectid = Integer.parseInt(id);
-        System.out.println("Project id " + projectid);
+            //Fetch response parameters
+            JsonPath js = new JsonPath(resp.asString());
+            String typeOfWork = js.getString("data.type_of_work");
+            System.out.println("Тип строительства " + typeOfWork);
+            String id = js.getString("data.project_id");
+            System.out.println("Id " + id);
+            int projectid = Integer.parseInt(id);
+            System.out.println("Project id " + projectid);
 
-//                .root("data")
-//                .body("", hasItems(hasEntry("middle_name", "Тестовский"), hasEntry("company", "Стройтрансгаз")),
-//                        "", hasItems(hasEntry("email", "m.davydov@stroytransgaz.com"), hasEntry("first_name", "Козлов")));
+        //Проверить создание проекта
+        Response respNewProject = RestAssured.
+                // GIVEN
+                given()
+                .log().all()
+                .baseUri("https://dev-stroytransgaz.april-inn.ru/api/v1")
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
+                .pathParams("project_id", projectid)
 
-//        System.out.println("Response :" + validatableResponse.extract().asPrettyString());
+                // WHEN
+                .when().get("/projects/{project_id}");
+
+                // THEN
+                respNewProject.then().log().all().assertThat()
+                        .statusCode(200);
     }
 
 }
-
-
 
 
