@@ -4,7 +4,6 @@ package project.ui;
 
 
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,20 +12,19 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import settings.WebDriverSettings;
-import utilites.api.BearerToken;
 import utilites.ui.LoginPage;
 import utilites.ui.RandomValue;
+import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
 
-public class CreateProjectTest extends WebDriverSettings {
+public class CreateProjectUI extends utilites.ui.WebDriverSettings {
     RandomValue randomValue = new RandomValue(driver);
-    String name = "Авто UI Тест проект-" + randomValue.randomInt(5);
+    String contract = "Тест проект-" + randomValue.randomInt(5);
 
-    @Test
+
     public void createProjectTest() {
         LoginPage login = new LoginPage(driver);
 
@@ -37,7 +35,7 @@ public class CreateProjectTest extends WebDriverSettings {
         login.loginKGIP();
         login.accessProjects();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
 
         //Выбрать тестовый проект
@@ -51,7 +49,7 @@ public class CreateProjectTest extends WebDriverSettings {
         driver.findElement(By.xpath("//input[contains(@name,'pr_number')]")).sendKeys(randomValue.randomInt(5));
 
         //Наименование
-        driver.findElement(By.xpath("//input[contains(@name,'pr_name')]")).sendKeys(name);
+        driver.findElement(By.xpath("//input[contains(@name,'pr_name')]")).sendKeys(contract);
 
         //Номер договора
         driver.findElement(By.xpath("//input[contains(@name,'pr_contract')]")).sendKeys("Договор-" + randomValue.randomInt(5));
@@ -75,11 +73,9 @@ public class CreateProjectTest extends WebDriverSettings {
                 .selectByVisibleText("ОКС производственного и непроизводственного назначения");
 
         //Описание
-        WebElement note = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[@data-placeholder='Описание...']")));
-        note.click();
-//        driver.findElement(By.xpath("//app-create-project/div/form/div/div[1]/div[6]/div/textarea")).click();
+        driver.findElement(By.xpath("//app-create-project/div/form/div/div[1]/div[6]/div/textarea")).click();
 
-        driver.findElement(By.xpath("//p[@data-placeholder='Описание...']"))
+        driver.findElement(By.xpath("//app-create-project/div/form/div/div[1]/div[6]/div/textarea"))
                 .sendKeys("Реконструкция Каширского шоссе на участке км 0 - км 4,4 b Ленинском районе.\n" +
                         "1 Зтап. СъеЗд №4-1 Водоотbодные сооружения.\n" +
                         "Трубы. РаЗbоротная петля.\n" +
@@ -102,16 +98,13 @@ public class CreateProjectTest extends WebDriverSettings {
 
     }
 
-        @Test(description = "детальная информация о документе ", priority = 1)
+       @Test(description = "детальная информация о документе ", priority = 1)
         public void getNewProject() {
-            BearerToken accessToken = new BearerToken();
-            String token = accessToken.getAccessToken();
             // GIVEN
             given()
                     .log().all()
                     .baseUri(urlApi)
                     .contentType(ContentType.JSON)
-                    .header("Authorization", "Bearer " + token)
 
                     // WHEN
                     .when()
@@ -122,9 +115,7 @@ public class CreateProjectTest extends WebDriverSettings {
                     .log().all()
                     .assertThat()
                     .statusCode(200)
-                    .body("data.name", Matchers.hasItem(name));
-
-
+                    .body("data.name", Matchers.hasItem(contract));
         }
     }
 

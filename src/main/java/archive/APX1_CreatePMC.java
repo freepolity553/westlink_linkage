@@ -36,7 +36,7 @@ public class APX1_CreatePMC {
         Actions action = new Actions(driver);
 
         driver.get(WebDriverSettings.url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
         login.loginKGIP();
 

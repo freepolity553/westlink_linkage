@@ -29,5 +29,14 @@ public class BearerToken {
         String accessToken = jsonObject.get("accessToken").toString();
 
         return accessToken;
+
+//        String authToken = "your_dynamic_token";
+//
+//        given()
+//                .header("Authorization", "Bearer " + authToken)
+//                .when()
+//                .get("/secured-endpoint")
+//                .then()
+//                .statusCode(200);
     }
 }

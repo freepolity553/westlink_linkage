@@ -3,14 +3,22 @@ package archive.ui;
 
 import archive.*;
 import io.qameta.allure.*;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import settings.WebDriverSettings;
+import utilites.api.BearerToken;
 
 import static io.qameta.allure.SeverityLevel.CRITICAL;
+import static io.restassured.RestAssured.given;
 
 
 public class E2E_SODTest extends WebDriverSettings {
-
+    BearerToken accessToken = new BearerToken();
+    String token = accessToken.getAccessToken();
 
     @Test(priority = 1)
     @Description("Загрузка версии документов")
@@ -25,6 +33,7 @@ public class E2E_SODTest extends WebDriverSettings {
     public void addDocumentVersionTest() {
         APX11_AddDocumentVersion createVersion = new APX11_AddDocumentVersion(driver);
         createVersion.addVersion();
+
 
     }
 
