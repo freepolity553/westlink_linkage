@@ -49,7 +49,7 @@ public class RandomValue {
 
 
     }
-    public CharSequence randomInt(int length) {
+    public static CharSequence randomInt(int length) {
         String numbers = "0123456789";
         Random randomGenerator = new Random();
         StringBuilder sb = new StringBuilder();

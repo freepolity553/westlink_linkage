@@ -4,7 +4,6 @@ package project.ui;
 
 
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,16 +16,16 @@ import project.variables.ProjectVariables;
 import settings.WebDriverSettings;
 import utilites.api.BearerToken;
 import utilites.ui.LoginPage;
-import utilites.ui.RandomValue;
 
 import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
 
-public class CreateProjectTest extends WebDriverSettings {
-    RandomValue randomValue = new RandomValue(driver);
-    String name = "Авто UI Тест проект-" + randomValue.randomInt(5);
+public class CreateProjectTest1 extends WebDriverSettings {
+//    RandomValue randomValue = new RandomValue(driver);
+//    String name = "Авто UI Тест проект-" + randomValue.randomInt(5);
 
+    ProjectVariables var = new ProjectVariables();
 
 
     @Test
@@ -51,19 +50,19 @@ public class CreateProjectTest extends WebDriverSettings {
         new Select(driver.findElement(By.xpath("//select[@type='text']"))).selectByVisibleText("Проектная документация");
 
         //Номер проекта
-        driver.findElement(By.xpath("//input[contains(@name,'pr_number')]")).sendKeys(randomValue.randomInt(5));
+        driver.findElement(By.xpath("//input[contains(@name,'pr_number')]")).sendKeys(var.getProjectNum());
 
         //Наименование
-        driver.findElement(By.xpath("//input[contains(@name,'pr_name')]")).sendKeys(name);
+        driver.findElement(By.xpath("//input[contains(@name,'pr_name')]")).sendKeys(var.getProjectName());
 
         //Номер договора
-        driver.findElement(By.xpath("//input[contains(@name,'pr_contract')]")).sendKeys("Договор-" + randomValue.randomInt(5));
+        driver.findElement(By.xpath("//input[contains(@name,'pr_contract')]")).sendKeys(var.getProjectContract());
 
         //Источник финансирования
         driver.findElement(By.xpath("//input[contains(@name,'pr_funding_source')]")).sendKeys("Прямое финансирование");
 
         //Местоположение
-        driver.findElement(By.xpath("//input[contains(@name,'pr_location')]")).sendKeys("Тестовск-" + randomValue.randomInt(4));
+        driver.findElement(By.xpath("//input[contains(@name,'pr_location')]")).sendKeys("Тестовск");
 
         //Вид работ
         WebElement type = driver.findElement(By.xpath("//select[contains(@formcontrolname,'type_of_work')]"));
@@ -125,7 +124,7 @@ public class CreateProjectTest extends WebDriverSettings {
                     .log().all()
                     .assertThat()
                     .statusCode(200)
-                    .body("data.name", Matchers.hasItem(name));
+                    .body("data.name", Matchers.hasItem(var.getProjectName()));
 
 
         }
