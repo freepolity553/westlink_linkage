@@ -4,7 +4,6 @@ package project.ui;
 
 
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,10 +12,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import project.variables.ProjectVariables;
 import settings.WebDriverSettings;
 import utilites.api.BearerToken;
-import utilites.ui.LoginPage;
+import pages.LoginPage;
 import utilites.ui.RandomValue;
 
 import java.time.Duration;

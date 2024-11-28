@@ -1,12 +1,13 @@
-package utilites.ui;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilites.ui.WebDriverSettings;
 
-public class LoginPage {
+public class LoginPage extends WebDriverSettings {
 
     private String usernameGIP = "testccpe";
     private String passwordGIP = "testccpe";
@@ -17,22 +18,22 @@ public class LoginPage {
 
     @FindBy(xpath = "//div[2]/app-login/app-overflow-modal/div/div[2]/div[2]/section/div[1]/input")
     @CacheLookup
-    WebElement username;
+    private WebElement username;
 
     @FindBy (xpath = "//input[contains(@type,'password')]")
-    WebElement password;
+    private WebElement password;
 
     @FindBy (xpath = "//button[@class='primary'][contains(.,'ВОЙТИ')]")
-    WebElement btnEnter;
+    private WebElement btnEnter;
 
     @FindBy(xpath="//div[2]/div[1]/div/app-icon-button/span/app-icon/span")
-    WebElement roleMenu;
+    private WebElement roleMenu;
 
     @FindBy(xpath="//span[@class='hidden'][contains(.,'Архив')]")
-    WebElement menuArchive;
+    private WebElement menuArchive;
 
     @FindBy(xpath = "//span[@class='hidden'][contains(.,'Проекты')]")
-    WebElement menuProjects;
+    private WebElement menuProjects;
 
 
     // constructor method

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import utilites.ui.LoginPage;
+import pages.LoginPage;
 import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;

@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import project.variables.ProjectVariables;
 import settings.WebDriverSettings;
 import utilites.api.BearerToken;
-import utilites.ui.LoginPage;
+import pages.LoginPage;
 
 import java.time.Duration;
 

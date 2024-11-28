@@ -11,7 +11,6 @@ public class ProjectVariables {
     public String getProjectNum() {
         return projectNum;
     }
-
     public void setProjectNum(String projectNum) {
         this.projectNum = projectNum;
     }

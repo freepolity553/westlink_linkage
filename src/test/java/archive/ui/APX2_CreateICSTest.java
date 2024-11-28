@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import settings.WebDriverSettings;
-import utilites.ui.LoginPage;
+import pages.LoginPage;
 import utilites.ui.RandomValue;
 
 import java.time.Duration;

@@ -22,12 +22,12 @@ public class WebDriverSettings {
     public static WebDriver driver;
 
 
-    //public static String url = "https://dev-stroytransgaz.april-inn.ru";
-    public static String url = "https://next-stroytransgaz.april-inn.ru/";
+    public static String url = "https://dev-stroytransgaz.april-inn.ru";
+    //public static String url = "https://next-stroytransgaz.april-inn.ru/";
 
-    //public String urlDraft = "https://dev-stroytransgaz.april-inn.ru/new-archive/projects/1";
+    public String urlDraft = "https://dev-stroytransgaz.april-inn.ru/new-archive/projects/1";
     //public String urlApi = "https://dev-stroytransgaz.april-inn.ru/api/v1";
-    public String urlApi = "https://next-stroytransgaz.april-inn.ru/api/v1";
+    //public String urlApi = "https://next-stroytransgaz.april-inn.ru/api/v1";
 
     @BeforeClass
     public static void setUp() {

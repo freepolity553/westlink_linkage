@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import settings.WebDriverSettings;
-import utilites.ui.LoginPage;
+import pages.LoginPage;
 
 import java.time.Duration;
 
