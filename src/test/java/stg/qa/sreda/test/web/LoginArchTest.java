@@ -14,10 +14,8 @@ private static final Config Arch = Config.getInstance();
     void loginByArchShouldBeAvailable () {
         driver.get(Arch.frontUrl());
 
-        LoginPage login = new LoginPage(driver);
-        MainPage main = new MainPage(driver);
-        login.doLogin("testarch","testarch");
-        main.enterArchive();
+        new LoginPage(driver).doLogin("testarch","testarch");
+        new MainPage(driver).enterArchive();
 
     }
 }
