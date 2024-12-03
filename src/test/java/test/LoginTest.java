@@ -10,8 +10,18 @@ public class LoginTest extends TestBase1 {
     @Test
     public void  loginTest() {
 
-        Login login = new Login(driver);
+
         login.loginArch("testarch","testarch");
+
+    }
+
+    @Test
+    public void  loginTest1() {
+
+
+        login.loginArch("testarch","testarch");
+        main.clickArchiveMenu();
+        archive.checkAllElementsOnPagePresent();
 
     }
 }

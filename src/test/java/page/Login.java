@@ -25,33 +25,35 @@ public class Login extends BasePage{
     private By submitBtn =By.xpath("//button[@class='primary'][contains(.,'ВОЙТИ')]");
 
 
-    //Method to enter username
-    public void clickRoleMenu() {
-        driver.findElement(menuBtn).click();
-    }
-
-    //Method to enter username
-    public void enterUsername(String userername) {
-        driver.findElement(usernameInput).sendKeys(userername);
-    }
-
-    //Method to enter password
-    public void enterPassword(String password) {
-        driver.findElement(passwordInput).sendKeys(password);
-    }
-
-    //Method to click on Login button
-    public void clickLogin() {
-        driver.findElement(submitBtn).click();
-    }
+//    //Method to click role menu
+//    public void clickRoleMenu() {
+//        driver.findElement(menuBtn).click();
+//    }
+//
+//    //Method to enter username
+//    public void enterUsername(String userername) {
+//        driver.findElement(usernameInput).sendKeys(userername);
+//    }
+//
+//    //Method to enter password
+//    public void enterPassword(String password) {
+//        driver.findElement(passwordInput).sendKeys(password);
+//    }
+//
+//    //Method to click on Login button
+//    public void clickLogin() {
+//        driver.findElement(submitBtn).click();
+//    }
 
     public Login loginArch (String username, String password){
         //public MainPage doLogin (String username,String password) {
             driver.get(TestBase.SITE_URL);
-            clickRoleMenu();
-            enterUsername(username);
-            enterPassword(password);
-            clickLogin();
+            click(menuBtn);
+            enterText(usernameInput,password);
+            //enterUsername(username);
+            enterText(passwordInput,password);
+            //enterPassword(password);
+            click(submitBtn);
             return this;
 
     }

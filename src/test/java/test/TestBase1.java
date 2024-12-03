@@ -59,6 +59,10 @@ public class TestBase1 {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
 
+        main = PageFactory.initElements(driver,Main.class);
+        login = PageFactory.initElements(driver,Login.class);
+        archive = PageFactory.initElements(driver,Archive.class);
+
 
     }
 //    @AfterClass

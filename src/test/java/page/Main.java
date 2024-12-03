@@ -1,16 +1,22 @@
 package page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import test.TestBase;
 
 public class Main extends BasePage {
 
     public Main(WebDriver driver) {
         super(driver);
     }
-//    public void navigateTo() {
-//        driver.get(TestBase.SITE_URL);
-//    }
+    public Main clickArchiveMenu() {
+        click(By.xpath("//span[@class='hidden'][contains(.,'Архив')]"));
+        return this;
+    }
+
+    public Main clickProjectsMenu() {
+        click(By.xpath("//span[@class='hidden'][contains(.,'Проекты')]"));
+        return this;
+    }
 
 
 }
