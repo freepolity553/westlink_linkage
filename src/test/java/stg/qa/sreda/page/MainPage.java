@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public class MainPage {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @FindBy(xpath="//span[@class='hidden'][contains(.,'Архив')]")
     WebElement menuArchive;

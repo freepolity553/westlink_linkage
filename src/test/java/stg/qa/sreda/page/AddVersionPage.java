@@ -17,12 +17,12 @@ public class AddVersionPage {
         PageFactory.initElements(driver, this);
     }
 
-//    public AddVersionPage addVersion (){
-//        newVersion.click();
-//
-//        return new AddVersionPage(driver);
+    public AddVersionPage addVersion() {
+        uploadFile.click();
+
+        return new AddVersionPage(driver);
 
     }
-
+}
 
 

@@ -24,6 +24,7 @@ import static io.restassured.RestAssured.given;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class APX1_CreatePMCTest extends WebDriverSettings {
+    public WebDriverWait wait;
 
     @Test(priority = 2)
     @Description("Загрузка версии документов")
