@@ -1,17 +1,18 @@
 package test;
 
 import org.testng.annotations.Test;
-import page.Login;
-
+import settings.Constants;
 
 
 public class LoginTest extends TestBase1 {
+
+
 
     @Test
     public void  loginTest() {
 
 
-        login.loginArch("testarch","testarch");
+        login.loginArch(Constants.USERNAME_ARCH, Constants.PASSWORD_ARCH);
 
     }
 
@@ -19,7 +20,7 @@ public class LoginTest extends TestBase1 {
     public void  loginTest1() {
 
 
-        login.loginArch("testarch","testarch");
+        login.loginArch(Constants.USERNAME_ARCH, Constants.PASSWORD_ARCH);
         main.clickArchiveMenu();
         archive.checkAllElementsOnPagePresent();
 

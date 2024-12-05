@@ -2,12 +2,7 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-import org.testng.reporters.jq.Main;
-import stg.qa.sreda.page.MainPage;
-import test.TestBase;
+import settings.Constants;
 
 public class Login extends BasePage{
 
@@ -47,7 +42,7 @@ public class Login extends BasePage{
 
     public Login loginArch (String username, String password){
         //public MainPage doLogin (String username,String password) {
-            driver.get(TestBase.SITE_URL);
+            driver.get(Constants.URL);
             click(menuBtn);
             enterText(usernameInput,password);
             //enterUsername(username);

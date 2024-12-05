@@ -6,6 +6,7 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeClass;
 import page.Archive;
@@ -23,12 +24,12 @@ public class TestBase1 {
 
 
 
-    public String url = "https://dev-stroytransgaz.april-inn.ru";
-    //public String url = "https://next-stroytransgaz.april-inn.ru/";
-
-    //public String urlDraft = "https://dev-stroytransgaz.april-inn.ru/new-archive/projects/1";
-    public String urlApi = "https://dev-stroytransgaz.april-inn.ru/api/v1";
-    //public String urlApi = "https://next-stroytransgaz.april-inn.ru/api/v1";
+//    public String url = "https://dev-stroytransgaz.april-inn.ru";
+//    //public String url = "https://next-stroytransgaz.april-inn.ru/";
+//
+//    //public String urlDraft = "https://dev-stroytransgaz.april-inn.ru/new-archive/projects/1";
+//    public String urlApi = "https://dev-stroytransgaz.april-inn.ru/api/v1";
+//    //public String urlApi = "https://next-stroytransgaz.april-inn.ru/api/v1";
 
     @BeforeClass
     public void setUp() {
@@ -36,9 +37,7 @@ public class TestBase1 {
         WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
 
-        //driver = new ChromeDriver();
         ChromeOptions options = new ChromeOptions();
-//        driver = new FirefoxDriver();
 //        FirefoxOptions options = new FirefoxOptions();
 
         options.addArguments("--disable-extensions");
@@ -56,6 +55,7 @@ public class TestBase1 {
         //Duration duration = Duration.of(2, ChronoUnit.SECONDS);
         //options.setImplicitWaitTimeout(duration);
         driver = new ChromeDriver(options);
+        //driver = new FirefoxDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
 
