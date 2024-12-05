@@ -1,5 +1,6 @@
 package page;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class BasePage {
@@ -44,6 +46,15 @@ public class BasePage {
         waitVisibility(elementBy);
         assertTrue(driver.findElement(elementBy).isDisplayed());
     }
+
+    public void isAlertText(String message){
+        assertEquals(message,driver.switchTo().alert().getText());
+    }
+
+    public void isElementNotDisplayed(By elementBy){
+        assertTrue(driver.findElements(elementBy).isEmpty());
+    }
+
 
 
 

@@ -47,7 +47,7 @@ public class TestBase1 {
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
 
-        //options.addArguments("--headless=new");
+        options.addArguments("--headless=new");
 
 
         options.setAcceptInsecureCerts(true);

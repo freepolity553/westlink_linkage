@@ -1,5 +1,6 @@
 package test;
 
+import io.qameta.allure.Step;
 import org.testng.annotations.Test;
 import settings.Constants;
 
@@ -9,6 +10,7 @@ public class LoginTest extends TestBase1 {
 
 
     @Test
+    @Step("login")
     public void  loginTest() {
 
 
@@ -17,6 +19,7 @@ public class LoginTest extends TestBase1 {
     }
 
     @Test
+    @Step("loginArch")
     public void  loginTest1() {
 
 
