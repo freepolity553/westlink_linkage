@@ -46,7 +46,7 @@ public class Login extends BasePage{
 //    public void clickLogin() {
 //        driver.findElement(submitBtn).click();
 //    }
-@Step("Login")
+@Step(value = "Login with  {0} {1} ")
     public Login loginArch (String username, String password){
         //public MainPage doLogin (String username,String password) {
             driver.get(Constants.URL);

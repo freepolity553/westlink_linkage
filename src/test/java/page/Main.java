@@ -16,12 +16,12 @@ public class Main extends BasePage {
     @Attachment(value = "Failed test screenshot")
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
-    @Step ("Archive menu access")
+    @Step (value = "Archive menu access")
     public Main clickArchiveMenu() {
         click(By.xpath("//span[@class='hidden'][contains(.,'Архив')]"));
         return this;
     }
-    @Step("Project menu access")
+    @Step(value = "Project menu access")
     public Main clickProjectsMenu() {
         click(By.xpath("//span[@class='hidden'][contains(.,'Проекты')]"));
         return this;

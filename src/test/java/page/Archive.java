@@ -16,7 +16,7 @@ public class Archive extends BasePage{
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
 
-    @Step("Check elements of Archive page")
+    @Step(value = "Check elements of Archive page")
     public Archive checkAllElementsOnPagePresent() {
         isElementDisplayed(By.xpath("//button[@type='button'][contains(.,'Документ')]"));
         isElementDisplayed(By.xpath("//button[contains(.,'Принять')]"));
