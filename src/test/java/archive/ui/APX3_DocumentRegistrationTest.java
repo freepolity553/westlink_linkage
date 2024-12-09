@@ -37,7 +37,7 @@ public class APX3_DocumentRegistrationTest extends WebDriverSettings {
         WebElement register = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='primary-outline'][contains(.,'Принять')]")));
         register.click();
 
-        WebElement doc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//app-archive-main/app-archive-acceptance/div/div/div[2]/div[1]")));
+        WebElement doc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//app-archiveMain-main/app-archiveMain-acceptance/div/div/div[2]/div[1]")));
         doc.click();
 
         driver.findElement(By.xpath("//button[@type='button'][contains(.,'ЗАРЕГИСТРИРОВАТЬ')]")).click();

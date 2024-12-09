@@ -61,7 +61,7 @@ public class APX1_CreatePMCTest extends WebDriverSettings {
 
 
         //Выбрать первый документ из списка
-        WebElement checkBox = driver.findElement(By.xpath("//app-archive-list-chief/div/div[2]/div[1]/div[1]/app-archive-list-checkbox/app-checkbox/app-icon-button"));
+        WebElement checkBox = driver.findElement(By.xpath("//app-archiveMain-list-chief/div/div[2]/div[1]/div[1]/app-archiveMain-list-checkbox/app-checkbox/app-icon-button"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkBox);
 
         //Создание РВИ

@@ -10,9 +10,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import page.Archive;
+import page.ArchiveMain;
 import page.Login;
 import page.Main;
 
@@ -25,7 +24,7 @@ public class CrossBr {
     public WebDriver driver;
     public Main main;
     public Login login;
-    public Archive archive;
+    public ArchiveMain archiveMain;
     Set<Cookie> cookies;
 
     @BeforeClass
@@ -69,7 +68,7 @@ public class CrossBr {
 
         main = PageFactory.initElements(driver, Main.class);
         login = PageFactory.initElements(driver, Login.class);
-        archive = PageFactory.initElements(driver, Archive.class);
+        archiveMain = PageFactory.initElements(driver, ArchiveMain.class);
 
     }
 }

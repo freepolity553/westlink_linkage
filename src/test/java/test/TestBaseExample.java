@@ -5,12 +5,7 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeClass;
-import page.Archive;
-import page.Login;
-import page.Main;
-import settings.Constants;
 
 public class TestBaseExample {
     public static final String SITE_URL = "https://the-internet.herokuapp.com/dropdown";

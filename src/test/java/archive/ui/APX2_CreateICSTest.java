@@ -45,38 +45,38 @@ public class APX2_CreateICSTest extends WebDriverSettings {
         action.moveToElement(project).click().perform();
 
         //Выбрать  документ из списка
-        WebElement project1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//app-archive-list-chief/div/div[2]/div/div[1]/app-archive-list-checkbox/app-checkbox")));
+        WebElement project1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//app-archiveMain-list-chief/div/div[2]/div/div[1]/app-archiveMain-list-checkbox/app-checkbox")));
         project1.click();
-//        WebElement checkBox1 = driver.findElement(By.xpath("//app-archive-chief/div/app-archive-list-chief/div/div[1]/div[1]"));
+//        WebElement checkBox1 = driver.findElement(By.xpath("//app-archiveMain-chief/div/app-archiveMain-list-chief/div/div[1]/div[1]"));
 //        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkBox1);
 
         driver.findElement(By.xpath("//button[@class='primary-outline'][contains(.,'ИУЛ')]")).click();
 
         //Добавить сотрудников
         //Изменения внес
-        driver.findElement(By.xpath("//div[2]/app-archive-permission-person[1]/div/div[2]/app-icon-button/span/app-icon/span")).click();
+        driver.findElement(By.xpath("//div[2]/app-archiveMain-permission-person[1]/div/div[2]/app-icon-button/span/app-icon/span")).click();
 
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='mtable__col col__fio'][1]")));
         element.click();
 
         //Составил
-        driver.findElement(By.xpath("//div[2]/app-archive-permission-person[2]/div/div[2]/app-icon-button/span/app-icon/span")).click();
+        driver.findElement(By.xpath("//div[2]/app-archiveMain-permission-person[2]/div/div[2]/app-icon-button/span/app-icon/span")).click();
         WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='mtable__col col__fio'][1]")));
         element1.click();
 
         //ГИП
-        driver.findElement(By.xpath("//div[2]/app-archive-permission-person[3]/div/div[2]/app-icon-button/span/app-icon/span")).click();
+        driver.findElement(By.xpath("//div[2]/app-archiveMain-permission-person[3]/div/div[2]/app-icon-button/span/app-icon/span")).click();
         WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='mtable__col col__fio'][1]")));
         element2.click();
 
 
         //Утвердил
-        driver.findElement(By.xpath("//div[2]/app-archive-permission-person[4]/div/div[2]/app-icon-button/span/app-icon/span")).click();
+        driver.findElement(By.xpath("//div[2]/app-archiveMain-permission-person[4]/div/div[2]/app-icon-button/span/app-icon/span")).click();
         WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='mtable__col col__fio'][1]")));
         element3.click();
 
         //Н. Контр.
-        driver.findElement(By.xpath("//div[2]/app-archive-permission-person[5]/div/div[2]/app-icon-button/span/app-icon/span")).click();
+        driver.findElement(By.xpath("//div[2]/app-archiveMain-permission-person[5]/div/div[2]/app-icon-button/span/app-icon/span")).click();
         WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='mtable__col col__fio'][1]")));
         element4.click();
 

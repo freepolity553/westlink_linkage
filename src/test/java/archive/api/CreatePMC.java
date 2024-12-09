@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 @Listeners
 @Epic("New functionality")
-@Feature("Archive Tests")
+@Feature("ArchiveMain Tests")
 public class CreatePMC extends WebDriverSettings {
     QueryDB app;
 

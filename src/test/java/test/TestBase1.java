@@ -1,15 +1,14 @@
 package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeClass;
-import page.Archive;
+import page.ArchiveAddVersion;
+import page.ArchiveMain;
 import page.Login;
 import page.Main;
 
@@ -19,7 +18,8 @@ public class TestBase1 {
     public WebDriver driver;
     public Main main;
     public Login login;
-    public Archive archive;
+    public ArchiveMain archiveMain;
+    public ArchiveAddVersion archiveAddVersion;
 
 
 
@@ -61,7 +61,8 @@ public class TestBase1 {
 
         main = PageFactory.initElements(driver,Main.class);
         login = PageFactory.initElements(driver,Login.class);
-        archive = PageFactory.initElements(driver,Archive.class);
+        archiveMain = PageFactory.initElements(driver, ArchiveMain.class);
+        archiveAddVersion =  PageFactory.initElements(driver, ArchiveAddVersion.class);
 
 
     }

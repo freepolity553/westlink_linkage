@@ -53,7 +53,7 @@ public class APX10_DocumentIssueByRequestTest extends WebDriverSettings {
 //        WebElement addDocument = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='primary-outline'][contains(.,'Документ')]")));
 //        addDocument.click();
 //        driver.findElement(By.xpath("//button[@class='primary-outline'][contains(.,'Выдать по запросу')]")).click();
-        driver.findElement(By.xpath("//app-archive-main/app-archive-out-list/div/div/div[1]/div[1]")).click();
+        driver.findElement(By.xpath("//app-archiveMain-main/app-archiveMain-out-list/div/div/div[1]/div[1]")).click();
 
         driver.findElement(By.xpath("//button[@type='button'][contains(.,'Выдать')]")).click();
         driver.findElement(By.xpath("//button[@type='button'][contains(.,'ВЫДАТЬ')]")).click();

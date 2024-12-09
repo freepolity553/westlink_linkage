@@ -36,7 +36,7 @@ public class LoginCrossBrTest extends CrossBr {
 
         login.loginArch(Constants.USERNAME_ARCH, Constants.PASSWORD_ARCH);
         main.clickArchiveMenu();
-        archive.checkAllElementsOnPagePresent();
+        archiveMain.checkAllElementsOnPagePresent();
         cookies = driver.manage().getCookies();
 
     }

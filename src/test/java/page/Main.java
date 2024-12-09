@@ -16,7 +16,7 @@ public class Main extends BasePage {
     @Attachment(value = "Failed test screenshot")
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
-    @Step (value = "Archive menu access")
+    @Step (value = "ArchiveMain menu access")
     public Main clickArchiveMenu() {
         click(By.xpath("//span[@class='hidden'][contains(.,'Архив')]"));
         return this;
