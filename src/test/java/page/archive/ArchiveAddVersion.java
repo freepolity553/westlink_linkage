@@ -1,14 +1,15 @@
-package page;
+package page.archive;
 
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import page.BasePage;
 
 import java.io.File;
 
-public class ArchiveAddVersion extends BasePage{
+public class ArchiveAddVersion extends BasePage {
     public ArchiveAddVersion(WebDriver driver) {
         super(driver);
     }
@@ -35,9 +36,7 @@ public class ArchiveAddVersion extends BasePage{
         return this;
     }
     public void fileUpload() {
-        //driver.get("https://the-internet.herokuapp.com/upload");
         File uploadFile = new File("src/test/resources/file.txt");
-
         WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
         fileInput.sendKeys(uploadFile.getAbsolutePath());
         //driver.findElement(By.id("file-submit")).click();

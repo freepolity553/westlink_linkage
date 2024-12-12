@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import pages.LoginPage;
+
 import utilites.ui.RandomValue;
 import utilites.ui.WebDriverSettings;
 
@@ -30,27 +30,19 @@ public class APX1_CreatePMC {
     @Step("Создание РВИ")
     public void addPMC() {
 
-        LoginPage login = new LoginPage(driver);
-        RandomValue randomValue = new RandomValue(driver);
-        ArchivePage objArchivePage = new ArchivePage(driver);
-        Actions action = new Actions(driver);
 
-        driver.get(WebDriverSettings.url);
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        objArchivePage.clickRoleMenu();
-        login.loginKGIP();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
         //Войти в Архив как ГИП
-        objArchivePage.accessArchive();
+
 
 
         //Выбрать тестовый проект
         WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
         projectMenu.click();
         WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
-        action.moveToElement(project).click().perform();
+
 
 
         //Выбрать первый документ из списка
@@ -61,7 +53,7 @@ public class APX1_CreatePMC {
         driver.findElement(By.xpath("//button[@class='primary-outline'][contains(.,'РВИ 1')]")).click();
 
         //Номер разрешения
-        driver.findElement(By.xpath("//input[contains(@class,'s ng-untouched ng-pristine ng-valid')]")).sendKeys(randomValue.pmcNum(2));
+        driver.findElement(By.xpath("//input[contains(@class,'s ng-untouched ng-pristine ng-valid')]")).sendKeys("pmcNum(2)");
 
         //Добавить лист
         driver.findElement(By.xpath("//button[@class='primary-outline'][contains(.,'Добавить лист')]")).click();

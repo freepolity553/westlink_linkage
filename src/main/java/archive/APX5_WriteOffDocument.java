@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import pages.LoginPage;
+
 import utilites.ui.WebDriverSettings;
 
 import java.io.File;
@@ -25,7 +25,7 @@ public class APX5_WriteOffDocument  {
 
     @Step("Списание документов")
     public void writeOffDocument() {
-        LoginPage login = new LoginPage(driver);
+
         ArchivePage objArchivePage = new ArchivePage(driver);
         Actions action = new Actions(driver);
 
@@ -35,7 +35,7 @@ public class APX5_WriteOffDocument  {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         objArchivePage.clickRoleMenu();
-        login.loginArch();
+
 
 
         //Войти в Архив как Архивриус

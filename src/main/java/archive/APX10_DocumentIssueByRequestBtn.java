@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.LoginPage;
+
 import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
@@ -24,14 +24,14 @@ public class APX10_DocumentIssueByRequestBtn {
     @Step("Выдача документов по запросу")
     public void docIssueByRequestBtn()  {
 
-        LoginPage login = new LoginPage(driver);
+
         ArchivePage objArchivePage = new ArchivePage(driver);
         Actions action = new Actions(driver);
 
         driver.get(WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
-        login.loginArch();
+
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import pages.LoginPage;
+
 import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
@@ -23,14 +23,14 @@ public class APX10_DocumentIssueConfirmation {
     @Step("Подтверждение выдачи документа по запросу")
     public void docIssueByRequestConfirmation() {
 
-        LoginPage login = new LoginPage(driver);
+
         ArchivePage objArchivePage = new ArchivePage(driver);
         Actions action = new Actions(driver);
 
         driver.get(WebDriverSettings.url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         objArchivePage.clickRoleMenu();
-        login.loginKGIP();
+
 
 
         //Войти в Архив

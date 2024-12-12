@@ -1,15 +1,16 @@
-package page;
+package page.projects;
 
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import page.BasePage;
 
 import java.io.File;
 
-public class ArchiveMain extends BasePage{
-    public ArchiveMain(WebDriver driver) {
+public class ProjectsMain extends BasePage {
+    public ProjectsMain(WebDriver driver) {
         super(driver);
     }
 
@@ -17,21 +18,20 @@ public class ArchiveMain extends BasePage{
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
 
-    @Step(value = "Check elements of ArchiveMain page")
-    public ArchiveMain checkAllElementsOnPagePresent() {
-        isElementDisplayed(By.xpath("//button[@type='button'][contains(.,'Документ')]"));
-        isElementDisplayed(By.xpath("//button[contains(.,'Принять')]"));
-        isElementDisplayed(By.xpath("//span[@class='m_text'][contains(.,'Все проекты')]"));
-        isElementDisplayed(By.xpath("//div[@class='mtable__header__col col__number'][contains(.,'Инв. номер')]"));
+    @Step(value = "Check elements of ProjectMain page")
+    public ProjectsMain checkAllElementsOnPagePresent() {
+        isElementDisplayed(By.xpath("//button[@type='button'][contains(.,'СОЗДАТЬ')]"));
+        isElementDisplayed(By.xpath("//span[contains(.,'Проектная документация')]"));
+        isElementDisplayed(By.xpath("//span[contains(.,'Рабочая документация')]"));
 
         return this;
     }
 
-    public ArchiveMain isLoginWrong () {
+    public ProjectsMain isLoginWrong () {
         isAlertText("Wrong");
         return this;
     }
-    public ArchiveMain addNewVersion () {
+    public ProjectsMain createProject () {
         WebElement addVersion = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='button'][contains(.,'Версия')]")));
         addVersion.click();
         return this;

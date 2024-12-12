@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.LoginPage;
+
 import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
@@ -24,13 +24,13 @@ public class APX9_DocumentRequest {
     @Step("Запрос на выдачу документа")
     public void docRequestTest()  {
 
-        LoginPage login = new LoginPage(driver);
+
         ArchivePage objArchivePage = new ArchivePage(driver);
         Actions action = new Actions(driver);
 
         driver.get(WebDriverSettings.url);
         objArchivePage.clickRoleMenu();
-        login.loginKGIP();
+
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 

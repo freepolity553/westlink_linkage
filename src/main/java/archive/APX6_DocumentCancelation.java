@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import pages.LoginPage;
+
 import utilites.ui.WebDriverSettings;
 
 import java.time.Duration;
@@ -27,31 +27,23 @@ public class APX6_DocumentCancelation  {
     @Step("Аннулирование версий документов")
     public void docCancelation()  {
 
-        LoginPage login = new LoginPage(driver);
-        ArchivePage objArchivePage = new ArchivePage(driver);
-        Actions action = new Actions(driver);
 
-        driver.get(WebDriverSettings.url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        objArchivePage.clickRoleMenu();
-        login.loginKGIP();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
         //Войти в Архив как ГИП
-        objArchivePage.accessArchive();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
 
         //Выбрать тестовый проект
         WebElement projectMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='m_label'][contains(.,'Проект')]")));
         projectMenu.click();
         WebElement project = driver.findElement(By.xpath("//button[@class='dropdown-item dd-menu__item'][contains(.,'AQA123 AQA Проект')]"));
-        action.moveToElement(project).click().perform();
+
 
         //objArchivePage.addDocVersion();
 
         //Выбрать тестовый проект
-        objArchivePage.selectTestProject();
+
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
@@ -83,7 +75,7 @@ public class APX6_DocumentCancelation  {
 
         //Actions action = new Actions(driver);
         WebElement element = driver.findElement(By.xpath("//app-icon-button[@class='close-btn'][1]"));
-        action.click(element).perform();
+
 
 
 

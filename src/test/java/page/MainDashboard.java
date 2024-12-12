@@ -7,22 +7,26 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-public class Main extends BasePage {
+public class MainDashboard extends BasePage {
 
-    public Main(WebDriver driver) {
+    public MainDashboard(WebDriver driver) {
         super(driver);
     }
+
+
 
     @Attachment(value = "Failed test screenshot")
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
+
+
     @Step (value = "ArchiveMain menu access")
-    public Main clickArchiveMenu() {
+    public MainDashboard clickArchiveMenu() {
         click(By.xpath("//span[@class='hidden'][contains(.,'Архив')]"));
         return this;
     }
     @Step(value = "Project menu access")
-    public Main clickProjectsMenu() {
+    public MainDashboard clickProjectsMenu() {
         click(By.xpath("//span[@class='hidden'][contains(.,'Проекты')]"));
         return this;
     }

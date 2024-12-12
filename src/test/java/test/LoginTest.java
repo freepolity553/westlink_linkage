@@ -1,11 +1,22 @@
 package test;
 
 import io.qameta.allure.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import settings.Constants;
 
+import java.time.Duration;
 
-public class LoginTest extends TestBase1 {
+import static org.junit.Assert.assertTrue;
+
+
+public class LoginTest extends TestBase {
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
     @Epic("Testing")
     @Feature(value = "Feature")
@@ -15,43 +26,15 @@ public class LoginTest extends TestBase1 {
 
     @Test(description = "Login",priority = 1)
     @Step("login")
-    public void  loginTest() {
-
-
-        login.loginArch(Constants.USERNAME_ARCH, Constants.PASSWORD_ARCH);
-
-    }
-    @Epic("Testing")
-    @Feature(value = "Feature 111")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Testing 111 description")
-    @Story(value = "Story 111 description")
-    @Test(description = "Login Archivarius",priority = 2)
-    @Step("loginArch")
-    public void  loginTest1() {
-
+    public void  loginArchTest() {
 
         login.loginArch(Constants.USERNAME_ARCH, Constants.PASSWORD_ARCH);
-        main.clickArchiveMenu();
-        archiveMain.checkAllElementsOnPagePresent();
+
+
+       // WebElement elm = driver.findElement(By.xpath("//app-left-pane/div/div[2]/div[1]/div/span"));
+
+        assertTrue(driver.findElement(By.xpath("//app-left-pane/div/div[2]/div[1]/div/span")).isDisplayed());
 
     }
 
-    @Epic("Testing")
-    @Feature(value = "Feature 111")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Testing 111 description")
-    @Story(value = "Story 111 description")
-    @Test(description = "Login Archivarius",priority = 2)
-    @Step("loginArch")
-    public void  addNewVersion() {
-
-
-        login.loginArch(Constants.USERNAME_CPE, Constants.PASSWORD_CPE);
-        main.clickArchiveMenu();
-        archiveMain.addNewVersion();
-        archiveAddVersion.fileUpload();
-
-
-    }
 }
