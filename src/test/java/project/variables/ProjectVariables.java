@@ -1,6 +1,6 @@
 package project.variables;
 
-import utilites.ui.RandomValue;
+import utilites.RandomValue;
 
 public class ProjectVariables {
 

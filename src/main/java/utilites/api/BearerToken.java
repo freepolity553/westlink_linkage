@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class BearerToken {
 
     public String getAccessToken()  {
-        String urlApi = "https://dev-stroytransgaz.april-inn.ru/auth/login"; //DEV
+        String urlApi = ""; //DEV
 
         Response response = given()
                 .header("Content-Type", "application/json")
@@ -31,7 +31,7 @@ public class BearerToken {
 
         return accessToken;
 
-//        String authToken = "your_dynamic_token";
+//        String authToken = "";
 //
 //        given()
 //                .header("Authorization", "Bearer " + authToken)

@@ -8,21 +8,22 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
-import page.archive.ArchiveAddVersion;
-import page.archive.ArchiveMain;
-import page.Login;
-import page.MainDashboard;
-import page.projects.ProjectsMain;
+import page.linkageVisual.Metrics;
+import page.login.Login;
+import page.mainPanel.Dashboard;
+import utilites.RandomValue;
+
 
 public class TestBase {
     public static final String SITE_URL = "https://dev-stroytransgaz.april-inn.ru";
     //String SITE_URL = "https://dev-stroytransgaz.april-inn.ru";
     public WebDriver driver;
-    public MainDashboard main;
     public Login login;
-    public ArchiveMain archiveMain;
-    public ArchiveAddVersion archiveAddVersion;
-    public ProjectsMain projectsMain;
+    public Dashboard dashboard;
+    public Metrics metrics;
+
+    public RandomValue randomValue;
+
     public WebDriverWait wait;
 
 
@@ -54,11 +55,12 @@ public class TestBase {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
 
-        main = PageFactory.initElements(driver, MainDashboard.class);
+
         login = PageFactory.initElements(driver,Login.class);
-        archiveMain = PageFactory.initElements(driver, ArchiveMain.class);
-        archiveAddVersion =  PageFactory.initElements(driver, ArchiveAddVersion.class);
-        projectsMain = PageFactory.initElements(driver, ProjectsMain.class);
+        dashboard = PageFactory.initElements(driver, Dashboard.class);
+        metrics =  PageFactory.initElements(driver, Metrics.class);
+        randomValue = PageFactory.initElements(driver, RandomValue.class);
+
 
 
     }

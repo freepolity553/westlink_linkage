@@ -2,12 +2,13 @@ package settings;
 
 public final class Constants {
 
-    public static final String URL = "https://dev-stroytransgaz.april-inn.ru";
-    //public static final String URL = "https://next-stroytransgaz.april-inn.ru";
+    //public static final String URL_MAIN = "https://demo2.linkage.ru/login";
+    public static final String URL_AUTH = "https://demo2:UGku3g7mUMCV38GczZbm@demo2.linkage.ru/login";
 
-    public static final String USERNAME_ARCH = "testarch";
-    public static final String USERNAME_CPE = "testccpe";
 
-    public static final String PASSWORD_ARCH = "testarch";
-    public static final String PASSWORD_CPE = "testccpe";
+    public static final String USERNAME_ADMIN = "testuser";
+    //public static final String USERNAME_CPE = "testuser";
+
+    public static final String PASSWORD_ADMIN = "testuser";
+    //public static final String PASSWORD_CPE = "testuser";
 }

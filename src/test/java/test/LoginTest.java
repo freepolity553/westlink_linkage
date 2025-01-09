@@ -26,15 +26,13 @@ public class LoginTest extends TestBase {
 
     @Test(description = "Login",priority = 1)
     @Step("login")
-    public void  loginArchTest() {
-
-        login.loginArch(Constants.USERNAME_ARCH, Constants.PASSWORD_ARCH);
-
-
-       // WebElement elm = driver.findElement(By.xpath("//app-left-pane/div/div[2]/div[1]/div/span"));
-
-        assertTrue(driver.findElement(By.xpath("//app-left-pane/div/div[2]/div[1]/div/span")).isDisplayed());
-
+    public void  loginAdminTest() {
+        login.loginAdmin(Constants.USERNAME_ADMIN, Constants.PASSWORD_ADMIN);
+        login.checkAllElementsOnPagePresent();
     }
-
+    @Test(description = "Login",priority = 2)
+    @Step("login into Admin Dashboard")
+    public void  loginDashboardTest() {
+        dashboard.enterDashboard();
+    }
 }

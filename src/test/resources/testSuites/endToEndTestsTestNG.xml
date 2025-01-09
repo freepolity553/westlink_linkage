@@ -6,7 +6,7 @@
     </listeners>
     <test name="STG Tests">
         <classes>
-            <class name="archive.ui.E2E_SODTest"></class>
+            <class name="samples.ui.E2E_SODTest"></class>
         </classes>
     </test>
 </suite>

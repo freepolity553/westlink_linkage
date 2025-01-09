@@ -30,7 +30,7 @@ public class LoginDataProviderTest extends TestBase {
 
     @Test(dataProvider = "LoginDataProvider")
     public void loginTest(String lg, String ps) {
-        driver.get(Constants.URL);
+        //driver.get(Constants.URL);
         driver.findElement(By.xpath("//div[2]/div[1]/div/app-icon-button/span/app-icon/span")).click();
         driver.findElement(By.xpath("//div[2]/app-login/app-overflow-modal/div/div[2]/div[2]/section/div[1]/input")).sendKeys(lg);
         driver.findElement(By.xpath("//input[contains(@type,'password')]")).sendKeys(ps);
@@ -59,7 +59,7 @@ public class LoginDataProviderTest extends TestBase {
 
     @Test(dataProvider = "LoginExcelDataProvider2", dataProviderClass = ReadXls.class)
     public void loginCredentialsTest(String login, String password) {
-        driver.get(Constants.URL);
+        //driver.get(Constants.URL);
         driver.findElement(By.xpath("//div[2]/div[1]/div/app-icon-button/span/app-icon/span")).click();
         driver.findElement(By.xpath("//div[2]/app-login/app-overflow-modal/div/div[2]/div[2]/section/div[1]/input")).sendKeys(login);
         driver.findElement(By.xpath("//input[contains(@type,'password')]")).sendKeys(password);
