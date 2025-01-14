@@ -21,11 +21,22 @@ public class Dashboard extends BasePage {
     private By passwordInput =By.xpath("//input[contains(@type,'password')]");
     private By submitBtn =By.xpath("//button[contains(@type,'submit')]");
 
+    private By avatar =By.xpath("//img[contains(@alt,'Аватар пользователя')]");
+
+
+
 
     @Step(value = "Enter Dashboard ")
     public Dashboard enterDashboard (){
         waitVisibility(selectUserBtn);
         click(selectUserBtn);
+        return this;
+    }
+
+    @Step(value = "Enter Profile ")
+    public Dashboard enterProfile (){
+        waitVisibility(avatar);
+        click(avatar);
         return this;
     }
     @Step(value = "Check elements of Dashboard page")

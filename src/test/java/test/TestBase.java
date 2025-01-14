@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
+import page.linkageAdministration.Users;
 import page.linkageVisual.Metrics;
 import page.login.Login;
 import page.mainPanel.Dashboard;
@@ -22,7 +23,7 @@ public class TestBase {
     public Login login;
     public Dashboard dashboard;
     public Metrics metrics;
-
+    public Users users;
     public RandomValue randomValue;
 
     public WebDriverWait wait;
@@ -60,6 +61,7 @@ public class TestBase {
         login = PageFactory.initElements(driver,Login.class);
         dashboard = PageFactory.initElements(driver, Dashboard.class);
         metrics =  PageFactory.initElements(driver, Metrics.class);
+        users =  PageFactory.initElements(driver, Users.class);
         randomValue = PageFactory.initElements(driver, RandomValue.class);
 
 
