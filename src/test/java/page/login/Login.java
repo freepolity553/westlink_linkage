@@ -23,14 +23,23 @@ public class Login extends BasePage {
     private By submitBtn =By.xpath("//button[contains(@type,'submit')]");
 
 
-    @Step(value = "Login with  {0} {1} ")
-    public Login loginAdmin (String username, String password){
-            driver.get(Constants.URL_AUTH);
+    @Step(value = "Login with Admin Demo ")
+    public Login loginAdminDemo(String username, String password){
+            driver.get(Constants.URL_AUTH_DEMO);
             isElementDisplayed(By.xpath("//p[contains(.,'Если у вас возникли проблемы, обратитесь в техподдержку')]"));
             enterText(usernameInput,password);
             enterText(passwordInput,password);
             click(submitBtn);
             return this;
+    }
+    @Step(value = "Login with Admin Dev ")
+    public Login loginAdminDev(String username, String password){
+        driver.get(Constants.URL_AUTH_DEV);
+        isElementDisplayed(By.xpath("//p[contains(.,'Если у вас возникли проблемы, обратитесь в техподдержку')]"));
+        enterText(usernameInput,password);
+        enterText(passwordInput,password);
+        click(submitBtn);
+        return this;
     }
     @Step(value = "Check elements of Login page")
     public Login  checkAllElementsOnPagePresent() {

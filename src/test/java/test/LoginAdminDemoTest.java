@@ -7,8 +7,10 @@ import settings.Constants;
 
 import java.time.Duration;
 
+import static org.junit.Assert.assertTrue;
 
-public class MetricsTest extends TestBase {
+
+public class LoginAdminDemoTest extends TestBase {
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
@@ -19,15 +21,14 @@ public class MetricsTest extends TestBase {
     @Story(value = "Story description")
 
     @Test(description = "Login",priority = 1)
-    @Step("")
-    public void  addMetricRequestTest() {
+    @Step("login")
+    public void  loginAdminTest() {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
-        dashboard.enterDashboard();
-        metrics.enterMetricsConstructor();
-        metrics.addMetric("Показатель "+ randomValue.randomInt(3));
-
-
-
+        login.checkAllElementsOnPagePresent();
     }
-
+    @Test(description = "Login",priority = 2)
+    @Step("login into Admin Dashboard")
+    public void  loginDashboardTest() {
+        dashboard.enterDashboard();
+    }
 }

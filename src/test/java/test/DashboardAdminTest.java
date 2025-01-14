@@ -21,10 +21,10 @@ public class DashboardAdminTest extends TestBase {
     @Test(description = "Login",priority = 1)
     @Step("login")
     public void  loginAdminTest() {
-        login.loginAdmin(Constants.USERNAME_ADMIN, Constants.PASSWORD_ADMIN);
+        login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         login.checkAllElementsOnPagePresent();
         dashboard.enterDashboard();
-        dashboard.checkAllElementsOnPagePresent();
+        dashboard.checkAllElementsOnDashboardPresent();
     }
 
 }

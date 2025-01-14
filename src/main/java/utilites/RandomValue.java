@@ -10,7 +10,7 @@ public class RandomValue {
     public RandomValue(WebDriver driver) {
     }
 
-    public CharSequence randomInt(int length) {
+    public static CharSequence randomInt(int length) {
 //        String Capital_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //        String Small_chars = "abcdefghijklmnopqrstuvwxyz";
         String numbers = "0123456789";

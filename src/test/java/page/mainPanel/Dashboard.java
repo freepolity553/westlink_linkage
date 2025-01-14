@@ -24,11 +24,12 @@ public class Dashboard extends BasePage {
 
     @Step(value = "Enter Dashboard ")
     public Dashboard enterDashboard (){
+        waitVisibility(selectUserBtn);
         click(selectUserBtn);
         return this;
     }
     @Step(value = "Check elements of Dashboard page")
-    public Dashboard  checkAllElementsOnPagePresent() {
+    public Dashboard  checkAllElementsOnDashboardPresent() {
         isElementDisplayed(By.xpath("//a[@class='BreadCrumbs_link__LlVJc'][contains(.,'АРМ Администратора')]"));
         isElementDisplayed(By.xpath("//a[@class='BreadCrumbs_link__LlVJc'][contains(.,'Панель административного управления')]"));
         isElementDisplayed(By.xpath("//a[@aria-current='page'][contains(.,'Панель администратора')]"));

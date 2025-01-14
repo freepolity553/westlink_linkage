@@ -16,6 +16,7 @@ import utilites.RandomValue;
 
 public class TestBase {
     public static final String SITE_URL = "https://dev-stroytransgaz.april-inn.ru";
+
     //String SITE_URL = "https://dev-stroytransgaz.april-inn.ru";
     public WebDriver driver;
     public Login login;
