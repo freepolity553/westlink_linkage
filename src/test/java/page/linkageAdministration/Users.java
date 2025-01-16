@@ -30,8 +30,6 @@ public class Users extends BasePage {
 
 
 
-
-
     @Step(value = "Enter Users page ")
     public page.linkageAdministration.Users enterUsersPage (){
         click(usersWidget);
@@ -39,7 +37,7 @@ public class Users extends BasePage {
     }
 
     public void pictureUpload() {
-        File uploadFile = new File("src/main/java/utilites/600_600.jpg");
+        File uploadFile = new File("src/test/resources/600_600.jpg");
         WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
         fileInput.sendKeys(uploadFile.getAbsolutePath());
         //driver.findElement(By.id("file-submit")).click();
