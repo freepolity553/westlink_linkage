@@ -1,6 +1,5 @@
 package utilites;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Random;
@@ -12,7 +11,7 @@ public class RandomValue {
     }
 
 
-    public static CharSequence randomInt(int length) {
+    public static StringBuilder randomInt(int length) {
 //        String Capital_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //        String Small_chars = "abcdefghijklmnopqrstuvwxyz";
         String numbers = "0123456789";
@@ -48,6 +47,7 @@ public class RandomValue {
 //        }
 
 //        return sb+"-"+sb1;
+
         return sb;
 
 
