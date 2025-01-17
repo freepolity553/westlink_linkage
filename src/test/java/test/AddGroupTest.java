@@ -1,14 +1,18 @@
 package test;
 
 import io.qameta.allure.*;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import settings.Constants;
 
 import java.time.Duration;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.awaitility.Awaitility.await;
 
-public class DashboardAdminTest extends TestBase {
+
+public class AddGroupTest extends TestBase {
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
@@ -20,12 +24,19 @@ public class DashboardAdminTest extends TestBase {
 
     @Test(description = "Login",priority = 1)
     @Step("login")
-    public void  loginAdminTest() {
+    public void  addGroupTest() {
+
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
-        login.checkAllElementsOnPagePresent();
         dashboard.enterDashboard();
-        driver.navigate().to(Constants.URL_AUTH_DEMO);
-        dashboard.checkAllElementsOnDashboardPresent();
+        users.enterUsersPage();
+        groups.enterGroupsPage();
+        groups.createGroup();
+
+//        users.click(users.editUser);
+//        users.pictureUpload();
+//        users.enterText(users.phone, users.random(11));
+//        users.save();
+
     }
 
 }

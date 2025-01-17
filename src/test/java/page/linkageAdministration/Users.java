@@ -50,7 +50,7 @@ public class Users extends BasePage {
 //        enterText(metricName,name);
 //        click(addTableBtn);
 //        click(selectTable);
-//        setAddBtn();
+//        addRecord();
 //        return this;
 //    }
 //    @Step(value = "Check elements of Metrics page")

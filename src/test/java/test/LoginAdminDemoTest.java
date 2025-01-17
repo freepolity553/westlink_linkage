@@ -25,6 +25,7 @@ public class LoginAdminDemoTest extends TestBase {
     public void  loginAdminTest() {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         login.checkAllElementsOnPagePresent();
+
     }
     @Test(description = "Login",priority = 2)
     @Step("login into Admin Dashboard")

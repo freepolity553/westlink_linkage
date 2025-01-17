@@ -9,6 +9,9 @@ import org.openqa.selenium.WebDriver;
 import page.BasePage;
 import settings.Constants;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.awaitility.Awaitility.await;
+
 public class Login extends BasePage {
 
     public Login(WebDriver driver) {
@@ -25,11 +28,16 @@ public class Login extends BasePage {
 
     @Step(value = "Login with Admin Demo ")
     public Login loginAdminDemo(String username, String password){
+
+
             driver.get(Constants.URL_AUTH_DEMO);
             isElementDisplayed(By.xpath("//p[contains(.,'Если у вас возникли проблемы, обратитесь в техподдержку')]"));
             enterText(usernameInput,password);
             enterText(passwordInput,password);
             click(submitBtn);
+
+
+
             return this;
     }
     @Step(value = "Login with Admin Dev ")

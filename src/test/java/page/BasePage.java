@@ -1,7 +1,6 @@
 package page;
 
-import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.Alert;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,10 +24,32 @@ public class BasePage {
     }
 
     private By addBtn =By.xpath("//button[@class='Button-module_main__lxsaF btnPrimary mr-2'][contains(.,'Добавить')]");
-    //Send Keys method
-    public void setAddBtn () {
+    private By saveBtn =By.xpath("//button[contains(text(),'Сохранить')]");
+    public By search =By.xpath("//input[contains(@placeholder,'Введите название')]");
+
+
+
+    //Add random
+    public String random (int length) {
+        String str = RandomStringUtils.randomNumeric(length);
+
+        return str;
+    }
+
+
+
+
+    //Кнопка Добавить
+    public void addRecord() {
         waitVisibility(addBtn);
         WebElement element = driver.findElement(addBtn);
+        element.click();
+    }
+
+    //Кнопка Сохранить
+    public void save () {
+        waitVisibility(saveBtn);
+        WebElement element = driver.findElement(saveBtn);
         element.click();
     }
     //Wait method

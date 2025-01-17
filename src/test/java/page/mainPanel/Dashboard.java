@@ -2,10 +2,7 @@ package page.mainPanel;
 
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import page.BasePage;
 import page.login.Login;
 import settings.Constants;
@@ -30,6 +27,12 @@ public class Dashboard extends BasePage {
     public Dashboard enterDashboard (){
         waitVisibility(selectUserBtn);
         click(selectUserBtn);
+        driver.get(Constants.URL_MAIN);
+
+//        driver.switchTo().newWindow(WindowType.TAB);
+//
+//        driver.navigate().to(“https://www.testsigma.com/”);
+
         return this;
     }
 

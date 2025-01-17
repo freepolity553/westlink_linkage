@@ -30,8 +30,8 @@ public class EditUserTest extends TestBase {
         users.enterText(users.usernameSearch,"Пользователь Тестирования");
         users.click(users.editUser);
         users.pictureUpload();
-        String str = RandomStringUtils.randomNumeric(11);
-        users.enterText(users.phone, str);
+        users.enterText(users.phone, users.random(11));
+        users.save();
 
     }
 

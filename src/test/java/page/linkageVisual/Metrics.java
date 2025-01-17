@@ -8,9 +8,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import page.BasePage;
-import page.login.Login;
-import page.mainPanel.Dashboard;
-import settings.Constants;
 
 public class Metrics extends BasePage {
     public Metrics(WebDriver driver) {
@@ -42,7 +39,7 @@ public class Metrics extends BasePage {
         enterText(metricName,name);
         click(addTableBtn);
         click(selectTable);
-        setAddBtn();
+        addRecord();
         return this;
     }
     @Step(value = "Check elements of Metrics page")
