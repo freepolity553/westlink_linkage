@@ -3,9 +3,11 @@ package page.linkageAdministration;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import page.BasePage;
 
 import java.io.File;
+import java.time.Duration;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.awaitility.Awaitility.await;
@@ -19,18 +21,16 @@ public class Groups extends BasePage {
 
 
     private By groupsTab =By.xpath("//span[contains(text(),'Группы')]");
-
     private By createGroupBtn =By.xpath("//button[contains(text(),'Создать группу')]");
-
     private By permissionsTab =By.xpath("//button[contains(text(),'Доступы')]");
     private By addModuleBtn =By.xpath("//button[contains(text(),'Добавить Модуль')]");
-    private By chekbox =By.xpath("//label[@for='checkbox_176']//*[name()='svg']");
+    private By chekbox =By.xpath("//label[@class='Checkbox-module_label__JBaRm']");
     private By addSelectedBtn =By.xpath("//button[contains(text(),'Добавить выбранные')]");
     private By permisionSelectionBtn =By.xpath("//input[contains(@placeholder,'Выберите права')]");
-
     private By permisionUser =By.xpath("//div[@class='SelectRadioInfo_inputSelectMain__menu_list__X7O8v']//div[1]//div[1]//label[1]");
 
-    //div[@class='SelectRadioInfo_inputSelectMain__menu_list__X7O8v']//div[1]//div[1]//label[1]
+
+    //label[@for='checkbox_201']//*[name()='svg']
     //div[@class='SelectRadioInfo_inputSelectMain__menu_list__X7O8v']//div[1]//div[1]//label[1]
 //input[@id='input-192']
     //label[@for='checkbox_37']//*[name()='svg']
@@ -56,26 +56,125 @@ public class Groups extends BasePage {
         click(createGroupBtn);
 
         enterText(search,"Авто Группа-" + random(5) );
-
         click(permissionsTab);
-//        await().pollDelay(10, SECONDS);
         click(addModuleBtn);
-        enterText(search,"Подключения");
-//        click(chekbox);
-//        click(addSelectedBtn);
-//        click(permisionSelectionBtn);
-//        click(permisionSelectionBtn);
-//        click(permisionUser);
-//        click(addModuleBtn);
-//        enterText(search,"Таблицы");
-//        click(chekbox);
-//        click(addSelectedBtn);
-//        click(permisionSelectionBtn);
-//        click(permisionSelectionBtn);
-//        click(permisionUser);
+        WebElement clickable = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Подключения")
+                .perform();
+
+        click(chekbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+
+        click(addModuleBtn);
+
+        WebElement clickable1 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable1)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Таблицы")
+                .perform();
+
+        click(chekbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+        click(addModuleBtn);
+
+        WebElement clickable2 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable2)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор показателей")
+                .perform();
+
+        click(chekbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+        click(addModuleBtn);
 
 
+        WebElement clickable3 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable3)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор виджетов")
+                .perform();
 
+        click(chekbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+
+        click(addModuleBtn);
+
+        WebElement clickable4 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable4)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор дашбордов")
+                .perform();
+
+        click(chekbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+
+        click(addModuleBtn);
+
+        WebElement clickable5 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable5)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор АРМ")
+                .perform();
+
+        click(chekbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+
+        click(addModuleBtn);
+
+        WebElement clickable6 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable6)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор алертов")
+                .perform();
+
+        click(chekbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+
+        //save();
 
         return this;
     }

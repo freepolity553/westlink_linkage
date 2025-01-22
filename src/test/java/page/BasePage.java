@@ -25,14 +25,13 @@ public class BasePage {
 
     private By addBtn =By.xpath("//button[@class='Button-module_main__lxsaF btnPrimary mr-2'][contains(.,'Добавить')]");
     private By saveBtn =By.xpath("//button[contains(text(),'Сохранить')]");
-    public By search =By.xpath("//input[contains(@placeholder,'Введите название')]");
+    public By  search =By.xpath("//input[contains(@placeholder,'Введите название')]");
 
 
 
     //Add random
     public String random (int length) {
         String str = RandomStringUtils.randomNumeric(length);
-
         return str;
     }
 
