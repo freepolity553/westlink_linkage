@@ -14,10 +14,10 @@ public class Dashboard extends BasePage {
     @Attachment(value = "Failed test screenshot")
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
-    private By selectUserBtn =By.xpath("//p[@class='SelectARM_cardName__ARdPm'][contains(.,'АРМ Администратора')]");
+    private By selectUserBtn =By.xpath("//p[@class='SelectARM_cardName__ARdPm'][contains(.,'Администратор')]");
     private By passwordInput =By.xpath("//input[contains(@type,'password')]");
     private By submitBtn =By.xpath("//button[contains(@type,'submit')]");
-
+    public By adminDashboard =By.xpath("//a[contains(text(),'Панель административного управления')]");
     private By avatar =By.xpath("//img[contains(@alt,'Аватар пользователя')]");
 
 
@@ -30,8 +30,7 @@ public class Dashboard extends BasePage {
         driver.get(Constants.URL_MAIN);
 
 //        driver.switchTo().newWindow(WindowType.TAB);
-//
-//        driver.navigate().to(“https://www.testsigma.com/”);
+
 
         return this;
     }

@@ -34,8 +34,8 @@ public class AddGroupTest extends TestBase {
 
 //        users.click(users.editUser);
 //        users.pictureUpload();
-//        users.enterText(users.phone, users.random(11));
-//        users.save();
+//        users.enterText(users.phone, users.randomInt(11));
+        users.save();
 
     }
 

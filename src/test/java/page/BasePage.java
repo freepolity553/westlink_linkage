@@ -25,17 +25,39 @@ public class BasePage {
 
     private By addBtn =By.xpath("//button[@class='Button-module_main__lxsaF btnPrimary mr-2'][contains(.,'Добавить')]");
     private By saveBtn =By.xpath("//button[contains(text(),'Сохранить')]");
+
     public By  search =By.xpath("//input[contains(@placeholder,'Введите название')]");
+    public By checkbox =By.xpath("//label[@class='Checkbox-module_label__JBaRm']");
+    private By backArrow =By.cssSelector("svg.ArrowBack_icon__EvMez");
 
 
+    public BasePage() {
 
-    //Add random
-    public String random (int length) {
+    }
+    //Кнопка Добавить
+    public void back() {
+        waitVisibility(backArrow);
+        WebElement element = driver.findElement(backArrow);
+        element.click();
+    }
+
+
+    //Add randomInt
+    public String randomInt(int length) {
         String str = RandomStringUtils.randomNumeric(length);
         return str;
     }
 
+//    public  String randomAlphabetic(int count ){
+//        String str1 = RandomStringUtils.randomAlphabetic(4);
+//        return str1;
+//    };
 
+    public String randomestring()
+    {
+        String generatedstring=RandomStringUtils.randomAlphabetic(8);
+        return(generatedstring);
+    }
 
 
     //Кнопка Добавить
@@ -54,6 +76,14 @@ public class BasePage {
     //Wait method
     public void waitVisibility(By elementBy) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
+    }
+
+    public void threadSleep(int length) {
+        try {
+            Thread.sleep(length);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //Click method
@@ -103,5 +133,7 @@ public class BasePage {
 //        WebElement fileName = driver.findElement(By.id("uploaded-files"));
 //        Assertions.assertEquals("file.txt", fileName.getText());
     }
+
+
 
 }
