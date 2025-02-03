@@ -15,6 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import page.linkageAdministration.Groups;
+import page.linkageAdministration.Organization;
 import page.linkageAdministration.Users;
 import page.linkageVisual.Metrics;
 import page.login.Login;
@@ -31,6 +32,7 @@ public class TestBase {
     public Metrics metrics;
     public Users users;
     public Groups groups;
+    public Organization organization;
     public RandomValue randomValue;
 
     public WebDriverWait wait;
@@ -75,7 +77,7 @@ public class TestBase {
         users =  PageFactory.initElements(driver, Users.class);
         groups =  PageFactory.initElements(driver, Groups.class);
         randomValue = PageFactory.initElements(driver, RandomValue.class);
-
+        organization= PageFactory.initElements(driver, Organization.class);
 
 
     }

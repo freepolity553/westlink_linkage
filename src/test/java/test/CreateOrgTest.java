@@ -1,14 +1,19 @@
 package test;
 
 import io.qameta.allure.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import settings.Constants;
 
 import java.time.Duration;
 
+import static org.testng.AssertJUnit.assertEquals;
 
-public class CreateNewUserTest extends TestBase {
+
+
+public class CreateOrgTest extends TestBase {
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
@@ -20,23 +25,18 @@ public class CreateNewUserTest extends TestBase {
 
     @Test(description = "Login",priority = 1)
     @Step("login")
-    public void  createNewUserTest() {
+    public void  createOrgTest() {
+
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         dashboard.enterDashboard();
         users.enterUsersPage();
-        users.click(users.addUserBtn);
-        users.pictureUpload();
-        users.enterText(users.phone, users.randomInt(11));
-        users.enterText(users.lastName, "Тестовский");
-        users.enterText(users.firstName, "Тест");
-        users.enterText(users.email, users.mockEmail);
-        users.enterText(users.login, users.mockName);
-        System.out.println(users.mockName);
-        users.enterText(users.password, users.mockName);
-        users.threadSleep(3000);
-        users.save();
-        users.back();
-//        users.waitVisibility(users.userStatus);
+        organization.addOrg();
+//        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and contains(@class, 'rdg-cell')]"));
+//        String newOrg  = elm.getText();
+//        System.out.println("Org name1: " + newOrg);
+//
+//        assertEquals( organization.useOrgName(),newOrg);
+//        users.save();
 
 
     }

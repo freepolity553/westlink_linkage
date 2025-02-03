@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -34,13 +35,20 @@ public class BasePage {
     public BasePage() {
 
     }
-    //Кнопка Добавить
+//    //Кнопка Добавить
+//    public void back() {
+//        waitVisibility(backArrow);
+//        WebElement element = driver.findElement(backArrow);
+//        element.click();
+//    }
     public void back() {
-        waitVisibility(backArrow);
-        WebElement element = driver.findElement(backArrow);
-        element.click();
+        WebElement backArrow = driver.findElement(By.cssSelector("svg.ArrowBack_icon__EvMez"));
+        new Actions(driver)
+                .moveToElement(backArrow)
+                .pause(Duration.ofSeconds(2))
+                .click()
+                .perform();
     }
-
 
     //Add randomInt
     public String randomInt(int length) {

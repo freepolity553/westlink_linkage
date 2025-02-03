@@ -32,7 +32,7 @@ public class Login extends BasePage {
 
             driver.get(Constants.URL_AUTH_DEMO);
             isElementDisplayed(By.xpath("//p[contains(.,'Если у вас возникли проблемы, обратитесь в техподдержку')]"));
-            enterText(usernameInput,password);
+            enterText(usernameInput,username);
             enterText(passwordInput,password);
             click(submitBtn);
 

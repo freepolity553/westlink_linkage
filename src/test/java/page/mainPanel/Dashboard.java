@@ -3,8 +3,8 @@ package page.mainPanel;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import page.BasePage;
-import page.login.Login;
 import settings.Constants;
 
 public class Dashboard extends BasePage {
@@ -14,7 +14,9 @@ public class Dashboard extends BasePage {
     @Attachment(value = "Failed test screenshot")
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
-    private By selectUserBtn =By.xpath("//p[@class='SelectARM_cardName__ARdPm'][contains(.,'Администратор')]");
+    //private By selectAPMBtn =By.xpath("//p[@class='SelectARM_cardName__ARdPm'][contains(.,'Администратор')]");
+    private By selectAPMBtn =By.xpath("//div[@class='SelectARM_card__Cc7wd Layout-module_layout__Bjb4T Layout-module_align_center__yw5K7 Layout-module_direction_column__t9XzY']");
+
     private By passwordInput =By.xpath("//input[contains(@type,'password')]");
     private By submitBtn =By.xpath("//button[contains(@type,'submit')]");
     public By adminDashboard =By.xpath("//a[contains(text(),'Панель административного управления')]");
@@ -25,11 +27,12 @@ public class Dashboard extends BasePage {
 
     @Step(value = "Enter Dashboard ")
     public Dashboard enterDashboard (){
-        waitVisibility(selectUserBtn);
-        click(selectUserBtn);
-        driver.get(Constants.URL_MAIN);
 
-//        driver.switchTo().newWindow(WindowType.TAB);
+//        wait.until(ExpectedConditions.elementToBeClickable(selectAPMBtn));
+        waitVisibility(selectAPMBtn);
+        click(selectAPMBtn);
+//        driver.get(Constants.URL_MAIN);
+
 
 
         return this;

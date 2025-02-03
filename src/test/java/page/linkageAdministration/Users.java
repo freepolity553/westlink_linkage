@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import page.BasePage;
+import page.SharedData;
 
 import java.io.File;
 import java.time.Duration;
@@ -24,6 +25,12 @@ public class Users extends BasePage {
     private By usersWidget =By.xpath("(//div[contains(.,'Пользователи')])[10]");
 
     public By usersTab =By.xpath("//button[@type='button']//span[contains(text(),'Пользователи')]");
+    public By organizationTab =By.xpath("//button[@type='button']//span[contains(text(),'Организации')]");
+    public By createOrgBtn =By.xpath("//button[contains(text(),'Создать организацию')]");
+    public By createOrgBtn1 =By.xpath("//div[@class='OrganisationBar_organisationBar__btns__wJN+C']");
+
+    public By inputOrgName =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv' and @placeholder='Введите название организации']");
+
 
     public By searchModal =By.xpath("//input[contains(@placeholder,'Введите название')][@class='flex-grow InputText-module_input__GBLXv pl-6']");
     public By addUserBtn = By.xpath("//button[contains(text(),'Добавить пользователя')]");
@@ -56,7 +63,13 @@ public class Users extends BasePage {
         WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
         fileInput.sendKeys(uploadFile.getAbsolutePath());
     }
+    public String useOrgName() {
+        // Retrieve the extracted value from the shared class
+        String value = SharedData.getOrgName();
 
+        // Perform actions with the extracted value (e.g., enter it into another field)
+        return value;
+    }
 
     @Step(value = "")
     public Users addGroup (){
@@ -80,17 +93,39 @@ public class Users extends BasePage {
         assertEquals(driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Группы пользователя'])[1]/following::p[1]")).getText(), groupName);
         return this;
     }
-//    @Step(value = "Check elements of Metrics page")
-//    public page.linkageVisual.Metrics checkAllElementsOnPagePresent() {
-//
-//        //Вкладки страницы Конструктор показателей
-//        isElementDisplayed(By.xpath("//button[@type='button'][contains(.,'Конструктор запроса')]"));
-//        isElementDisplayed(By.xpath("(//button[@type='button'][contains(.,'SQL-запрос')])[1]"));
-//        isElementDisplayed(By.xpath("//button[@type='button'][contains(.,'Формула')]"));
-//
-//
-//        return this;
-//    }
+    @Step(value = "")
+    public Users addOrg (){
+
+        String orgName = useOrgName();
+        click(organizationTab);
+        click(createOrgBtn);
+        click(createOrgBtn1);
+        WebElement clickable = driver.findElement(inputOrgName);
+        new Actions(driver)
+                .moveToElement(clickable)
+                .pause(Duration.ofSeconds(2))
+                .click()
+                .sendKeys(orgName)
+                .pause(Duration.ofSeconds(2))
+                .perform();
+
+        save();
+
+        WebElement  backArrow = driver.findElement(By.cssSelector("svg.ArrowBack_icon__EvMez"));
+        new Actions(driver)
+                .moveToElement(backArrow)
+                .pause(Duration.ofSeconds(2))
+                .click()
+                .perform();
+
+        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and contains(@class, 'rdg-cell')]"));
+        String newOrg  = elm.getText();
+        System.out.println("Org name: " + newOrg);
+
+        assertEquals( orgName,newOrg);
+
+        return this;
+    }
 }
 
 

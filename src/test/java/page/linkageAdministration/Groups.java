@@ -79,89 +79,89 @@ public class Groups extends BasePage {
 
         click(addModuleBtn);
 
-//        WebElement clickable1 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
-//        new Actions(driver)
-//                .moveToElement(clickable1)
-//                .click()
-//                .pause(Duration.ofSeconds(1))
-//                .sendKeys("Таблицы")
-//                .perform();
-//
-//        click(checkbox);
-//        click(addSelectedBtn);
-//
-//        //Выбор прав Пользователь
-//        click(permisionSelectionBtn);
-//        click(permisionUser);
-//        click(addModuleBtn);
-//
-//        WebElement clickable2 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
-//        new Actions(driver)
-//                .moveToElement(clickable2)
-//                .click()
-//                .pause(Duration.ofSeconds(1))
-//                .sendKeys("Конструктор показателей")
-//                .perform();
-//
-//        click(checkbox);
-//        click(addSelectedBtn);
-//
-//        //Выбор прав Пользователь
-//        click(permisionSelectionBtn);
-//        click(permisionUser);
-//        click(addModuleBtn);
-//
-//
-//        WebElement clickable3 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
-//        new Actions(driver)
-//                .moveToElement(clickable3)
-//                .click()
-//                .pause(Duration.ofSeconds(1))
-//                .sendKeys("Конструктор виджетов")
-//                .perform();
-//
-//        click(checkbox);
-//        click(addSelectedBtn);
-//
-//        //Выбор прав Пользователь
-//        click(permisionSelectionBtn);
-//        click(permisionUser);
-//
-//        click(addModuleBtn);
-//
-//        WebElement clickable4 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
-//        new Actions(driver)
-//                .moveToElement(clickable4)
-//                .click()
-//                .pause(Duration.ofSeconds(1))
-//                .sendKeys("Конструктор дашбордов")
-//                .perform();
-//
-//        click(checkbox);
-//        click(addSelectedBtn);
-//
-//        //Выбор прав Пользователь
-//        click(permisionSelectionBtn);
-//        click(permisionUser);
-//
-//        click(addModuleBtn);
-//
-//        WebElement clickable5 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
-//        new Actions(driver)
-//                .moveToElement(clickable5)
-//                .click()
-//                .pause(Duration.ofSeconds(1))
-//                .sendKeys("Конструктор АРМ")
-//                .perform();
-//
-//        click(checkbox);
-//        click(addSelectedBtn);
-//
-//        //Выбор прав Пользователь
-//        click(permisionSelectionBtn);
-//        click(permisionUser);
-//
-//        click(addModuleBtn);
+        WebElement clickable1 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable1)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Таблицы")
+                .perform();
+
+        click(checkbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+        click(addModuleBtn);
+
+        WebElement clickable2 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable2)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор показателей")
+                .perform();
+
+        click(checkbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+        click(addModuleBtn);
+
+
+        WebElement clickable3 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable3)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор виджетов")
+                .perform();
+
+        click(checkbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+
+        click(addModuleBtn);
+
+        WebElement clickable4 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable4)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор дашбордов")
+                .perform();
+
+        click(checkbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+
+        click(addModuleBtn);
+
+        WebElement clickable5 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
+        new Actions(driver)
+                .moveToElement(clickable5)
+                .click()
+                .pause(Duration.ofSeconds(1))
+                .sendKeys("Конструктор АРМ")
+                .perform();
+
+        click(checkbox);
+        click(addSelectedBtn);
+
+        //Выбор прав Пользователь
+        click(permisionSelectionBtn);
+        click(permisionUser);
+
+        click(addModuleBtn);
 
         WebElement clickable6 = driver.findElement(By.xpath("//input[@placeholder='Введите название']"));
         new Actions(driver)
