@@ -7,6 +7,8 @@ import settings.Constants;
 
 import java.time.Duration;
 
+import static utilites.RandomValue.randomInt;
+
 
 public class CreateNewUserTest extends TestBase {
 
@@ -27,7 +29,7 @@ public class CreateNewUserTest extends TestBase {
         users.click(users.addUserBtn);
         users.pictureUpload();
         users.enterText(users.phone, users.randomInt(11));
-        users.enterText(users.lastName, "Тестовский");
+        users.enterText(users.lastName, users.useLastName());
         users.enterText(users.firstName, "Тест");
         users.enterText(users.email, users.mockEmail);
         users.enterText(users.login, users.mockName);

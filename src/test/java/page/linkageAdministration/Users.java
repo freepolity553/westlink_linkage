@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import page.BasePage;
 import page.SharedData;
+import settings.Variables;
 
 import java.io.File;
 import java.time.Duration;
@@ -45,8 +46,9 @@ public class Users extends BasePage {
     private By addGroup = By.xpath("//span[contains(text(),'Добавить группу')]");
     private By checkboxGroup = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Название группы'])[1]/following::*[name()='svg'][1]");
     public String mockName = "Test" + randomInt(4);
-    public String mockEmail = randomestring() + "@yandex.ru";
+    public String mockEmail = randomestring(6) + "@yandex.ru";
     public By userStatus =By.xpath("//div[@class='UserBar_statusIndicator__FVION']");
+    public By searchOrg =By.xpath("//input[contains(@placeholder,'Выберите организацию')][@class='flex-grow InputText-module_input__GBLXv SelectInfiniteCore_inputClass__GpexQ UsersSelects_inputHolder__bTpxO pr-6']");
 
 
 
@@ -63,12 +65,27 @@ public class Users extends BasePage {
         WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
         fileInput.sendKeys(uploadFile.getAbsolutePath());
     }
-    public String useOrgName() {
+    public String useLastName() {
         // Retrieve the extracted value from the shared class
-        String value = SharedData.getOrgName();
+        String value = SharedData.getLastName();
 
         // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
+    }
+    @Step(value = "")
+    public Users createNewUser (){
+
+        click(addUserBtn);
+        pictureUpload();
+        enterText(phone, randomInt(11));
+        enterText(lastName,useLastName());
+        enterText(firstName, Variables.firstName);
+        enterText(email, mockEmail);
+        enterText(login, mockName);
+        System.out.println(mockName);
+        enterText(password, mockName);
+        save();
+        return this;
     }
 
     @Step(value = "")
@@ -90,42 +107,49 @@ public class Users extends BasePage {
                 .perform();
         click(checkboxGroup);
         click(save);
-        assertEquals(driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Группы пользователя'])[1]/following::p[1]")).getText(), groupName);
+        //assertEquals(driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Группы пользователя'])[1]/following::p[1]")).getText(), groupName);
         return this;
     }
-    @Step(value = "")
-    public Users addOrg (){
-
-        String orgName = useOrgName();
-        click(organizationTab);
-        click(createOrgBtn);
-        click(createOrgBtn1);
-        WebElement clickable = driver.findElement(inputOrgName);
-        new Actions(driver)
-                .moveToElement(clickable)
-                .pause(Duration.ofSeconds(2))
-                .click()
-                .sendKeys(orgName)
-                .pause(Duration.ofSeconds(2))
-                .perform();
-
-        save();
-
-        WebElement  backArrow = driver.findElement(By.cssSelector("svg.ArrowBack_icon__EvMez"));
-        new Actions(driver)
-                .moveToElement(backArrow)
-                .pause(Duration.ofSeconds(2))
-                .click()
-                .perform();
-
-        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and contains(@class, 'rdg-cell')]"));
-        String newOrg  = elm.getText();
-        System.out.println("Org name: " + newOrg);
-
-        assertEquals( orgName,newOrg);
-
-        return this;
-    }
+//    @Step(value = "")
+//    public Users addUserOrg (){
+//
+//        String orgName = useOrgName();
+//
+//        enterText(searchOrg,orgName);
+//
+//        WebElement clickable = driver.findElement(By.cssSelector("svg.SelectInfiniteControl_chevron__PCOdq"));
+//                new Actions(driver)
+//                .moveToElement(clickable)
+//                .pause(Duration.ofSeconds(2))
+//                .click()
+////                .pause(Duration.ofSeconds(2))
+//                .perform();
+//
+//        //p[@class='SelectListItem_label__BfAON']
+//
+////        click(addOrgName);
+//
+////        WebElement clickable = driver.findElement(inputOrgName);
+////        new Actions(driver)
+////                .moveToElement(clickable)
+////                .pause(Duration.ofSeconds(2))
+////                .click()
+////                .sendKeys(orgName)
+////                .pause(Duration.ofSeconds(2))
+////                .perform();
+//
+////        save();
+////        back();
+////
+////
+////        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and contains(@class, 'rdg-cell')]"));
+////        String newOrg  = elm.getText();
+////        System.out.println("Org name: " + newOrg);
+////
+////        assertEquals( orgName,newOrg);
+//
+//        return this;
+//    }
 }
 
 

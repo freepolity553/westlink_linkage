@@ -26,22 +26,17 @@ public class E2ETest extends TestBase {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         dashboard.enterDashboard();
         users.enterUsersPage();
-        groups.enterGroupsPage();
+        groups.click(groups.groupsTab);
         groups.createGroup();
-        groups.back();
         users.click(users.usersTab);
-        users.click(users.addUserBtn);
-        users.pictureUpload();
-        users.enterText(users.phone, users.randomInt(11));
-        users.enterText(users.lastName, "Тестовский");
-        users.enterText(users.firstName, "Тест");
-        users.enterText(users.email, users.mockEmail);
-        users.enterText(users.login, users.mockName);
-        System.out.println(users.mockName);
-        users.enterText(users.password, users.mockName);
-        users.threadSleep(3000);
+        users.createNewUser();
         users.addGroup();
+        groups.back();
+        organization.click(organization.organizationTab);
+        organization.addOrg();
+
         users.save();
+        users.back();
 
     }
 }

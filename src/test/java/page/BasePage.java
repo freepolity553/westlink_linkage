@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.time.Duration;
 
+import static org.apache.poi.hssf.record.FtPioGrbitSubRecord.length;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -45,13 +46,13 @@ public class BasePage {
         WebElement backArrow = driver.findElement(By.cssSelector("svg.ArrowBack_icon__EvMez"));
         new Actions(driver)
                 .moveToElement(backArrow)
-                .pause(Duration.ofSeconds(2))
+                .pause(Duration.ofSeconds(1))
                 .click()
                 .perform();
     }
 
     //Add randomInt
-    public String randomInt(int length) {
+    public static String randomInt(int length) {
         String str = RandomStringUtils.randomNumeric(length);
         return str;
     }
@@ -61,10 +62,9 @@ public class BasePage {
 //        return str1;
 //    };
 
-    public String randomestring()
-    {
-        String generatedstring=RandomStringUtils.randomAlphabetic(8);
-        return(generatedstring);
+    public static String randomestring(Integer length) {
+        String generatedstring = RandomStringUtils.randomAlphabetic(length);
+        return generatedstring;
     }
 
 
@@ -141,7 +141,16 @@ public class BasePage {
 //        WebElement fileName = driver.findElement(By.id("uploaded-files"));
 //        Assertions.assertEquals("file.txt", fileName.getText());
     }
-
+    public static void slowSendKeys(WebElement element, String text, long delay) {
+        for (char c : text.toCharArray()) {
+            element.sendKeys(String.valueOf(c)); // Send one character at a time
+            try {
+                Thread.sleep(delay); // Introduce delay
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
 }

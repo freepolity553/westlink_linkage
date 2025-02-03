@@ -20,6 +20,7 @@ import page.linkageAdministration.Users;
 import page.linkageVisual.Metrics;
 import page.login.Login;
 import page.mainPanel.Dashboard;
+import settings.Variables;
 import utilites.RandomValue;
 
 
@@ -34,6 +35,7 @@ public class TestBase {
     public Groups groups;
     public Organization organization;
     public RandomValue randomValue;
+    public Variables variables;
 
     public WebDriverWait wait;
 
@@ -78,6 +80,7 @@ public class TestBase {
         groups =  PageFactory.initElements(driver, Groups.class);
         randomValue = PageFactory.initElements(driver, RandomValue.class);
         organization= PageFactory.initElements(driver, Organization.class);
+        variables= PageFactory.initElements(driver, Variables.class);
 
 
     }

@@ -28,8 +28,9 @@ public class Dashboard extends BasePage {
     @Step(value = "Enter Dashboard ")
     public Dashboard enterDashboard (){
 
-//        wait.until(ExpectedConditions.elementToBeClickable(selectAPMBtn));
-        waitVisibility(selectAPMBtn);
+        wait.until(ExpectedConditions.elementToBeClickable(selectAPMBtn));
+//        waitVisibility(selectAPMBtn);
+        threadSleep(3000);
         click(selectAPMBtn);
 //        driver.get(Constants.URL_MAIN);
 

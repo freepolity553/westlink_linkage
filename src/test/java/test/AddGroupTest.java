@@ -29,12 +29,9 @@ public class AddGroupTest extends TestBase {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         dashboard.enterDashboard();
         users.enterUsersPage();
-        groups.enterGroupsPage();
+        groups.click(groups.groupsTab);
+//        groups.threadSleep(5000);
         groups.createGroup();
-
-//        users.click(users.editUser);
-//        users.pictureUpload();
-//        users.enterText(users.phone, users.randomInt(11));
         users.save();
 
     }
