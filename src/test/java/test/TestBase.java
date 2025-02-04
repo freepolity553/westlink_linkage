@@ -14,6 +14,7 @@ import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
+import page.SharedData;
 import page.linkageAdministration.Groups;
 import page.linkageAdministration.Organization;
 import page.linkageAdministration.Users;
@@ -36,6 +37,7 @@ public class TestBase {
     public Organization organization;
     public RandomValue randomValue;
     public Variables variables;
+    public SharedData data;
 
     public WebDriverWait wait;
 
@@ -80,7 +82,9 @@ public class TestBase {
         groups =  PageFactory.initElements(driver, Groups.class);
         randomValue = PageFactory.initElements(driver, RandomValue.class);
         organization= PageFactory.initElements(driver, Organization.class);
-        variables= PageFactory.initElements(driver, Variables.class);
+        variables = PageFactory.initElements(driver, Variables.class);
+        data = PageFactory.initElements(driver, SharedData.class);
+
 
 
     }

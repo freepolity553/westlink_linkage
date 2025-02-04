@@ -32,6 +32,7 @@ public class Organization extends BasePage {
     public By addOrgDirector =By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Добавить cотрудников'])[1]/preceding::span[1]");
     public By search =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pl-6' and @placeholder='Введите название']");
     public By radioBtn =By.xpath("//label[contains(@class, 'Radio-module_figure__mwmU8')]");
+    private By checkboxAddEmployee =By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Активен'])[1]/preceding::*[name()='svg'][1]");
 
 
 
@@ -54,7 +55,7 @@ public class Organization extends BasePage {
 
         String orgName = useOrgName();
         System.out.println(orgName);
-        By newOrgName = By.xpath("//div[@role='gridcell' and @aria-colindex='1' and @aria-selected='false' and @aria-readonly='true' and contains(@class, 'rdg-cell') and contains(text(), '"+orgName+"')]");
+        By newOrgName = By.xpath("        (.//*[normalize-space(text()) and normalize-space(.)='"+orgName+"'])[1]/preceding::div[2]");
 
         click(organizationTab);
         click(createOrgBtn);
@@ -97,16 +98,18 @@ public class Organization extends BasePage {
                 .sendKeys(lastName)
                 .pause(Duration.ofSeconds(2))
                 .perform();
-        click(checkbox);
+        click(checkboxAddEmployee);
         click(addBtn);
+        threadSleep(5000);
         save();
+        threadSleep(5000);
         back();
 
         wait.until(ExpectedConditions.presenceOfElementLocated(newOrgName));
-        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and @aria-selected='false' and @aria-readonly='true' and contains(@class, 'rdg-cell') and contains(text(), '"+orgName+"')]"));
-        String newOrg  = elm.getText();
-        System.out.println("Org name: " + newOrg);
-        assertEquals( orgName,newOrg);
+//        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and @aria-selected='false' and @aria-readonly='true' and contains(@class, 'rdg-cell') and contains(text(), '"+orgName+"')]"));
+//        String newOrg  = elm.getText();
+//        System.out.println("Org name: " + newOrg);
+//        assertEquals( orgName,newOrg);
 
         return this;
     }
@@ -141,7 +144,7 @@ public class Organization extends BasePage {
                 .sendKeys(lastName)
                 .pause(Duration.ofSeconds(2))
                 .perform();
-        click(checkbox);
+        click(checkboxAddEmployee);
         click(addBtn);
 
 

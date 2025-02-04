@@ -34,9 +34,10 @@ public class E2ETest extends TestBase {
         groups.back();
         organization.click(organization.organizationTab);
         organization.addOrg();
-
-        users.save();
         users.back();
+        users.click(dashboard.adminDashboard);
+        metrics.click(metrics.constructorMetrics);
+
 
     }
 }

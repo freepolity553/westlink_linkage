@@ -31,6 +31,16 @@ public class SharedData extends BasePage{
         return lastName;
     }
 
+    private static String metricName = "Показатель " + randomInt(3);
+    public static void setMetricName(String value) {
+        metricName = value;
+    }
+
+    // Getter for the extracted value
+    public static String getMetricName() {
+        return metricName;
+    }
+
     // Setter for the extracted value
 
 

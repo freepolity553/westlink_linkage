@@ -12,7 +12,6 @@ import static utilites.RandomValue.randomInt;
 
 public class CreateNewUserTest extends TestBase {
 
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
     @Epic("Testing")
     @Feature(value = "Feature")

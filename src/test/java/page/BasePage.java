@@ -85,6 +85,9 @@ public class BasePage {
     public void waitVisibility(By elementBy) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
     }
+    public void waitClickable(By elementBy) {
+        wait.until(ExpectedConditions.elementToBeClickable(elementBy));
+    }
 
     public void threadSleep(int length) {
         try {

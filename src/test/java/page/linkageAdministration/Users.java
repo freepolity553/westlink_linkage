@@ -26,13 +26,8 @@ public class Users extends BasePage {
     private By usersWidget =By.xpath("(//div[contains(.,'Пользователи')])[10]");
 
     public By usersTab =By.xpath("//button[@type='button']//span[contains(text(),'Пользователи')]");
-    public By organizationTab =By.xpath("//button[@type='button']//span[contains(text(),'Организации')]");
-    public By createOrgBtn =By.xpath("//button[contains(text(),'Создать организацию')]");
-    public By createOrgBtn1 =By.xpath("//div[@class='OrganisationBar_organisationBar__btns__wJN+C']");
 
     public By inputOrgName =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv' and @placeholder='Введите название организации']");
-
-
     public By searchModal =By.xpath("//input[contains(@placeholder,'Введите название')][@class='flex-grow InputText-module_input__GBLXv pl-6']");
     public By addUserBtn = By.xpath("//button[contains(text(),'Добавить пользователя')]");
     public By editUser =By.xpath("//*[@id=\"root\"]/div/div[5]/div[2]/div[1]/div[2]/div[10]/div/a");
