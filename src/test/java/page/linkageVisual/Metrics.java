@@ -21,13 +21,14 @@ public class Metrics extends BasePage {
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
     private By newMetricBtn =By.xpath("//button[contains(text(),'Создать показатель')]");
-    public By constructorMetrics =By.xpath("//div[contains(text(),'Конструктор показателей')]");
+    public By  constructorMetrics =By.xpath("//div[contains(text(),'Конструктор показателей')]");
 
     //Конструктор показателей
 
     private By addTableBtn =By.xpath("//span[@class='ml-3'][contains(.,'Добавить таблицу')]");
     private By inputMetricName =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv']");
     private By dataSourceList =By.xpath("//div[@class='Select-module_container__U1UI1 css-2b097c-container']");
+    private By dataSourceList1 = By.xpath("//input[@id='select-9']");
 
     private By sqlTextArea =By.xpath("//textarea[@class='pa-2 TextArea-module_textarea__zZCio TextArea-module_textarea__border--all__0fm5e' and @placeholder='Введите SQL запрос']");
 
@@ -37,15 +38,22 @@ public class Metrics extends BasePage {
     private By formulaTab =  (By.xpath("//button[@type='button'][contains(.,'Формула')]"));
 
     //Выбор показателя
-    //private By addMetricField =By.xpath("(//span[contains(.,'Добавить поля')])[1]");
+
     private By requestValidationBtn = By.xpath("//button[contains(text(),'Проверка запроса')]");
     private By addFlexFilterBtn = By.xpath("//span[contains(text(),'Добавить поля')]");
-    private By addFlexFilterName = By.id("input-992");
-    private By addFlexFilterColumn = By.id("input-993");
-    private By flexFilterTypeBtn = By.xpath("//div[@class='slct__indicators css-1wy0on6']");
-    private By flexFilterTypeSelection = By.xpath("//*/text()[normalize-space(.)='Текст']/parent::*");
-    private By selectStatusBtn = By.xpath("//button[contains(text(),'Черновик')]");
+    private By addFlexFilterName = By.xpath("//input[@id='input-10']");
+    private By addFlexFilterColumn = By.xpath("//input[@id='input-11']");
 
+    private By flexFilterType = By.xpath("//*/text()[normalize-space(.)='Тип']/parent::*");
+    private By flexFilterTypeSelection = By.xpath("//input[@id='select-13']");
+
+    private By selectStatusBtn = By.xpath("//button[contains(text(),'Черновик')]");
+    private By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
+
+    private By addWidget = By.xpath("//button[contains(text(),'Создать виджет')]");
+
+
+    //input[@id='input-992']
     //date
     private String dataSource = "Локальная витрина";
 
@@ -58,43 +66,32 @@ public class Metrics extends BasePage {
         return value;
     }
 
-//    @Step(value = "Enter Metrics ")
-//    public Metrics enterMetricsConstructor (){
-//        click(newMetricBtn);
-//        return this;
-//    }
-
     @Step(value = "Login with  {0} {1} ")
     public Metrics addSQLMetric (){
-        //WebElement dataSourceListElm = driver.findElement(By.xpath("//div[@class='Select-module_container__U1UI1 css-2b097c-container']"));
+
         click(newMetricBtn );
         click(sqlTab);
         enterText(inputMetricName,useMetricName());
-
         waitClickable(dataSourceList);
-        threadSleep(15000);
+        threadSleep(20000);
         click(dataSourceList);
-        WebElement clickable = driver.findElement(dataSourceList);
-        slowSendKeys(clickable,dataSource,100);
-        new Actions(driver)
-                .moveToElement(clickable)
-                .pause(Duration.ofSeconds(2))
-                .click()
-                .pause(Duration.ofSeconds(2))
-                .sendKeys(dataSource)
-                .pause(Duration.ofSeconds(2))
-                .perform();
-        //enterText(dataSourceList,dataSource);
+        WebElement clickable = driver.findElement(dataSourceList1);
+        clickable.sendKeys(dataSource);
         clickable.sendKeys(Keys.ENTER);
-        click(addTableBtn);
         enterText(sqlTextArea, Variables.sql);
         click(addFlexFilterBtn);
+        click(addFlexFilterName);
         enterText(addFlexFilterName,"Дата");
+        click(addFlexFilterColumn);
         enterText(addFlexFilterColumn,"date");
-        click(flexFilterTypeBtn);
-        click(flexFilterTypeSelection);
-        save();
+        click(flexFilterType);
+        enterText(flexFilterTypeSelection,"Дата");
+        pressEnter(flexFilterTypeSelection);
+        click(selectStatusBtn);
+        click(statusReadyForWork);
         click(requestValidationBtn);
+        save();
+        click(addWidget);
 
         return this;
     }
@@ -105,19 +102,6 @@ public class Metrics extends BasePage {
         isElementDisplayed(By.xpath("//button[@type='button'][contains(.,'Конструктор запроса')]"));
         isElementDisplayed(By.xpath("(//button[@type='button'][contains(.,'SQL-запрос')])[1]"));
         isElementDisplayed(By.xpath("//button[@type='button'][contains(.,'Формула')]"));
-
-        //
-//        isElementDisplayed(By.xpath("(//div[contains(.,'Конструктор дашбордов')])[9]"));
-//
-//        isElementDisplayed(By.xpath("(//div[contains(.,'Конструктор АРМ')])[9]"));
-//
-//        isElementDisplayed(By.xpath("//p[contains(.,'Linkage Data Platform (Платформа данных)')]"));
-//
-//        isElementDisplayed(By.xpath("//p[contains(.,'Linkage Administration (Администрирование)')]"));
-//
-//        isElementDisplayed(By.xpath("//p[contains(.,'Linkage Digital Twin (Цифровой двойник)')]"));
-//
-//        isElementDisplayed(By.xpath("//p[contains(.,'Linkage Configurator (Конфигуратор)')]"));
 
         return this;
     }

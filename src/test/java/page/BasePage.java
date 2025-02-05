@@ -2,6 +2,7 @@ package page;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -109,6 +110,13 @@ public class BasePage {
         WebElement element = driver.findElement(elementBy);
         element.clear();
         element.sendKeys(text);
+    }
+
+    //Send Keys method
+    public void  pressEnter (By elementBy) {
+        waitVisibility(elementBy);
+        WebElement element = driver.findElement(elementBy);
+        element.sendKeys(Keys.ENTER);
     }
 
     //Is element Displayed

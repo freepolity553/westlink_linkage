@@ -19,6 +19,7 @@ import page.linkageAdministration.Groups;
 import page.linkageAdministration.Organization;
 import page.linkageAdministration.Users;
 import page.linkageVisual.Metrics;
+import page.linkageVisual.Widgets;
 import page.login.Login;
 import page.mainPanel.Dashboard;
 import settings.Variables;
@@ -32,6 +33,7 @@ public class TestBase {
     public Login login;
     public Dashboard dashboard;
     public Metrics metrics;
+    public Widgets widgets;
     public Users users;
     public Groups groups;
     public Organization organization;
@@ -84,6 +86,7 @@ public class TestBase {
         organization= PageFactory.initElements(driver, Organization.class);
         variables = PageFactory.initElements(driver, Variables.class);
         data = PageFactory.initElements(driver, SharedData.class);
+        widgets = PageFactory.initElements(driver, Widgets.class);
 
 
 
