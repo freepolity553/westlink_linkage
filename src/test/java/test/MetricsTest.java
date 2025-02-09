@@ -4,7 +4,7 @@ import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import settings.Constants;
 
-import java.time.Duration;
+//import java.time.Duration;
 
 
 public class MetricsTest extends TestBase {

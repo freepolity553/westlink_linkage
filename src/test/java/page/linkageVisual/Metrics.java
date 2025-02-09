@@ -7,45 +7,51 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import page.BasePage;
+
+import page.SharedData;
 import settings.Variables;
 
 import java.time.Duration;
 
 import static page.SharedData.getMetricName;
 
+
 public class Metrics extends BasePage {
     public Metrics(WebDriver driver) {
         super(driver);
     }
-    @Attachment(value = "Failed test screenshot")
-    public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
-    private By newMetricBtn =By.xpath("//button[contains(text(),'Создать показатель')]");
-    public By  constructorMetrics =By.xpath("//div[contains(text(),'Конструктор показателей')]");
+    @Attachment(value = "Failed test screenshot")
+    public byte[] attachScreenshot() {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
+
+    private By newMetricBtn = By.xpath("//button[contains(text(),'Создать показатель')]");
+    public By constructorMetrics = By.xpath("//div[contains(text(),'Конструктор показателей')]");
 
     //Конструктор показателей
 
-    private By addTableBtn =By.xpath("//span[@class='ml-3'][contains(.,'Добавить таблицу')]");
-    private By inputMetricName =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv']");
-    private By dataSourceList =By.xpath("//div[@class='Select-module_container__U1UI1 css-2b097c-container']");
-    private By dataSourceList1 = By.xpath("//input[@id='select-9']");
+    private By addTableBtn = By.xpath("//span[@class='ml-3'][contains(.,'Добавить таблицу')]");
+    private By inputMetricName = By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv']");
+    private By dataSourceList = By.xpath("//div[@class='Select-module_container__U1UI1 css-2b097c-container']");
+    private By dataSourceList1 = By.xpath("//div[@id='root']/div/div[4]/div[2]/div[2]/div/div/div/div/div/input");
 
-    private By sqlTextArea =By.xpath("//textarea[@class='pa-2 TextArea-module_textarea__zZCio TextArea-module_textarea__border--all__0fm5e' and @placeholder='Введите SQL запрос']");
+    private By sqlTextArea = By.xpath("//textarea[@class='pa-2 TextArea-module_textarea__zZCio TextArea-module_textarea__border--all__0fm5e' and @placeholder='Введите SQL запрос']");
 
     //Вкладки
     private By constructorRequestTab = (By.xpath("//button[@type='button'][contains(.,'Конструктор запроса')]"));
     private By sqlTab = (By.xpath("(//button[@type='button'][contains(.,'SQL-запрос')])[1]"));
-    private By formulaTab =  (By.xpath("//button[@type='button'][contains(.,'Формула')]"));
+    private By formulaTab = (By.xpath("//button[@type='button'][contains(.,'Формула')]"));
 
     //Выбор показателя
 
     private By requestValidationBtn = By.xpath("//button[contains(text(),'Проверка запроса')]");
     private By addFlexFilterBtn = By.xpath("//span[contains(text(),'Добавить поля')]");
-    private By addFlexFilterName = By.xpath("//input[@id='input-10']");
-    private By addFlexFilterColumn = By.xpath("//input[@id='input-11']");
+    private By addFlexFilterName = By.xpath("//div[1]/div/div[6]/div[2]/div/div/div[1]/div/input");
+    private By addFlexFilterColumn = By.xpath("//div[1]/div/div[6]/div[2]/div/div/div[2]/div/input");
 
     private By flexFilterType = By.xpath("//*/text()[normalize-space(.)='Тип']/parent::*");
-    private By flexFilterTypeSelection = By.xpath("//input[@id='select-13']");
+    private By flexFilterTypeSelection = By.xpath("//div[6]/div[2]/div/div/div[3]/div/div/div/div/div/div/input");
 
     private By selectStatusBtn = By.xpath("//button[contains(text(),'Черновик')]");
     private By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
@@ -66,6 +72,9 @@ public class Metrics extends BasePage {
         return value;
     }
 
+
+
+
     @Step(value = "Login with  {0} {1} ")
     public Metrics addSQLMetric (){
 
@@ -73,11 +82,11 @@ public class Metrics extends BasePage {
         click(sqlTab);
         enterText(inputMetricName,useMetricName());
         waitClickable(dataSourceList);
-        threadSleep(20000);
+        threadSleep(12000);
         click(dataSourceList);
-        WebElement clickable = driver.findElement(dataSourceList1);
-        clickable.sendKeys(dataSource);
-        clickable.sendKeys(Keys.ENTER);
+        WebElement db = driver.findElement(dataSourceList1);
+        db.sendKeys(dataSource);
+        db.sendKeys(Keys.ENTER);
         enterText(sqlTextArea, Variables.sql);
         click(addFlexFilterBtn);
         click(addFlexFilterName);
@@ -106,9 +115,3 @@ public class Metrics extends BasePage {
         return this;
     }
 }
-
-
-
-
-
-

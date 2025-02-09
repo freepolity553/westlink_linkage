@@ -55,7 +55,7 @@ public class Organization extends BasePage {
 
         String orgName = useOrgName();
         System.out.println(orgName);
-        By newOrgName = By.xpath("        (.//*[normalize-space(text()) and normalize-space(.)='"+orgName+"'])[1]/preceding::div[2]");
+        By newOrgName = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='"+orgName+"'])[1]/preceding::div[2]");
 
         click(organizationTab);
         click(createOrgBtn);
@@ -104,7 +104,7 @@ public class Organization extends BasePage {
         save();
         threadSleep(5000);
         back();
-
+        threadSleep(10000);
         wait.until(ExpectedConditions.presenceOfElementLocated(newOrgName));
 //        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and @aria-selected='false' and @aria-readonly='true' and contains(@class, 'rdg-cell') and contains(text(), '"+orgName+"')]"));
 //        String newOrg  = elm.getText();

@@ -44,6 +44,8 @@ public class TestBase {
     public WebDriverWait wait;
 
 
+
+
     @BeforeClass
     public void setUp() {
 
@@ -87,6 +89,7 @@ public class TestBase {
         variables = PageFactory.initElements(driver, Variables.class);
         data = PageFactory.initElements(driver, SharedData.class);
         widgets = PageFactory.initElements(driver, Widgets.class);
+
 
 
 

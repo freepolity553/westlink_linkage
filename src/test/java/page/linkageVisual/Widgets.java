@@ -40,17 +40,16 @@ public class Widgets extends BasePage {
     private By addMetric = By.xpath("//button[contains(text(),'Вставить')]");
 
     private By refreshField = By.xpath("//input[@id='input-67']");
+    private By stayInConstractorBtn  =By.xpath("//button[@class='Button-module_main__lxsaF btnOutlinePrimary ConfirmationModal_btn__uOPAs']");
 
-
-
-    private By addFlexFilterName = By.xpath("//input[@id='input-10']");
-    private By addFlexFilterColumn = By.xpath("//input[@id='input-11']");
-
-    private By flexFilterType = By.xpath("//*/text()[normalize-space(.)='Тип']/parent::*");
-    private By flexFilterTypeSelection = By.xpath("//input[@id='select-13']");
+    private By statusSavedWidget  =By.xpath("//p[@class='WidgetTopBar_attention__nameDone__m1cSM']");
 
     private By selectStatusBtn = By.xpath("//button[contains(text(),'Черновик')]");
     private By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
+
+
+
+
 
 
     //input[@id='input-992']
@@ -97,6 +96,7 @@ public class Widgets extends BasePage {
         click(selectStatusBtn);
         click(statusReadyForWork);
         save();
+        click(stayInConstractorBtn);
 
         return this;
     }
