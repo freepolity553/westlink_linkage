@@ -1,8 +1,6 @@
 package test;
 
 import io.qameta.allure.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import settings.Constants;
@@ -28,7 +26,7 @@ public class CreateOrgTest extends TestBase {
     public void  createOrgTest() {
 
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
-        dashboard.enterDashboard();
+        mainPanel.enterDashboard();
         users.enterUsersPage();
         organization.addOrg();
 //        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and contains(@class, 'rdg-cell')]"));

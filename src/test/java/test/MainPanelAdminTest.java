@@ -8,7 +8,7 @@ import settings.Constants;
 import java.time.Duration;
 
 
-public class DashboardAdminTest extends TestBase {
+public class MainPanelAdminTest extends TestBase {
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
@@ -23,9 +23,9 @@ public class DashboardAdminTest extends TestBase {
     public void  loginAdminTest() {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         login.checkAllElementsOnPagePresent();
-        dashboard.enterDashboard();
+        mainPanel.enterDashboard();
         driver.navigate().to(Constants.URL_AUTH_DEMO);
-        dashboard.checkAllElementsOnDashboardPresent();
+        mainPanel.checkAllElementsOnDashboardPresent();
     }
 
 }

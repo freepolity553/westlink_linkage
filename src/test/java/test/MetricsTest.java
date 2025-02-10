@@ -20,7 +20,7 @@ public class MetricsTest extends TestBase {
     @Step("")
     public void  addMetricRequestTest() {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
-        dashboard.enterDashboard();
+        mainPanel.enterDashboard();
         metrics.click(metrics.constructorMetrics);
         metrics.addSQLMetric();
 

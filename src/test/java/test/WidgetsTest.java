@@ -18,7 +18,7 @@ public class WidgetsTest extends TestBase {
     @Step("")
     public void  addTableWidgetTest() {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
-        dashboard.enterDashboard();
+        mainPanel.enterDashboard();
         widgets.click(widgets.constructorWidgets);
         widgets.addTableWidget();
 

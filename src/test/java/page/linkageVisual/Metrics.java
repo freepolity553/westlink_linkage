@@ -53,14 +53,12 @@ public class Metrics extends BasePage {
     private By flexFilterType = By.xpath("//*/text()[normalize-space(.)='Тип']/parent::*");
     private By flexFilterTypeSelection = By.xpath("//div[6]/div[2]/div/div/div[3]/div/div/div/div/div/div/input");
 
-    private By selectStatusBtn = By.xpath("//button[contains(text(),'Черновик')]");
-    private By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
+//    private By selectStatusBtn = By.xpath("//button[contains(text(),'Черновик')]");
+//    private By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
 
     private By addWidget = By.xpath("//button[contains(text(),'Создать виджет')]");
+    private By stayInConstractorBtn  =By.xpath("//button[@class='Button-module_main__lxsaF btnOutlinePrimary ConfirmationModal_btn__uOPAs']");
 
-
-    //input[@id='input-992']
-    //date
     private String dataSource = "Локальная витрина";
 
 
@@ -96,11 +94,12 @@ public class Metrics extends BasePage {
         click(flexFilterType);
         enterText(flexFilterTypeSelection,"Дата");
         pressEnter(flexFilterTypeSelection);
-        click(selectStatusBtn);
+        threadSleep(2000);
+        click(draftBtn);
         click(statusReadyForWork);
         click(requestValidationBtn);
         save();
-        click(addWidget);
+        click(stayInConstractorBtn);
 
         return this;
     }

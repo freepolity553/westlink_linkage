@@ -5,10 +5,9 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import page.BasePage;
-import settings.Constants;
 
-public class Dashboard extends BasePage {
-    public Dashboard(WebDriver driver) {
+public class MainPanel extends BasePage {
+    public MainPanel(WebDriver driver) {
         super(driver);
     }
     @Attachment(value = "Failed test screenshot")
@@ -25,8 +24,8 @@ public class Dashboard extends BasePage {
 
 
 
-    @Step(value = "Enter Dashboard ")
-    public Dashboard enterDashboard (){
+    @Step(value = "Enter MainPanel ")
+    public MainPanel enterDashboard (){
 
         wait.until(ExpectedConditions.elementToBeClickable(selectAPMBtn));
 //        waitVisibility(selectAPMBtn);
@@ -40,13 +39,13 @@ public class Dashboard extends BasePage {
     }
 
     @Step(value = "Enter Profile ")
-    public Dashboard enterProfile (){
+    public MainPanel enterProfile (){
         waitVisibility(avatar);
         click(avatar);
         return this;
     }
-    @Step(value = "Check elements of Dashboard page")
-    public Dashboard  checkAllElementsOnDashboardPresent() {
+    @Step(value = "Check elements of MainPanel page")
+    public MainPanel checkAllElementsOnDashboardPresent() {
         isElementDisplayed(By.xpath("//a[@class='BreadCrumbs_link__LlVJc'][contains(.,'АРМ Администратора')]"));
         isElementDisplayed(By.xpath("//a[@class='BreadCrumbs_link__LlVJc'][contains(.,'Панель административного управления')]"));
         isElementDisplayed(By.xpath("//a[@aria-current='page'][contains(.,'Панель администратора')]"));

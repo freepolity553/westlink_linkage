@@ -22,7 +22,7 @@ public class EditUserTest extends TestBase {
     @Step("login")
     public void  editUserTest() {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
-        dashboard.enterDashboard();
+        mainPanel.enterDashboard();
         users.enterUsersPage();
         users.enterText(users.searchModal,"Пользователь Тестирования");
         users.click(users.editUser);

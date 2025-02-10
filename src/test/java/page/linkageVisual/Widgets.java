@@ -5,14 +5,12 @@ import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import page.BasePage;
-import page.SharedData;
-import page.linkageAdministration.Groups;
-import settings.Variables;
+
 
 import java.util.List;
 
-import static page.SharedData.getMetricName;
-import static page.SharedData.getWidgetName;
+import static page.SharedData.getWidgetDiagrammeName;
+import static page.SharedData.getWidgetTableName;
 
 public class Widgets extends BasePage {
     public Widgets(WebDriver driver) {
@@ -39,13 +37,13 @@ public class Widgets extends BasePage {
 
     private By addMetric = By.xpath("//button[contains(text(),'Вставить')]");
 
-    private By refreshField = By.xpath("//input[@id='input-67']");
+    private By refreshField = By.xpath("//div[3]/div[1]/div[2]/div[2]/div[8]/div[2]/div/div/div/input");
     private By stayInConstractorBtn  =By.xpath("//button[@class='Button-module_main__lxsaF btnOutlinePrimary ConfirmationModal_btn__uOPAs']");
 
     private By statusSavedWidget  =By.xpath("//p[@class='WidgetTopBar_attention__nameDone__m1cSM']");
 
-    private By selectStatusBtn = By.xpath("//button[contains(text(),'Черновик')]");
-    private By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
+//    private By selectDraftBtn = By.xpath("//button[contains(text(),'Черновик')]");
+//    private By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
 
 
 
@@ -57,9 +55,17 @@ public class Widgets extends BasePage {
     private String dataSource = "Локальная витрина";
 
 
-    public String useWidgetName() {
+    public String useWidgetTableName() {
         // Retrieve the extracted value from the shared class
-        String value = getWidgetName();
+        String value = getWidgetTableName();
+
+        // Perform actions with the extracted value (e.g., enter it into another field)
+        return value;
+    }
+
+    public String useWidgetDiagrammeName() {
+        // Retrieve the extracted value from the shared class
+        String value = getWidgetDiagrammeName();
 
         // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
@@ -77,6 +83,19 @@ public class Widgets extends BasePage {
             }
         }
     }
+    public void setDiagrammeSelection() {
+        WebElement ulElement = driver.findElement(By.xpath("//ul[@class='SelectWidgetType_dropDownChildWrapper__xB01v']"));
+        // Find all <li> elements within the parent
+        List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
+
+        // Iterate through the <li> elements and click on a specific one
+        for (WebElement li : liElements) {
+            if (li.getText().equals("Диаграмма области")) {
+                li.click(); // Click the <li> element
+                break; // Exit the loop after clicking
+            }
+        }
+    }
 
 
     @Step(value = "Login with  {0} {1} ")
@@ -87,13 +106,37 @@ public class Widgets extends BasePage {
         click(newWidgetBtn );
         click(selectGraph);
         setGraphTableSelection();
-        enterText(inputWidgetName,useWidgetName());
+        enterText(inputWidgetName,useWidgetTableName());
         click(addMetricBtn);
         enterText(searchForMetric, metricName);
         click(metric);
         click(addMetric);
         enterText(refreshField,"5");
-        click(selectStatusBtn);
+        threadSleep(2000);
+        click(draftBtn);
+        click(statusReadyForWork);
+        save();
+        click(stayInConstractorBtn);
+
+        return this;
+    }
+
+    @Step(value = "Login with  {0} {1} ")
+    public Widgets addDiagrammeWidget (){
+        Metrics m = new Metrics(driver);
+        String metricName = m.useMetricName();
+
+        click(newWidgetBtn );
+        click(selectGraph);
+        setDiagrammeSelection();
+        enterText(inputWidgetName,useWidgetDiagrammeName());
+        click(addMetricBtn);
+        enterText(searchForMetric, metricName);
+        click(metric);
+        click(addMetric);
+        enterText(refreshField,"5");
+        threadSleep(2000);
+        click(draftBtn);
         click(statusReadyForWork);
         save();
         click(stayInConstractorBtn);

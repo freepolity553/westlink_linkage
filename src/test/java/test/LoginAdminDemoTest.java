@@ -28,8 +28,8 @@ public class LoginAdminDemoTest extends TestBase {
 
     }
     @Test(description = "Login",priority = 2)
-    @Step("login into Admin Dashboard")
+    @Step("login into Admin MainPanel")
     public void  loginDashboardTest() {
-        dashboard.enterDashboard();
+        mainPanel.enterDashboard();
     }
 }

@@ -1,9 +1,5 @@
 package page;
 
-import java.util.function.Supplier;
-
-import static utilites.RandomValue.randomInt;
-
 public class SharedData extends BasePage {
 
     private static String groupName = "Авто Группа-" + randomInt(4);
@@ -49,15 +45,33 @@ public class SharedData extends BasePage {
         return metricName;
     }
 
-    private static String widgetName = "Виджет " + randomInt(3);
+    private static String widgetTableName = "Виджет(Таблица) " + randomInt(3);
+    public static void setWidgetTableName(String value) {
+        widgetTableName = value;
+    }
+    // Getter for the extracted value
+    public static String getWidgetTableName() {
+        return widgetTableName;
+    }
 
-    public static void setWidgetName(String value) {
-        widgetName = value;
+    private static String widgetDiagrammeName = "Виджет(Диаграмма) " + randomInt(3);
+    public static void setWidgetDiagrammeName(String value) {
+        widgetDiagrammeName = value;
     }
 
     // Getter for the extracted value
-    public static String getWidgetName() {
-        return widgetName;
+    public static String getWidgetDiagrammeName() {
+        return widgetDiagrammeName;
+    }
+
+    private static String dashboardName = "Дашборд " + randomInt(3);
+    public static void setDashboardName(String value) {
+        dashboardName = value;
+    }
+
+    // Getter for the extracted value
+    public static String getDashboardName() {
+        return dashboardName;
     }
     // Setter for the extracted value
 }

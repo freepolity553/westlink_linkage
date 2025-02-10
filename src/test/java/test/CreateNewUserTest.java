@@ -1,13 +1,8 @@
 package test;
 
 import io.qameta.allure.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import settings.Constants;
-
-import java.time.Duration;
-
-import static utilites.RandomValue.randomInt;
 
 
 public class CreateNewUserTest extends TestBase {
@@ -23,7 +18,7 @@ public class CreateNewUserTest extends TestBase {
     @Step("login")
     public void  createNewUserTest() {
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
-        dashboard.enterDashboard();
+        mainPanel.enterDashboard();
         users.enterUsersPage();
         users.click(users.addUserBtn);
         users.pictureUpload();

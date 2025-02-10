@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.time.Duration;
 
-import static org.apache.poi.hssf.record.FtPioGrbitSubRecord.length;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -27,11 +26,14 @@ public class BasePage {
     }
 
     private By addBtn =By.xpath("//button[@class='Button-module_main__lxsaF btnPrimary mr-2'][contains(.,'Добавить')]");
-    private By saveBtn =By.xpath("//button[contains(text(),'Сохранить')]");
+    private By saveBtn =By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary']");
 
     public By  search =By.xpath("//input[contains(@placeholder,'Введите название')]");
     public By checkbox =By.xpath("//label[@class='Checkbox-module_label__JBaRm']");
     private By backArrow =By.cssSelector("svg.ArrowBack_icon__EvMez");
+
+    public By draftBtn = By.xpath("//button[contains(text(),'Черновик')]");
+    public By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
 
 
     public BasePage() {

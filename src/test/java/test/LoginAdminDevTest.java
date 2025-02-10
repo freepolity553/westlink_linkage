@@ -33,9 +33,9 @@ public class LoginAdminDevTest extends TestBase {
 
     }
     @Test(description = "Login",priority = 2)
-    @Step("login into Admin Dashboard")
+    @Step("login into Admin MainPanel")
     public void  loginDashboardTest() {
         driver.findElement(By.xpath("//p[@class='SelectARM_cardName__ARdPm'][contains(.,'АРМ Администратора')]")).click();
-        //dashboard.enterDashboard();
+        //mainPanel.enterDashboard();
     }
 }

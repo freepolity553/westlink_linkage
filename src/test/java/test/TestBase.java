@@ -1,16 +1,10 @@
 package test;
 
-import constants.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.html5.LocalStorage;
-import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -18,10 +12,11 @@ import page.SharedData;
 import page.linkageAdministration.Groups;
 import page.linkageAdministration.Organization;
 import page.linkageAdministration.Users;
+import page.linkageVisual.Dashboards;
 import page.linkageVisual.Metrics;
 import page.linkageVisual.Widgets;
 import page.login.Login;
-import page.mainPanel.Dashboard;
+import page.mainPanel.MainPanel;
 import settings.Variables;
 import utilites.RandomValue;
 
@@ -31,12 +26,13 @@ public class TestBase {
 
     public WebDriver driver;
     public Login login;
-    public Dashboard dashboard;
+    public MainPanel mainPanel;
     public Metrics metrics;
     public Widgets widgets;
     public Users users;
     public Groups groups;
     public Organization organization;
+    public Dashboards dashboards;
     public RandomValue randomValue;
     public Variables variables;
     public SharedData data;
@@ -80,7 +76,7 @@ public class TestBase {
 
 
         login = PageFactory.initElements(driver,Login.class);
-        dashboard = PageFactory.initElements(driver, Dashboard.class);
+        mainPanel = PageFactory.initElements(driver, MainPanel.class);
         metrics =  PageFactory.initElements(driver, Metrics.class);
         users =  PageFactory.initElements(driver, Users.class);
         groups =  PageFactory.initElements(driver, Groups.class);
@@ -89,7 +85,7 @@ public class TestBase {
         variables = PageFactory.initElements(driver, Variables.class);
         data = PageFactory.initElements(driver, SharedData.class);
         widgets = PageFactory.initElements(driver, Widgets.class);
-
+        dashboards = PageFactory.initElements(driver, Dashboards.class);
 
 
 
