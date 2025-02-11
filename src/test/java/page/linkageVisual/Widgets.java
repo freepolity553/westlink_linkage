@@ -42,10 +42,12 @@ public class Widgets extends BasePage {
 
     private By statusSavedWidget  =By.xpath("//p[@class='WidgetTopBar_attention__nameDone__m1cSM']");
 
-//    private By selectDraftBtn = By.xpath("//button[contains(text(),'Черновик')]");
-//    private By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
+    private By metricSettingsBtn = By.xpath("//button[contains(text(),'Настройки показателей')]");
 
+    private By transferWidget  =By.xpath("//div[@id='root']/div/div[3]/div/div[2]/div[2]/div/div[2]/div/div[14]/div[2]/div/div[2]/label");
+    private By searchForWidget =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv SelectInfiniteCore_inputClass__GpexQ pr-6' and @placeholder='Выберите виджет']");
 
+    private By selectTransferWidget = By.xpath("//div[2]/div[2]/div[2]/div[2]/div/p");
 
 
 
@@ -135,6 +137,11 @@ public class Widgets extends BasePage {
         click(metric);
         click(addMetric);
         enterText(refreshField,"5");
+        click(metricSettingsBtn);
+        click(transferWidget);
+        enterText(searchForWidget, useWidgetTableName());
+        threadSleep(2000);
+        click(selectTransferWidget);
         threadSleep(2000);
         click(draftBtn);
         click(statusReadyForWork);

@@ -87,20 +87,20 @@ public class Organization extends BasePage {
         click(radioBtn);
         click(addBtn);
 
-        waitVisibility(addOrgUser);
-        click(addOrgUser);
-        WebElement clickable1 = driver.findElement(search);
-        new Actions(driver)
-                .moveToElement(clickable1)
-                .pause(Duration.ofSeconds(2))
-                .click()
-                .pause(Duration.ofSeconds(2))
-                .sendKeys(lastName)
-                .pause(Duration.ofSeconds(2))
-                .perform();
-        click(checkboxAddEmployee);
-        click(addBtn);
-        threadSleep(5000);
+//        waitVisibility(addOrgUser);
+//        click(addOrgUser);
+//        WebElement clickable1 = driver.findElement(search);
+//        new Actions(driver)
+//                .moveToElement(clickable1)
+//                .pause(Duration.ofSeconds(2))
+//                .click()
+//                .pause(Duration.ofSeconds(2))
+//                .sendKeys(lastName)
+//                .pause(Duration.ofSeconds(2))
+//                .perform();
+//        click(checkboxAddEmployee);
+//        click(addBtn);
+        threadSleep(3000);
         save();
         threadSleep(5000);
         back();

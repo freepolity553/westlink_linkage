@@ -173,7 +173,7 @@ public class Groups extends BasePage {
 //        click(permisionSelectionBtn);
 //        click(permisionUser);
 
-
+        threadSleep(2000);
         save();
         back();
 

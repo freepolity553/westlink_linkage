@@ -32,9 +32,26 @@ public class Dashboards extends BasePage {
 
 
 
+
+
+
     private By checkboxWidget = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Поиск по названию'])[1]/following::*[name()='svg'][2]");
 
     private By addWidgetModalBtn = By.xpath("//button[contains(text(),'Добавить на холст')]");
+
+    private By addFilteringBtn = By.xpath("//div[@class='FiltersData_filterData__qnQxY']");
+
+    private By dataFilter = By.xpath("//span[@class='ButtonFilter_label__t8Ut2']");
+
+    private By selectOperation = By.xpath("//div[@class='slct__value-container slct__value-container--has-value css-1hwfws3']");
+
+    private By enterDate =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pr-6']");
+
+    private By datePicker = By.xpath("//div[@class='InputText-module_icon__8XMHv InputText-module_icon_inner__dPCVH InputText-module_icon_inner_right__cJwjN']");
+
+
+    private By oper = By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary mr-2']");
+
 
     private String dataSource = "Локальная витрина";
 
@@ -99,7 +116,26 @@ public class Dashboards extends BasePage {
 
         return this;
     }
+    @Step(value = "Login with  {0} {1} ")
+    public Dashboards addFiltering(){
+        click(addFilteringBtn);
+        click(checkbox);
+        click(oper);
+        threadSleep(2000);
+        click(dataFilter);
+        threadSleep(2000);
+        click(selectOperation);
+        driver.findElement(By.xpath("//*/text()[normalize-space(.)='Равно']/parent::*")).click();
+        click(datePicker);
+        click(By.xpath("//button[contains(text(),'Готово')]"));
+        click(By.xpath("//button[contains(text(),'Применить')]"));
 
+
+
+
+
+        return this;
+    }
 
     @Step(value = "Check elements of Dashboard page")
     public Dashboards checkAllElementsOnPagePresent() {

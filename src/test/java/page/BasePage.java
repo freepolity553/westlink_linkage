@@ -26,7 +26,7 @@ public class BasePage {
     }
 
     private By addBtn =By.xpath("//button[@class='Button-module_main__lxsaF btnPrimary mr-2'][contains(.,'Добавить')]");
-    private By saveBtn =By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary']");
+    private By saveBtn =By.xpath("//button[contains(text(),'Сохранить')]");
 
     public By  search =By.xpath("//input[contains(@placeholder,'Введите название')]");
     public By checkbox =By.xpath("//label[@class='Checkbox-module_label__JBaRm']");
@@ -36,23 +36,28 @@ public class BasePage {
     public By statusReadyForWork = By.xpath("//div[contains(text(),'Готов к работе')]");
 
 
+
+
+
+
+
     public BasePage() {
 
     }
-//    //Кнопка Добавить
-//    public void back() {
-//        waitVisibility(backArrow);
-//        WebElement element = driver.findElement(backArrow);
-//        element.click();
-//    }
+    //Кнопка Добавить
     public void back() {
-        WebElement backArrow = driver.findElement(By.cssSelector("svg.ArrowBack_icon__EvMez"));
-        new Actions(driver)
-                .moveToElement(backArrow)
-                .pause(Duration.ofSeconds(1))
-                .click()
-                .perform();
+        waitVisibility(backArrow);
+        WebElement element = driver.findElement(backArrow);
+        element.click();
     }
+//    public void back() {
+//        WebElement backArrow = driver.findElement(By.cssSelector("svg.ArrowBack_icon__EvMez"));
+//        new Actions(driver)
+//                .moveToElement(backArrow)
+//                .pause(Duration.ofSeconds(1))
+//                .click()
+//                .perform();
+//    }
 
     //Add randomInt
     public static String randomInt(int length) {

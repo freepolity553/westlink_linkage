@@ -73,6 +73,18 @@ public class SharedData extends BasePage {
     public static String getDashboardName() {
         return dashboardName;
     }
+    private static String workstationName = "АРМ " + randomInt(3);
+    public static void setWorkstationName(String value) {
+        workstationName = value;
+    }
+
+    // Getter for the extracted value
+    public static String getWorkstationName() {
+        return workstationName;
+    }
+
+
+
     // Setter for the extracted value
 }
 

@@ -83,7 +83,8 @@ public class Metrics extends BasePage {
         threadSleep(12000);
         click(dataSourceList);
         WebElement db = driver.findElement(dataSourceList1);
-        db.sendKeys(dataSource);
+        slowSendKeys(db, dataSource, 50); // 100ms delay between characters
+//        db.sendKeys(dataSource);
         db.sendKeys(Keys.ENTER);
         enterText(sqlTextArea, Variables.sql);
         click(addFlexFilterBtn);
@@ -94,11 +95,13 @@ public class Metrics extends BasePage {
         click(flexFilterType);
         enterText(flexFilterTypeSelection,"Дата");
         pressEnter(flexFilterTypeSelection);
-        threadSleep(2000);
+        threadSleep(3000);
         click(draftBtn);
         click(statusReadyForWork);
         click(requestValidationBtn);
+        threadSleep(2000);
         save();
+        threadSleep(5000);
         click(stayInConstractorBtn);
 
         return this;

@@ -15,6 +15,7 @@ import page.linkageAdministration.Users;
 import page.linkageVisual.Dashboards;
 import page.linkageVisual.Metrics;
 import page.linkageVisual.Widgets;
+import page.linkageVisual.Workstation;
 import page.login.Login;
 import page.mainPanel.MainPanel;
 import settings.Variables;
@@ -36,7 +37,7 @@ public class TestBase {
     public RandomValue randomValue;
     public Variables variables;
     public SharedData data;
-
+    public Workstation workstation;
     public WebDriverWait wait;
 
 
@@ -86,7 +87,7 @@ public class TestBase {
         data = PageFactory.initElements(driver, SharedData.class);
         widgets = PageFactory.initElements(driver, Widgets.class);
         dashboards = PageFactory.initElements(driver, Dashboards.class);
-
+        workstation = PageFactory.initElements(driver, Workstation.class);
 
 
     }

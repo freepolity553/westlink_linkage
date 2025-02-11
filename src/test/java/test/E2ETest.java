@@ -1,6 +1,7 @@
 package test;
 
 import io.qameta.allure.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import settings.Constants;
@@ -33,19 +34,21 @@ public class E2ETest extends TestBase {
 //        groups.back();
 //        organization.click(organization.organizationTab);
 //        organization.addOrg();
-//        users.back();
-        users.click(mainPanel.adminDashboard);
-        metrics.click(metrics.constructorMetrics);
-        metrics.addSQLMetric();
+//        users.click(mainPanel.adminDashboard);
+//        metrics.click(metrics.constructorMetrics);
+//        metrics.addSQLMetric();
+//        metrics.click(mainPanel.adminDashboard);
+//        widgets.click(widgets.constructorWidgets);
+//        widgets.addTableWidget();
+//        metrics.click(mainPanel.adminDashboard);
+//        widgets.click(widgets.constructorWidgets);
+//        widgets.addDiagrammeWidget();
         metrics.click(mainPanel.adminDashboard);
-        widgets.click(widgets.constructorWidgets);
-        widgets.addTableWidget();
-        metrics.click(mainPanel.adminDashboard);
-        widgets.click(widgets.constructorWidgets);
-        widgets.addDiagrammeWidget();
-        metrics.click(mainPanel.adminDashboard);
+
         dashboards.click(dashboards.constructorDashboards);
-        dashboards.addDashboard();
+        dashboards.click(By.xpath("//div[@class='DashboardsTable_wrapper__o4bIb']//div[2]//div[1]//div[1]//div[1]"));
+        dashboards.addFiltering();
+//        dashboards.addDashboard();
 
 
 
