@@ -111,12 +111,18 @@ public class Dashboards extends BasePage {
         click(addWidgetModalBtn);
         threadSleep(2000);
         click(draftBtn);
+        threadSleep(2000);
         click(statusReadyForWork);
+        threadSleep(2000);
         save();
+        threadSleep(3000);
+        refresh();
+        threadSleep(3000);
+        back();
 
         return this;
     }
-    @Step(value = "Login with  {0} {1} ")
+    @Step(value = " ")
     public Dashboards addFiltering(){
         click(addFilteringBtn);
         click(checkbox);
@@ -129,8 +135,6 @@ public class Dashboards extends BasePage {
         click(datePicker);
         click(By.xpath("//button[contains(text(),'Готово')]"));
         click(By.xpath("//button[contains(text(),'Применить')]"));
-
-
 
 
 

@@ -38,7 +38,7 @@ public class Widgets extends BasePage {
     private By addMetric = By.xpath("//button[contains(text(),'Вставить')]");
 
     private By refreshField = By.xpath("//div[3]/div[1]/div[2]/div[2]/div[8]/div[2]/div/div/div/input");
-    private By stayInConstractorBtn  =By.xpath("//button[@class='Button-module_main__lxsaF btnOutlinePrimary ConfirmationModal_btn__uOPAs']");
+    private By stayInConstructorBtn =By.xpath("//button[@class='Button-module_main__lxsaF btnOutlinePrimary ConfirmationModal_btn__uOPAs']");
 
     private By statusSavedWidget  =By.xpath("//p[@class='WidgetTopBar_attention__nameDone__m1cSM']");
 
@@ -48,13 +48,6 @@ public class Widgets extends BasePage {
     private By searchForWidget =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv SelectInfiniteCore_inputClass__GpexQ pr-6' and @placeholder='Выберите виджет']");
 
     private By selectTransferWidget = By.xpath("//div[2]/div[2]/div[2]/div[2]/div/p");
-
-
-
-
-    //input[@id='input-992']
-    //date
-    private String dataSource = "Локальная витрина";
 
 
     public String useWidgetTableName() {
@@ -118,12 +111,14 @@ public class Widgets extends BasePage {
         click(draftBtn);
         click(statusReadyForWork);
         save();
-        click(stayInConstractorBtn);
+        threadSleep(3000);
+        click(stayInConstructorBtn);
+        back();
 
         return this;
     }
 
-    @Step(value = "Login with  {0} {1} ")
+    @Step(value = " ")
     public Widgets addDiagrammeWidget (){
         Metrics m = new Metrics(driver);
         String metricName = m.useMetricName();
@@ -146,7 +141,9 @@ public class Widgets extends BasePage {
         click(draftBtn);
         click(statusReadyForWork);
         save();
-        click(stayInConstractorBtn);
+        threadSleep(2000);
+        click(stayInConstructorBtn);
+        back();
 
         return this;
     }

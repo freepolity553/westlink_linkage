@@ -40,7 +40,7 @@ public class Users extends BasePage {
     public By password =By.xpath("//input[@name='Пароль']");
     private By addGroup = By.xpath("//span[contains(text(),'Добавить группу')]");
     private By checkboxGroup = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Название группы'])[1]/following::*[name()='svg'][1]");
-    public String mockName = "Test" + randomInt(4);
+    public String mockName = "test" + randomInt(4);
     public String mockEmail = randomestring(6) + "@yandex.ru";
     public By userStatus =By.xpath("//div[@class='UserBar_statusIndicator__FVION']");
     public By searchOrg =By.xpath("//input[contains(@placeholder,'Выберите организацию')][@class='flex-grow InputText-module_input__GBLXv SelectInfiniteCore_inputClass__GpexQ UsersSelects_inputHolder__bTpxO pr-6']");
@@ -79,6 +79,7 @@ public class Users extends BasePage {
         enterText(login, mockName);
         System.out.println(mockName);
         enterText(password, mockName);
+        threadSleep(3000);
         save();
         return this;
     }
@@ -88,9 +89,11 @@ public class Users extends BasePage {
 
         Groups group = new Groups(driver);
         String groupName = group.useGroupName();
+
         System.out.println("Using Group Name in Users: " + group.useGroupName());
         waitVisibility(addGroup);
         click(addGroup);
+        threadSleep(1000);
         WebElement clickable = driver.findElement(searchModal);
         new Actions(driver)
                 .moveToElement(clickable)
@@ -101,7 +104,10 @@ public class Users extends BasePage {
                 .pause(Duration.ofSeconds(2))
                 .perform();
         click(checkboxGroup);
+        threadSleep(2000);
         click(save);
+        threadSleep(2000);
+        save();
         //assertEquals(driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Группы пользователя'])[1]/following::p[1]")).getText(), groupName);
         return this;
     }

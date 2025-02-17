@@ -4,10 +4,12 @@ package page.linkageVisual;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import page.BasePage;
 import page.linkageAdministration.Groups;
 import page.linkageAdministration.Users;
 
+import java.time.Duration;
 import java.util.List;
 
 import static page.SharedData.getDashboardName;
@@ -25,22 +27,21 @@ public class Workstation extends BasePage {
     public By constructorWorkstation =By.xpath("//div[contains(text(),'Конструктор АРМ')]");
     private By newWorkstationtBtn =By.xpath("//button[contains(text(),'Создать АРМ')]");
 
-    //Конструктор дашбордов
 
     private By inputWorkstationName =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv' and @placeholder='Введите название для АРМ']");
     private By addWorkstationElement =By.xpath("//button[contains(text(),'Добавить элемент')]");
-    //private By inputWidgetName =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv'and @placeholder='Введите заголовок виджета']");
+    private By addDashboard = By.xpath("//p[contains(text(),'Дашборды')]");
     private By searchForDashboard =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pl-6' and @placeholder='Введите название']");
     private By checkboxWidget = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Поиск по названию'])[1]/following::*[name()='svg'][2]");
-    private By addDashboard = By.xpath("//button[@class='Button-module_main__lxsaF btnPrimary mr-2 ModalAddDashboard_btn__s2Alp']");
+    private By selectDashboard = By.xpath("//button[@class='Button-module_main__lxsaF btnPrimary mr-2 ModalAddDashboard_btn__s2Alp']");
     private By accessSettings = By.xpath("//button[contains(text(),'Настройки доступа')]");
     private By searchForGroup =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv SelectInfiniteCore_inputClass__GpexQ pr-6' and @placeholder='Выберите группу']");
-    private By searchForEmployee =By.xpath("//div[@class='slct__value-container slct__value-container--is-multi css-1hwfws3']");
+    private By searchForEmployee =By.xpath("//div[@class='slct__placeholder css-1wa3eu0-placeholder']");
+    private By selectEmployee = By.xpath("//div[2]/div/div[2]/span");
+    private By enterEmployee =By.xpath("//div[@id='root']/div/div[3]/div/div/div[2]/div/div[6]/div/div/div/div/div/div/input");
+    private By selectGroup = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Выберите из списка'])[1]/preceding::p[1]");
+    private By stayInConstructorBtn =By.xpath("//button[@class='Button-module_main__lxsaF btnOutlinePrimary ConfirmationModal_btn__uOPAs']");
 
-
-    private By dataFilter = By.xpath("//span[@class='ButtonFilter_label__t8Ut2']");
-
-    private By selectOperation = By.xpath("//div[@class='slct__value-container slct__value-container--has-value css-1hwfws3']");
 
 
 
@@ -68,31 +69,53 @@ public class Workstation extends BasePage {
         }
     }
 
+    Dashboards d = new Dashboards(driver);
+    String dashboardName = d.useDashboardName();
 
-    @Step(value = "Login with  {0} {1} ")
+    Groups g = new Groups(driver);
+    String groupName = g.useGroupName();
+
+    Users u = new Users(driver);
+    String userLastName = u.useLastName();
+
+
+    @Step(value = " ")
     public Workstation addWorkstation(){
-        Dashboards d = new Dashboards(driver);
-        String dashboardName = d.useDashboardName();
 
-        Groups g = new Groups(driver);
-        String groupName = g.useGroupName();
-
-        Users u = new Users(driver);
-        String userLastName = u.useLastName();
 
 
         click(newWorkstationtBtn );
         enterText(inputWorkstationName,useWorkstationName());
         click(addWorkstationElement);
-        click(By.xpath("//p[contains(text(),'Дашборды')]"));
-
-        enterText(searchForDashboard,dashboardName);
-        click(checkbox);
         click(addDashboard);
+        threadSleep(2000);
+        enterText(searchForDashboard,dashboardName);
+        threadSleep(2000);
+//        enterText(searchForDashboard,"Дашборд 957");
+        click(checkbox);
+        click(selectDashboard);
         click(accessSettings);
+        threadSleep(2000);
         enterText(searchForGroup, groupName);
-        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Выберите из списка'])[1]/preceding::p[1]"));
-        enterText(searchForEmployee, userLastName);
+        threadSleep(2000);
+//        enterText(searchForGroup, "Авто Группа-5295");
+        click(selectGroup);
+        threadSleep(2000);
+        click(searchForEmployee);
+//        enterText(enterEmployee, "ТЕСТfpaG");
+        threadSleep(2000);
+
+        click(selectEmployee);
+//        enterText(searchForEmployee, userLastName);
+        threadSleep(2000);
+//        pressEnter(enterEmployee);
+
+        driver.findElement(By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary']")).click();
+
+        threadSleep(2000);
+        click(stayInConstructorBtn);
+        back();
+
 
 //        threadSleep(2000);
 //        click(checkboxWidget);

@@ -36,11 +36,6 @@ public class Organization extends BasePage {
 
 
 
-
-
-
-
-
     public String useOrgName() {
         // Retrieve the extracted value from the shared class
         String value = SharedData.getOrgName();
@@ -48,7 +43,6 @@ public class Organization extends BasePage {
         // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
     }
-
 
     @Step(value = "")
     public Organization addOrg (){

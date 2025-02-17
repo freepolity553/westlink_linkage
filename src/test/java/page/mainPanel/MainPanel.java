@@ -13,8 +13,8 @@ public class MainPanel extends BasePage {
     @Attachment(value = "Failed test screenshot")
     public byte[] attachScreenshot () {return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);}
 
-    //private By selectAPMBtn =By.xpath("//p[@class='SelectARM_cardName__ARdPm'][contains(.,'Администратор')]");
-    private By selectAPMBtn =By.xpath("//div[@class='SelectARM_card__Cc7wd Layout-module_layout__Bjb4T Layout-module_align_center__yw5K7 Layout-module_direction_column__t9XzY']");
+    private By selectAPMBtn =By.xpath("//p[@class='SelectARM_cardName__ARdPm'][text()='Администратор']");
+//    private By selectAPMBtn =By.xpath("//div[@class='SelectARM_cardIcon__QR3ss']//*[name()='svg']");
 
     private By passwordInput =By.xpath("//input[contains(@type,'password')]");
     private By submitBtn =By.xpath("//button[contains(@type,'submit')]");

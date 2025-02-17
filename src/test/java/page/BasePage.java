@@ -119,11 +119,16 @@ public class BasePage {
         element.sendKeys(text);
     }
 
-    //Send Keys method
+    //Press Enter method
     public void  pressEnter (By elementBy) {
         waitVisibility(elementBy);
         WebElement element = driver.findElement(elementBy);
         element.sendKeys(Keys.ENTER);
+    }
+
+    //Refresh method
+    public void  refresh () {
+        driver.navigate().refresh();
     }
 
     //Is element Displayed
