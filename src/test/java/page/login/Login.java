@@ -7,9 +7,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import page.BasePage;
+import page.SharedData;
 import settings.Constants;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.awaitility.Awaitility.await;
 
 public class Login extends BasePage {
@@ -25,6 +25,13 @@ public class Login extends BasePage {
     private By passwordInput =By.xpath("//input[contains(@type,'password')]");
     private By submitBtn =By.xpath("//button[contains(@type,'submit')]");
 
+    public String useLoginUser (){
+        // Retrieve the extracted value from the shared class
+        String value = SharedData.getMockName();
+
+        // Perform actions with the extracted value (e.g., enter it into another field)
+        return value;
+    }
 
     @Step(value = "Login with Admin Demo ")
     public Login loginAdminDemo(String username, String password){
@@ -41,12 +48,12 @@ public class Login extends BasePage {
 
             return this;
     }
-    @Step(value = "Login with Admin Dev ")
-    public Login loginAdminDev(String username, String password){
-        driver.get(Constants.URL_AUTH_DEV);
-        isElementDisplayed(By.xpath("//p[contains(.,'Если у вас возникли проблемы, обратитесь в техподдержку')]"));
-        enterText(usernameInput,password);
-        enterText(passwordInput,password);
+
+    @Step(value = "Login with New User ")
+    public Login loginUser(){
+        driver.get(Constants.URL_AUTH_DEMO);
+        enterText(usernameInput,useLoginUser());
+        enterText(passwordInput,useLoginUser());
         click(submitBtn);
         return this;
     }

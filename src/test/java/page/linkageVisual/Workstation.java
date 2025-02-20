@@ -91,44 +91,25 @@ public class Workstation extends BasePage {
         threadSleep(2000);
         enterText(searchForDashboard,dashboardName);
         threadSleep(2000);
-//        enterText(searchForDashboard,"Дашборд 957");
         click(checkbox);
         click(selectDashboard);
         click(accessSettings);
         threadSleep(2000);
         enterText(searchForGroup, groupName);
         threadSleep(2000);
-//        enterText(searchForGroup, "Авто Группа-5295");
         click(selectGroup);
         threadSleep(2000);
         click(searchForEmployee);
-//        enterText(enterEmployee, "ТЕСТfpaG");
+        threadSleep(2000);
+        click(selectEmployee);
         threadSleep(2000);
 
-        click(selectEmployee);
-//        enterText(searchForEmployee, userLastName);
-        threadSleep(2000);
-//        pressEnter(enterEmployee);
 
         driver.findElement(By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary']")).click();
 
         threadSleep(2000);
         click(stayInConstructorBtn);
         back();
-
-
-//        threadSleep(2000);
-//        click(checkboxWidget);
-//        click(addWidgetModalBtn);
-//        click(addWidgetBtn);
-//
-//        threadSleep(2000);
-//        click(checkboxWidget);
-//        click(addWidgetModalBtn);
-//        threadSleep(2000);
-//        click(draftBtn);
-//        click(statusReadyForWork);
-//        save();
 
         return this;
     }

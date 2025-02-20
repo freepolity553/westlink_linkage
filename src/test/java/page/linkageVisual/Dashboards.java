@@ -8,6 +8,7 @@ import page.BasePage;
 
 import java.util.List;
 
+import static page.SharedData.getDashboardAgrotech;
 import static page.SharedData.getDashboardName;
 
 public class Dashboards extends BasePage {
@@ -22,18 +23,10 @@ public class Dashboards extends BasePage {
     public By constructorDashboards =By.xpath("//div[contains(text(),'Конструктор дашбордов')]");
     private By newDashboardtBtn =By.xpath("//button[contains(text(),'Создать дашборд')]");
 
-    //Конструктор дашбордов
-
     private By inputDashboardName =By.xpath("//input[@placeholder='Введите название']");
     private By addWidgetBtn =By.xpath("//div[@class='TopBar_icon__cgG0k'][contains(text(),'Добавить')]");
-    //private By inputWidgetName =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv'and @placeholder='Введите заголовок виджета']");
 
     private By searchForWidget =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pl-6' and @placeholder='Введите название']");
-
-
-
-
-
 
     private By checkboxWidget = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Поиск по названию'])[1]/following::*[name()='svg'][2]");
 
@@ -49,11 +42,51 @@ public class Dashboards extends BasePage {
 
     private By datePicker = By.xpath("//div[@class='InputText-module_icon__8XMHv InputText-module_icon_inner__dPCVH InputText-module_icon_inner_right__cJwjN']");
 
-
     private By oper = By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary mr-2']");
 
+    private By metricCheckbox2 = By.xpath("//div[3]/div[2]/div[2]/div/div[1]/div/label");
 
-    private String dataSource = "Локальная витрина";
+    private By filterSettings1 = By.cssSelector("svg.FilterItem_checkBox__icon__hXCuZ");
+
+
+    private By filterSettings2 = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Настроить созависимую фильтрацию'])[1]/following::*[name()='svg'][4]");
+
+    private By filterMetricBtn = By.xpath("//div[@role='presentation']//div[3]//div[1]//label[1]");
+
+    private By addMetricBtn = By.xpath("//button[contains(text(),'Добавить показатель')]");
+
+    private By inputMetric = By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pl-6' and @placeholder ='Введите название показателя' ]");
+
+
+    private By addMetric = By.xpath("//button[contains(text(),'Вставить')]");
+
+    private By addKey = By.xpath("//div[2]/div/div/div[1]/div[2]/div/input");
+    private By selectKey = By.xpath("//div[3]/div[2]/div/div/div/div/div/input");
+
+
+    private By addName = By.xpath("//div[3]/div/div/div[1]/div[2]/div/input");
+    private By selectName = By.xpath("//div[3]/div[3]/div/div/div/div/div/input");
+
+    private By save = By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary mr-2']");
+
+    private By selectFilters = By.xpath("//button[contains(text(),'Выбор фильтров')]");
+    private By setCodependentFilteringBtn = By.xpath("//button[contains(text(),'Настроить созависимую фильтрацию')]");
+    private By createConnectionBtn = By.xpath("//button[contains(text(),'Создать связь')]");
+    private By inputFilter1 = By.xpath("//div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]");
+    private By inputFilter2 = By.xpath("//div[3]/div[2]/div/div[2]/div/div/div/div[1]/div[2]/div/input");
+    private By selectCity = By.xpath("//div[contains(text(),'Город')]");
+    private By selectPoint = By.xpath("//div[contains(text(),'Точка')]");
+
+    private By connectBtn = By.xpath("//button[@class='Button-module_main__lxsaF Button-module_auto_width__Fgo4W Button-module_icon__xIuVv Button-module_icon_only__EcUq- FilterChains_chainBtn__67HiG FilterChains_chainBtn__error__SQn5w']//*[name()='svg']");
+
+    private By selectField1 = By.xpath("//div[3]/div[2]/div/div/div/div/div/div[2]");
+
+    private By selectField2 = By.xpath("//div[3]/div[2]/div/div[3]/div[2]/div[1]/div/div[1]/div[2]/div/input");
+
+    private By field1 = By.xpath("//div[3]/div[2]/div/div/div[2]/div/div[2]/div/div");
+    private By field2 = By.xpath("//div[2]/div/div[2]/div/div[2]");
+
+    private By back =By.cssSelector("svg.AddWidgetFilter_arrowBack__OXzcF > path");
 
 
     public String useDashboardName() {
@@ -63,36 +96,26 @@ public class Dashboards extends BasePage {
         // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
     }
-    public void setGraphTableSelection() {
-        WebElement ulElement = driver.findElement(By.xpath("//ul[@class='SelectWidgetType_dropDownChildWrapper__xB01v']"));
-        // Find all <li> elements within the parent
-        List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
 
-        // Iterate through the <li> elements and click on a specific one
-        for (WebElement li : liElements) {
-            if (li.getText().equals("Таблица")) {
-                li.click(); // Click the <li> element
-                break; // Exit the loop after clicking
-            }
-        }
-    }
-    public void setDiagrammeSelection() {
-        WebElement ulElement = driver.findElement(By.xpath("//ul[@class='SelectWidgetType_dropDownChildWrapper__xB01v']"));
-        // Find all <li> elements within the parent
-        List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
+    public String useDashboardAgrotech() {
+        // Retrieve the extracted value from the shared class
+        String value = getDashboardAgrotech();
 
-        // Iterate through the <li> elements and click on a specific one
-        for (WebElement li : liElements) {
-            if (li.getText().equals("Диаграмма области")) {
-                li.click(); // Click the <li> element
-                break; // Exit the loop after clicking
-            }
-        }
+        // Perform actions with the extracted value (e.g., enter it into another field)
+        return value;
     }
 
+    Widgets w = new Widgets(driver);
+    String widgetCitiesName = w.useWidgetCitiesName();
+    String widgetPointsName = w.useWidgetPointsName();
 
-    @Step(value = "Login with  {0} {1} ")
-    public Dashboards addDashboard(){
+    Metrics m = new Metrics(driver);
+    String metricPoints = m.useMetricPoints();
+    String metricCities = m.useMetricCities();
+
+
+    @Step(value = " ")
+    public Dashboards addDashboardSimple(){
         Widgets w = new Widgets(driver);
         String widgetTableName = w.useWidgetTableName();
         String widgetDiagrammeName = w.useWidgetDiagrammeName();
@@ -113,17 +136,11 @@ public class Dashboards extends BasePage {
         click(draftBtn);
         threadSleep(2000);
         click(statusReadyForWork);
-        threadSleep(2000);
+        threadSleep(3000);
         save();
-        threadSleep(3000);
+        threadSleep(4000);
         refresh();
-        threadSleep(3000);
-        back();
-
-        return this;
-    }
-    @Step(value = " ")
-    public Dashboards addFiltering(){
+        threadSleep(4000);
         click(addFilteringBtn);
         click(checkbox);
         click(oper);
@@ -135,6 +152,176 @@ public class Dashboards extends BasePage {
         click(datePicker);
         click(By.xpath("//button[contains(text(),'Готово')]"));
         click(By.xpath("//button[contains(text(),'Применить')]"));
+        threadSleep(2000);
+        back();
+
+        return this;
+    }
+
+    @Step(value = " ")
+    public Dashboards addDashboardAgrotech(){
+//        Widgets w = new Widgets(driver);
+//        String widgetCitiesName = w.useWidgetCitiesName();
+//        String widgetPointsName = w.useWidgetPointsName();
+
+        click(newDashboardtBtn );
+        enterText(inputDashboardName,useDashboardAgrotech());
+        click(addWidgetBtn);
+        enterText(searchForWidget,widgetCitiesName);
+        threadSleep(2000);
+        click(checkboxWidget);
+        click(addWidgetModalBtn);
+        click(addWidgetBtn);
+        enterText(searchForWidget, widgetPointsName);
+        threadSleep(2000);
+        click(checkboxWidget);
+        click(addWidgetModalBtn);
+        threadSleep(2000);
+        click(draftBtn);
+        threadSleep(2000);
+        click(statusReadyForWork);
+        threadSleep(3000);
+        save();
+        threadSleep(3000);
+//        refresh();
+//        threadSleep(3000);
+//        back();
+
+        //div[@class='DashboardsTable_wrapper__o4bIb']//div[2]//div[1]//div[1]//div[1]
+
+        return this;
+    }
+    @Step(value = " ")
+    public Dashboards addFilteringData(){
+        click(addFilteringBtn);
+        click(checkbox);
+        click(oper);
+        threadSleep(2000);
+        click(dataFilter);
+        threadSleep(2000);
+        click(selectOperation);
+        driver.findElement(By.xpath("//*/text()[normalize-space(.)='Равно']/parent::*")).click();
+        click(datePicker);
+        click(By.xpath("//button[contains(text(),'Готово')]"));
+        click(By.xpath("//button[contains(text(),'Применить')]"));
+
+        return this;
+    }
+    public void setMetricCities() {
+        WebElement ulElement = driver.findElement(By.xpath("//ul[@class='MetricsDrawer_metricsUl__kI5dd mt-3']"));
+        // Find all <li> elements within the parent
+        List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
+
+        // Iterate through the <li> elements and click on a specific one
+        for (WebElement li : liElements) {
+            if (li.getText().equals(metricCities)) {
+                li.click(); // Click the <li> element
+                break; // Exit the loop after clicking
+            }
+        }
+    }
+    public void setMetricPoints() {
+        WebElement ulElement = driver.findElement(By.xpath("//ul[@class='MetricsDrawer_metricsUl__kI5dd mt-3']"));
+        // Find all <li> elements within the parent
+        List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
+
+        // Iterate through the <li> elements and click on a specific one
+        for (WebElement li : liElements) {
+            if (li.getText().equals(metricPoints)) {
+                li.click(); // Click the <li> element
+                break; // Exit the loop after clicking
+            }
+        }
+    }
+    @Step(value = " ")
+    public Dashboards addCodependentFiltering(){
+        //Add Cities filter
+        click(addFilteringBtn);
+        click(checkbox);
+        click(filterSettings1);
+        threadSleep(1000);
+        click(filterMetricBtn);
+        click(addMetricBtn);
+        threadSleep(2000);
+        click(inputMetric);
+        threadSleep(2000);
+        setMetricCities();
+        threadSleep(2000);
+        click(addMetric);
+        threadSleep(2000);
+        click(addKey);
+        threadSleep(2000);
+        enterText(addKey,"id");
+        threadSleep(2000);
+        pressEnter(selectKey);
+        threadSleep(2000);
+        click(addName);
+        threadSleep(2000);
+        enterText(addName,"city_name");
+        threadSleep(2000);
+        pressEnter(selectName);
+        threadSleep(2000);
+        click(save);
+
+        //Add Points filter
+        click(metricCheckbox2);
+        click(filterSettings2);
+        threadSleep(1000);
+        click(filterMetricBtn);
+        click(addMetricBtn);
+        click(inputMetric);
+        setMetricPoints();
+        click(addMetric);
+        threadSleep(3000);
+        click(addKey);
+        threadSleep(3000);
+        enterText(addKey,"id");
+        threadSleep(3000);
+        pressEnter(selectKey);
+        threadSleep(2000);
+        click(addName);
+        threadSleep(3000);
+        enterText(addName,"point_name");
+        pressEnter(selectName);
+        threadSleep(2000);
+        click(save);
+        threadSleep(1000);
+        click(save);
+        threadSleep(3000);
+
+
+        click(selectFilters);
+        click(setCodependentFilteringBtn);
+        click(createConnectionBtn);
+        click(inputFilter1);
+        click(selectCity);
+        click(inputFilter2);
+        threadSleep(2000);
+        click(inputFilter2);
+        click(selectPoint);
+        threadSleep(1000);
+        click(connectBtn);
+        threadSleep(2000);
+        click(selectField1);
+        threadSleep(3000);
+        click(field1);
+        threadSleep(1000);
+        click(selectField2);
+        click(selectField2);
+        click(field2);
+        threadSleep(1000);
+        click(save);
+        threadSleep(1000);
+        click(save);
+        threadSleep(1000);
+        click(back);
+        threadSleep(2000);
+        click(save);
+        threadSleep(1000);
+        save();
+        threadSleep(3000);
+
+
 
 
 

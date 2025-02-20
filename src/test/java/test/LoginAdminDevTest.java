@@ -22,16 +22,7 @@ public class LoginAdminDevTest extends TestBase {
     @Description("Testing description")
     @Story(value = "Story description")
 
-    @Test(description = "Login",priority = 1)
-    @Step("login")
-    public void  loginAdminDevTest() {
-        login.loginAdminDev(Constants.USERNAME_ADMIN_DEV, Constants.PASSWORD_ADMIN_DEV);
-        login.checkAllElementsOnPagePresent();
 
-        WebElement element = driver.findElement(By.xpath("//p[@class='SelectARM_cardName__ARdPm'][contains(.,'АРМ Администратора')]"));
-
-
-    }
     @Test(description = "Login",priority = 2)
     @Step("login into Admin MainPanel")
     public void  loginDashboardTest() {

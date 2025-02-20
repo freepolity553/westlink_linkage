@@ -40,14 +40,25 @@ public class Users extends BasePage {
     public By password =By.xpath("//input[@name='Пароль']");
     private By addGroup = By.xpath("//span[contains(text(),'Добавить группу')]");
     private By checkboxGroup = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Название группы'])[1]/following::*[name()='svg'][1]");
-    public String mockName = "test" + randomInt(4);
+//    public String mockName = "test" + randomInt(4);
     public String mockEmail = randomestring(6) + "@yandex.ru";
-    public By userStatus =By.xpath("//div[@class='UserBar_statusIndicator__FVION']");
-    public By searchOrg =By.xpath("//input[contains(@placeholder,'Выберите организацию')][@class='flex-grow InputText-module_input__GBLXv SelectInfiniteCore_inputClass__GpexQ UsersSelects_inputHolder__bTpxO pr-6']");
+    public By avatar =By.xpath("//div[(@class= 'UserAvatar_avatarBlock__Gu1UX UserAvatar_avatarBlockOutline__VSs8D UserAvatar_avatarBlock__outer__gXOl2 Layout-module_layout__Bjb4T Layout-module_align_center__yw5K7 Layout-module_justify_center__06P4q')]");
+    public By logOut =By.xpath("//button[contains(text(),'Выйти')]");
 
 
 
 
+
+    @Step(value = "")
+    public Users clickAvatar (){
+        click(avatar);
+        return this;
+    }
+    @Step(value = "")
+    public Users logout (){
+        click(logOut);
+        return this;
+    }
 
     @Step(value = "Enter Users page ")
     public Users enterUsersPage (){
@@ -60,9 +71,17 @@ public class Users extends BasePage {
         WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
         fileInput.sendKeys(uploadFile.getAbsolutePath());
     }
+
     public String useLastName() {
         // Retrieve the extracted value from the shared class
         String value = SharedData.getLastName();
+
+        // Perform actions with the extracted value (e.g., enter it into another field)
+        return value;
+    }
+    public String useMockName() {
+        // Retrieve the extracted value from the shared class
+        String value = SharedData.getMockName();
 
         // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
@@ -76,9 +95,9 @@ public class Users extends BasePage {
         enterText(lastName,useLastName());
         enterText(firstName, Variables.firstName);
         enterText(email, mockEmail);
-        enterText(login, mockName);
-        System.out.println(mockName);
-        enterText(password, mockName);
+        enterText(login, useMockName());
+        System.out.println(useMockName());
+        enterText(password, useMockName());
         threadSleep(3000);
         save();
         return this;

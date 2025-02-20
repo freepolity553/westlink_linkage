@@ -9,8 +9,7 @@ import page.BasePage;
 
 import java.util.List;
 
-import static page.SharedData.getWidgetDiagrammeName;
-import static page.SharedData.getWidgetTableName;
+import static page.SharedData.*;
 
 public class Widgets extends BasePage {
     public Widgets(WebDriver driver) {
@@ -65,6 +64,20 @@ public class Widgets extends BasePage {
         // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
     }
+    public String useWidgetCitiesName() {
+        // Retrieve the extracted value from the shared class
+        String value = getWidgetCitiesName();
+
+        // Perform actions with the extracted value (e.g., enter it into another field)
+        return value;
+    }
+    public String useWidgetPointsName() {
+        // Retrieve the extracted value from the shared class
+        String value = getWidgetPointsName();
+
+        // Perform actions with the extracted value (e.g., enter it into another field)
+        return value;
+    }
     public void setGraphTableSelection() {
         WebElement ulElement = driver.findElement(By.xpath("//ul[@class='SelectWidgetType_dropDownChildWrapper__xB01v']"));
         // Find all <li> elements within the parent
@@ -93,7 +106,7 @@ public class Widgets extends BasePage {
     }
 
 
-    @Step(value = "Login with  {0} {1} ")
+    @Step(value = " ")
     public Widgets addTableWidget (){
         Metrics m = new Metrics(driver);
         String metricName = m.useMetricName();
@@ -142,6 +155,57 @@ public class Widgets extends BasePage {
         click(statusReadyForWork);
         save();
         threadSleep(2000);
+        click(stayInConstructorBtn);
+        back();
+
+        return this;
+    }
+
+    @Step(value = " ")
+    public Widgets addCitiesWidget (){
+        Metrics m = new Metrics(driver);
+        String metricName = m.useMetricCities();
+
+        click(newWidgetBtn );
+        click(selectGraph);
+        setGraphTableSelection();
+        enterText(inputWidgetName,useWidgetCitiesName());
+        click(addMetricBtn);
+        enterText(searchForMetric, metricName);
+        click(metric);
+        click(addMetric);
+        enterText(refreshField,"5");
+        threadSleep(2000);
+        click(draftBtn);
+        click(statusReadyForWork);
+        save();
+        threadSleep(3000);
+        click(stayInConstructorBtn);
+        back();
+
+        return this;
+    }
+
+    @Step(value = " ")
+    public Widgets addPointsWidget (){
+        Metrics m = new Metrics(driver);
+        String metricName = m.useMetricPoints();
+
+        click(newWidgetBtn );
+        click(selectGraph);
+        setGraphTableSelection();
+        enterText(inputWidgetName,useWidgetPointsName());
+        click(addMetricBtn);
+        enterText(searchForMetric, metricName);
+        click(metric);
+        click(addMetric);
+        enterText(refreshField,"5");
+        threadSleep(2000);
+        click(draftBtn);
+        click(statusReadyForWork);
+        threadSleep(2000);
+        save();
+        threadSleep(3000);
         click(stayInConstructorBtn);
         back();
 

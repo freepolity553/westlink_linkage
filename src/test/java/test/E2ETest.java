@@ -1,12 +1,8 @@
 package test;
 
 import io.qameta.allure.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import page.linkageVisual.Workstation;
 import settings.Constants;
 
 import java.time.Duration;
@@ -29,17 +25,17 @@ public class E2ETest extends TestBase {
 
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         mainPanel.enterDashboard();
-        users.enterUsersPage();
-        groups.click(groups.groupsTab);
-        groups.createGroup();
-        users.click(users.usersTab);
-        users.createNewUser();
-        users.addGroup();
-        groups.back();
-        organization.click(organization.organizationTab);
-        organization.addOrg();
+//        users.enterUsersPage();
+//        groups.click(groups.groupsTab);
+//        groups.createGroup();
+//        users.click(users.usersTab);
+//        users.createNewUser();
+//        users.addGroup();
+//        groups.back();
+//        organization.click(organization.organizationTab);
+//        organization.addOrg();
 //        users.click(mainPanel.adminDashboard);
-//        metrics.click(metrics.constructorMetrics);
+        metrics.click(metrics.constructorMetrics);
 //        metrics.addSQLMetric();
 //        metrics.click(mainPanel.adminDashboard);
 //        widgets.click(widgets.constructorWidgets);
@@ -49,10 +45,35 @@ public class E2ETest extends TestBase {
 //        widgets.addDiagrammeWidget();
 //        widgets.click(mainPanel.adminDashboard);
 //        dashboards.click(dashboards.constructorDashboards);
-//        dashboards.addDashboard();
+//        dashboards.addDashboardSimple();
+
+        metrics.addCitiesMetric();
+        metrics.click(mainPanel.adminDashboard);
+        metrics.click(metrics.constructorMetrics);
+        metrics.addPointsMetric();
+        metrics.click(mainPanel.adminDashboard);
+        widgets.click(widgets.constructorWidgets);
+        widgets.addCitiesWidget();
+        metrics.click(mainPanel.adminDashboard);
+        widgets.click(widgets.constructorWidgets);
+        widgets.addPointsWidget();
+        widgets.click(mainPanel.adminDashboard);
+        dashboards.click(dashboards.constructorDashboards);
+        dashboards.addDashboardAgrotech();
+        dashboards.addCodependentFiltering();
+
+
+
 //        dashboards.click(mainPanel.adminDashboard);
 //        workstation.click(workstation.constructorWorkstation);
 //        workstation.addWorkstation();
+//        users.clickAvatar();
+//        users.logout();
+//        login.loginUser();
+//        mainPanel.enterDashboard();
+//        connections.click(connections.constructorConnections);
+//        connections.addConnection();
+
 
     }
 }

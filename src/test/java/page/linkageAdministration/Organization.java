@@ -98,7 +98,7 @@ public class Organization extends BasePage {
         save();
         threadSleep(5000);
         back();
-        threadSleep(10000);
+        threadSleep(5000);
         wait.until(ExpectedConditions.presenceOfElementLocated(newOrgName));
 //        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and @aria-selected='false' and @aria-readonly='true' and contains(@class, 'rdg-cell') and contains(text(), '"+orgName+"')]"));
 //        String newOrg  = elm.getText();

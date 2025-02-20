@@ -26,9 +26,9 @@ public class CreateNewUserTest extends TestBase {
         users.enterText(users.lastName, users.useLastName());
         users.enterText(users.firstName, "Тест");
         users.enterText(users.email, users.mockEmail);
-        users.enterText(users.login, users.mockName);
-        System.out.println(users.mockName);
-        users.enterText(users.password, users.mockName);
+        users.enterText(users.login, users.useMockName());
+        System.out.println(users.useMockName());
+        users.enterText(users.password, users.useMockName());
         users.threadSleep(3000);
         users.save();
         users.back();
