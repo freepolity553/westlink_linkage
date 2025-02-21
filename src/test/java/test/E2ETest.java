@@ -25,28 +25,31 @@ public class E2ETest extends TestBase {
 
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         mainPanel.enterDashboard();
-//        users.enterUsersPage();
-//        groups.click(groups.groupsTab);
-//        groups.createGroup();
-//        users.click(users.usersTab);
-//        users.createNewUser();
-//        users.addGroup();
-//        groups.back();
-//        organization.click(organization.organizationTab);
-//        organization.addOrg();
-//        users.click(mainPanel.adminDashboard);
+        connections.click(connections.constructorConnections);
+        connections.addConnection();
+        users.enterUsersPage();
+        groups.click(groups.groupsTab);
+        groups.createGroup();
+        users.click(users.usersTab);
+        users.createNewUser();
+        users.addGroup();
+        groups.back();
+        organization.click(organization.organizationTab);
+        organization.addOrg();
+        users.click(mainPanel.adminDashboard);
         metrics.click(metrics.constructorMetrics);
-//        metrics.addSQLMetric();
-//        metrics.click(mainPanel.adminDashboard);
-//        widgets.click(widgets.constructorWidgets);
-//        widgets.addTableWidget();
-//        metrics.click(mainPanel.adminDashboard);
-//        widgets.click(widgets.constructorWidgets);
-//        widgets.addDiagrammeWidget();
-//        widgets.click(mainPanel.adminDashboard);
-//        dashboards.click(dashboards.constructorDashboards);
-//        dashboards.addDashboardSimple();
-
+        metrics.addSQLMetric();
+        metrics.click(mainPanel.adminDashboard);
+        widgets.click(widgets.constructorWidgets);
+        widgets.addTableWidget();
+        metrics.click(mainPanel.adminDashboard);
+        widgets.click(widgets.constructorWidgets);
+        widgets.addDiagrammeWidget();
+        widgets.click(mainPanel.adminDashboard);
+        dashboards.click(dashboards.constructorDashboards);
+        dashboards.addDashboardSimple();
+        dashboards.click(mainPanel.adminDashboard);
+        metrics.click(metrics.constructorMetrics);
         metrics.addCitiesMetric();
         metrics.click(mainPanel.adminDashboard);
         metrics.click(metrics.constructorMetrics);
@@ -61,18 +64,15 @@ public class E2ETest extends TestBase {
         dashboards.click(dashboards.constructorDashboards);
         dashboards.addDashboardAgrotech();
         dashboards.addCodependentFiltering();
+        dashboards.isTextDisplayed(dashboards.secondDropdownList,"Москва");
+        dashboards.click(mainPanel.adminDashboard);
+        workstation.click(workstation.constructorWorkstation);
+        workstation.addWorkstation();
+        users.clickAvatar();
+        users.logout();
+        login.loginUser();
+        mainPanel.enterDashboard();
 
-
-
-//        dashboards.click(mainPanel.adminDashboard);
-//        workstation.click(workstation.constructorWorkstation);
-//        workstation.addWorkstation();
-//        users.clickAvatar();
-//        users.logout();
-//        login.loginUser();
-//        mainPanel.enterDashboard();
-//        connections.click(connections.constructorConnections);
-//        connections.addConnection();
 
 
     }

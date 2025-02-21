@@ -1,6 +1,7 @@
 package page;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -43,6 +44,15 @@ public class BasePage {
 
     public BasePage() {
 
+    }
+
+
+
+    public void isTextDisplayed(By elementBy, String text) {
+        WebElement element = driver.findElement(elementBy);
+        String actualText = element.getText();
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, text);
     }
     //Кнопка Добавить
     public void back() {
@@ -149,9 +159,6 @@ public class BasePage {
         File uploadFile = new File("src/test/resources/600_600.jpg");
         WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
         fileInput.sendKeys(uploadFile.getAbsolutePath());
-        //driver.findElement(By.id("file-submit")).click();
-//        WebElement fileName = driver.findElement(By.xpath("//span[contains(.,'file.txt')]"));
-//        Assertions.assertEquals("file.txt", fileName.getText());
     }
     public void fileUploadTest() {
 
@@ -160,9 +167,6 @@ public class BasePage {
         WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));
         fileInput.sendKeys(uploadFile.getAbsolutePath());
         driver.findElement(By.id("file-submit")).click();
-//
-//        WebElement fileName = driver.findElement(By.id("uploaded-files"));
-//        Assertions.assertEquals("file.txt", fileName.getText());
     }
     public static void slowSendKeys(WebElement element, String text, long delay) {
         for (char c : text.toCharArray()) {
@@ -174,6 +178,4 @@ public class BasePage {
             }
         }
     }
-
-
 }

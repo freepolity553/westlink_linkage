@@ -101,9 +101,6 @@ public class Connections extends BasePage {
         click(saveConnBtn);
         threadSleep(2000);
         click(adminDashboard);
-        click(constructorConnections);
-
-
         return this;
     }
     @Step(value = "Check elements of Metrics page")

@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.BasePage;
 import page.linkageVisual.Workstation;
@@ -32,6 +33,10 @@ public class TestTest extends TestBase {
     private By field1 = By.xpath("//div[3]/div[2]/div/div/div[2]/div/div[2]/div/div");
     private By field2 = By.xpath("//div[2]/div/div[2]/div/div[2]");
 
+    private By secondDropdownList = By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[2]/div/div[2]");
+
+
+
     @Test(description = "", priority = 1)
     public void TestTest() {
 
@@ -40,44 +45,63 @@ public class TestTest extends TestBase {
         dashboards.click(dashboards.constructorDashboards);
         dashboards.threadSleep(2000);
         driver.findElement(By.xpath("/html/body/div[1]/div/div[4]/div[2]/div/div[2]/div[1]/div/div")).click();
-        dashboards.click(selectFilters);
-        dashboards.click(setCodependentFilteringBtn);
-        dashboards.click(createConnectionBtn);
-        dashboards.click(inputFilter1);
-        dashboards.click(selectCity);
-        dashboards.click(inputFilter2);
-        dashboards.threadSleep(2000);
-        dashboards.click(inputFilter2);
-        dashboards.click(selectPoint);
-        dashboards.threadSleep(1000);
-        dashboards.click(connectBtn);
-        dashboards.threadSleep(2000);
-        dashboards.click(selectField1);
-        dashboards.threadSleep(3000);
-        dashboards.click(field1);
-        dashboards.threadSleep(1000);
-        dashboards.click(selectField2);
-        dashboards.click(selectField2);
-        dashboards.click(field2);
-        dashboards.threadSleep(1000);
-        dashboards.click(save);
-        dashboards.threadSleep(1000);
-        dashboards.click(save);
-        dashboards.threadSleep(1000);
-        driver.findElement(By.cssSelector("svg.AddWidgetFilter_arrowBack__OXzcF > path")).click();
-        dashboards.threadSleep(2000);
-        dashboards.click(save);
-
-        dashboards.save();
-
-        WebElement city = driver.findElement(By.xpath("//div[1]/div[1]/div/div[1]/div/div/div[2]/div/input"));
-        city.click(); //City
-        city.sendKeys("Москва");
-        city.sendKeys(Keys.ENTER);
-
+//        dashboards.click(selectFilters);
+//        dashboards.click(setCodependentFilteringBtn);
+//        dashboards.click(createConnectionBtn);
+//        dashboards.click(inputFilter1);
+//        dashboards.click(selectCity);
+//        dashboards.click(inputFilter2);
+//        dashboards.threadSleep(2000);
+//        dashboards.click(inputFilter2);
+//        dashboards.click(selectPoint);
+//        dashboards.threadSleep(1000);
+//        dashboards.click(connectBtn);
+//        dashboards.threadSleep(2000);
+//        dashboards.click(selectField1);
+//        dashboards.threadSleep(3000);
+//        dashboards.click(field1);
+//        dashboards.threadSleep(1000);
+//        dashboards.click(selectField2);
+//        dashboards.click(selectField2);
+//        dashboards.click(field2);
+//        dashboards.threadSleep(1000);
+//        dashboards.click(save);
+//        dashboards.threadSleep(1000);
+//        dashboards.click(save);
+//        dashboards.threadSleep(1000);
+//        driver.findElement(By.cssSelector("svg.AddWidgetFilter_arrowBack__OXzcF > path")).click();
+//        dashboards.threadSleep(2000);
+//        dashboards.click(save);
+//
+//        dashboards.save();
         dashboards.threadSleep(3000);
 
-        WebElement point =driver.findElement(By.xpath("//div[1]/div[2]/div[1]/div/div[1]/div/div/div[2]/div/input")); //Точка
+        driver.findElement(By.xpath("//div[@id='root']/div/div[3]/div[4]/div/div/div/div/div/div/div/div")).click();
+        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).clear();
+        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).sendKeys("Москва");
+        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/div")).click();
+        dashboards.threadSleep(3000);
+
+        dashboards.isTextDisplayed(secondDropdownList,"Москва");
+//        WebElement elm = driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[2]/div/div[2]"));
+//        String city = elm.getText();
+//        System.out.println(city);
+//        Assert.assertEquals(city,"Москва");
+
+
+//        WebElement city = driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[1]/label"));
+//
+//
+//        city.click(); //City
+//        dashboards.threadSleep(3000);
+//        city.sendKeys("Москва");
+//        city.sendKeys(Keys.ENTER);
+//
+//        dashboards.threadSleep(3000);
+//
+//        WebElement point =driver.findElement(By.xpath("//div[1]/div[2]/div[1]/div/div[1]/div/div/div[2]/div/input")); //Точка
 
 
 
