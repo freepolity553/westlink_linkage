@@ -22,6 +22,10 @@ import page.mainPanel.MainPanel;
 import settings.Variables;
 import utilites.RandomValue;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class TestBase {
 
@@ -50,9 +54,30 @@ public class TestBase {
 
         WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
+        // Get the project root directory
+        String projectPath = System.getProperty("user.dir");
+        System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
+        // Define the download directory within the project
+        String downloadPath = projectPath + "\\src\\test\\resources\\widgetXlsx";
 
-       ChromeOptions options = new ChromeOptions();
-       //FirefoxOptions options = new FirefoxOptions();
+
+        // Create a map to store Chrome preferences
+        Map<String, Object> prefs = new HashMap<>();
+
+        // Set the download directory
+        prefs.put("download.default_directory", downloadPath);
+
+        // Disable the download prompt
+        prefs.put("download.prompt_for_download", false);
+        prefs.put("download.directory_upgrade", true);
+        prefs.put("safebrowsing.enabled", true);
+
+        // Create ChromeOptions and set preferences
+        ChromeOptions options = new ChromeOptions();
+        //FirefoxOptions options = new FirefoxOptions();
+        options.setExperimentalOption("prefs", prefs);
+
+
 
         options.addArguments("--disable-extensions");
         options.addArguments("--disable-infobars");
@@ -60,12 +85,10 @@ public class TestBase {
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
-
         //options.addArguments("--headless=new");
-
-
         options.setAcceptInsecureCerts(true);
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+
         //Duration duration = Duration.of(2, ChronoUnit.SECONDS);
         //options.setImplicitWaitTimeout(duration);
         driver = new ChromeDriver(options);

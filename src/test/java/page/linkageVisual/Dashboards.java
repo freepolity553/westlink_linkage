@@ -111,7 +111,7 @@ public class Dashboards extends BasePage {
         click(statusReadyForWork);
         threadSleep(3000);
         save();
-        threadSleep(4000);
+        threadSleep(5000);
         click(addFilteringBtn);
         click(checkbox);
         click(oper);

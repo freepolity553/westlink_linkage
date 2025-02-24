@@ -11,6 +11,7 @@ import page.BasePage;
 import page.linkageVisual.Workstation;
 import settings.Constants;
 
+import java.io.IOException;
 import java.time.Duration;
 
 
@@ -38,13 +39,18 @@ public class TestTest extends TestBase {
 
 
     @Test(description = "", priority = 1)
-    public void TestTest() {
+    public void TestTest() throws IOException {
 
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         mainPanel.enterDashboard();
         dashboards.click(dashboards.constructorDashboards);
+        dashboards.threadSleep(3000);
+        driver.findElement(By.xpath("//div[2]/div[6]/div/a[1]")).click();
         dashboards.threadSleep(2000);
-        driver.findElement(By.xpath("/html/body/div[1]/div/div[4]/div[2]/div/div[2]/div[1]/div/div")).click();
+        driver.findElement(By.xpath("//div[5]/div/div/div[1]/div/div/div[1]/div[2]")).click();
+        widgets.threadSleep(5000);
+        widgets.readExcel();
+
 //        dashboards.click(selectFilters);
 //        dashboards.click(setCodependentFilteringBtn);
 //        dashboards.click(createConnectionBtn);
@@ -74,17 +80,19 @@ public class TestTest extends TestBase {
 //        dashboards.click(save);
 //
 //        dashboards.save();
-        dashboards.threadSleep(3000);
+//        dashboards.threadSleep(5000);
 
-        driver.findElement(By.xpath("//div[@id='root']/div/div[3]/div[4]/div/div/div/div/div/div/div/div")).click();
-        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).clear();
-        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).sendKeys("Москва");
-        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
-
-        driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/div")).click();
-        dashboards.threadSleep(3000);
-
-        dashboards.isTextDisplayed(secondDropdownList,"Москва");
+//        driver.findElement(By.xpath("//button[1]//div[1]")).click();
+//        dashboards.threadSleep(2000);
+//        driver.findElement(By.xpath("//div[@id='root']/div/div[3]/div[5]/div/div/div[2]/div/div/div[2]/div/div[2]/div/canvas")).click();
+//        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).clear();
+//        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).sendKeys("Москва");
+//        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
+//
+//        driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/div")).click();
+//        dashboards.threadSleep(3000);
+//
+//        dashboards.isTextDisplayed(secondDropdownList,"Москва");
 //        WebElement elm = driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[2]/div/div[2]"));
 //        String city = elm.getText();
 //        System.out.println(city);

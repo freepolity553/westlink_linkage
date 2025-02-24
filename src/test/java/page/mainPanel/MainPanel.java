@@ -29,7 +29,7 @@ public class MainPanel extends BasePage {
 
         wait.until(ExpectedConditions.elementToBeClickable(selectAPMBtn));
 //        waitVisibility(selectAPMBtn);
-        threadSleep(5000);
+        threadSleep(10000);
         click(selectAPMBtn);
 //        driver.get(Constants.URL_MAIN);
 
