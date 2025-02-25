@@ -11,6 +11,7 @@ import org.openqa.selenium.*;
 import page.BasePage;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
@@ -229,13 +230,17 @@ public class Widgets extends BasePage {
     }
     public Widgets readExcel() throws IOException {
         String projectPath = System.getProperty("user.dir");
-//        System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
-        // Define the download directory within the project
-//        String downloadPath = projectPath + "\\src\\test\\resources\\widgetXlsx";
+        File dir = new File(projectPath + "\\src\\test\\resources\\widgetXlsx");
+        File[] files = dir.listFiles((dir1, name) -> name.startsWith("metric_data_") && name.endsWith(".xlsx"));
+        while (files == null || files.length == 0) {
+//            Thread.sleep(1000); // Wait for 1 second
+            files = dir.listFiles((dir1, name) -> name.startsWith("metric_data_") && name.endsWith(".xlsx"));
+        }
+        File downloadedFile = files[0];
 
-//Path of the excel file
-            FileInputStream fs = new FileInputStream(projectPath + "\\src\\test\\resources\\widgetXlsx\\metric_data%.xlsx");
-//Creating a workbook
+            //Path of the excel file
+            FileInputStream fs = new FileInputStream(downloadedFile);
+            //Creating a workbook
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
             XSSFSheet sheet = workbook.getSheetAt(0);
             Row row = sheet.getRow(0);
@@ -254,8 +259,7 @@ public class Widgets extends BasePage {
 
 
         return this;
-//String cellval = cell.getStringCellValue();
-//System.out.println(cellval);
+
         }
 
 }

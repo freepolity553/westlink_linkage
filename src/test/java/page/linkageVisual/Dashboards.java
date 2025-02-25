@@ -100,10 +100,12 @@ public class Dashboards extends BasePage {
         threadSleep(2000);
         click(checkboxWidget);
         click(addWidgetModalBtn);
+        threadSleep(2000);
         click(addWidgetBtn);
         enterText(searchForWidget, widgetDiagrammeName);
         threadSleep(2000);
         click(checkboxWidget);
+        threadSleep(2000);
         click(addWidgetModalBtn);
         threadSleep(2000);
         click(draftBtn);
@@ -113,12 +115,14 @@ public class Dashboards extends BasePage {
         save();
         threadSleep(5000);
         click(addFilteringBtn);
+        threadSleep(2000);
         click(checkbox);
         click(oper);
         threadSleep(2000);
         click(dataFilter);
         threadSleep(2000);
         click(selectOperation);
+        threadSleep(2000);
         driver.findElement(By.xpath("//*/text()[normalize-space(.)='Равно']/parent::*")).click();
         click(datePicker);
         click(By.xpath("//button[contains(text(),'Готово')]"));

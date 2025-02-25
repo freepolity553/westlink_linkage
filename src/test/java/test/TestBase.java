@@ -60,7 +60,9 @@ public class TestBase {
         // Define the download directory within the project
         String downloadPath = projectPath + "\\src\\test\\resources\\widgetXlsx";
 
-
+        // Create ChromeOptions and set preferences
+        ChromeOptions options = new ChromeOptions();
+        //FirefoxOptions options = new FirefoxOptions();
         // Create a map to store Chrome preferences
         Map<String, Object> prefs = new HashMap<>();
 
@@ -69,21 +71,21 @@ public class TestBase {
 
         // Disable the download prompt
         prefs.put("download.prompt_for_download", false);
+
+        prefs.put("select_file_dialogs.allowed", "false");
         prefs.put("download.directory_upgrade", true);
+        prefs.put("credentials_enable_service", Boolean.FALSE);
+        prefs.put("profile.password_manager_enabled", Boolean.FALSE);
         prefs.put("safebrowsing.enabled", true);
+        prefs.put("safebrowsing.disable_download_protection", true);
 
-        // Create ChromeOptions and set preferences
-        ChromeOptions options = new ChromeOptions();
-        //FirefoxOptions options = new FirefoxOptions();
         options.setExperimentalOption("prefs", prefs);
-
-
-
         options.addArguments("--disable-extensions");
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-search-engine-choice-screen");
+        options.addArguments("--unsafely-treat-insecure-origin-as-secure=http://89.169.150.123/");
         options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
         //options.addArguments("--headless=new");
         options.setAcceptInsecureCerts(true);

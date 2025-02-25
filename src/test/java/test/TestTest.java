@@ -47,7 +47,7 @@ public class TestTest extends TestBase {
         dashboards.threadSleep(3000);
         driver.findElement(By.xpath("//div[2]/div[6]/div/a[1]")).click();
         dashboards.threadSleep(2000);
-        driver.findElement(By.xpath("//div[5]/div/div/div[1]/div/div/div[1]/div[2]")).click();
+        driver.findElement(By.xpath("//div[5]/div/div/div[1]/div/div/div[1]/div[2]/div[2]")).click();
         widgets.threadSleep(5000);
         widgets.readExcel();
 
