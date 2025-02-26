@@ -2,9 +2,11 @@ package test;
 
 import io.qameta.allure.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import settings.Constants;
 
+import java.io.IOException;
 import java.time.Duration;
 
 
@@ -21,7 +23,7 @@ public class E2ETest extends TestBase {
 
     @Test(description = "Login",priority = 1)
     @Step("login")
-    public void  E2ETest() {
+    public void  E2ETest() throws IOException {
 
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         mainPanel.enterDashboard();
@@ -63,6 +65,10 @@ public class E2ETest extends TestBase {
         widgets.click(mainPanel.adminDashboard);
         dashboards.click(dashboards.constructorDashboards);
         dashboards.addDashboardAgrotech();
+
+        widgets.readExcell();
+        Assert.assertEquals(widgets.getCityName(),widgets.readExcell());
+        dashboards.threadSleep(3000);
         dashboards.addCodependentFiltering();
         dashboards.isTextDisplayed(dashboards.secondDropdownList,"Москва");
         dashboards.click(mainPanel.adminDashboard);

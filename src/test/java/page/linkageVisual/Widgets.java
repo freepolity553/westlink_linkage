@@ -169,7 +169,7 @@ public class Widgets extends BasePage {
     }
 
     @Step(value = " ")
-    public Widgets addCitiesWidget (){
+    public Widgets addCitiesWidget () throws IOException {
         Metrics m = new Metrics(driver);
         String metricName = m.useMetricCities();
 
@@ -183,6 +183,8 @@ public class Widgets extends BasePage {
         click(addMetric);
         enterText(refreshField,"5");
         threadSleep(2000);
+        getCityName();
+
         click(draftBtn);
         click(statusReadyForWork);
         save();
@@ -191,6 +193,14 @@ public class Widgets extends BasePage {
         back();
 
         return this;
+    }
+    public String getCityName() {
+
+        WebElement cityName = driver.findElement(By.xpath("//div[2]/div[2]/div/div/p"));
+        String value = cityName.getText();
+        System.out.println("City in widget-"+value);
+
+        return value;
     }
 
     @Step(value = " ")
@@ -228,12 +238,11 @@ public class Widgets extends BasePage {
         
         return this;
     }
-    public Widgets readExcel() throws IOException {
+    public  String readExcell() throws IOException {
         String projectPath = System.getProperty("user.dir");
         File dir = new File(projectPath + "\\src\\test\\resources\\widgetXlsx");
         File[] files = dir.listFiles((dir1, name) -> name.startsWith("metric_data_") && name.endsWith(".xlsx"));
         while (files == null || files.length == 0) {
-//            Thread.sleep(1000); // Wait for 1 second
             files = dir.listFiles((dir1, name) -> name.startsWith("metric_data_") && name.endsWith(".xlsx"));
         }
         File downloadedFile = files[0];
@@ -243,24 +252,23 @@ public class Widgets extends BasePage {
             //Creating a workbook
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
             XSSFSheet sheet = workbook.getSheetAt(0);
-            Row row = sheet.getRow(0);
+            Row row = sheet.getRow(1);
             Cell cell = row.getCell(0);
-            System.out.println(sheet.getRow(0).getCell(0));
-            Row row1 = sheet.getRow(1);
-            Cell cell1 = row1.getCell(1);
-            System.out.println(sheet.getRow(0).getCell(1));
-            Row row2 = sheet.getRow(1);
-            Cell cell2 = row2.getCell(1);
-            System.out.println(sheet.getRow(1).getCell(0));
-            Row row3 = sheet.getRow(1);
-            Cell cell3 = row3.getCell(1);
-            System.out.println(sheet.getRow(1).getCell(1));
+            String city = cell.getStringCellValue();
+            System.out.println("City in excell-"+city);
+//            System.out.println(sheet.getRow(1).getCell(0));
 
-
-
-        return this;
+        return city            ;
 
         }
+    public Widgets get() {
+
+//        WebElement cityName = driver.findElement(By.xpath("/html/body/div[1]/div/div[7]/div[2]/div/div[2]/div[2]"));
+//        String value = string;
+//        System.out.println(value);
+
+        return this;
+    }
 
 }
 

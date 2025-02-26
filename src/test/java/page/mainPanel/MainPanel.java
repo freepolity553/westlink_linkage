@@ -28,8 +28,8 @@ public class MainPanel extends BasePage {
     public MainPanel enterDashboard (){
 
         wait.until(ExpectedConditions.elementToBeClickable(selectAPMBtn));
-//        waitVisibility(selectAPMBtn);
-        threadSleep(10000);
+        waitClickable(selectAPMBtn);
+//        threadSleep(10000);
         click(selectAPMBtn);
 //        driver.get(Constants.URL_MAIN);
 

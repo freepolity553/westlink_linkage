@@ -4,9 +4,12 @@ package page.linkageVisual;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import page.BasePage;
 
 import settings.Variables;
+
+import java.time.Duration;
 
 import static page.SharedData.*;
 
@@ -63,13 +66,20 @@ public class Metrics extends BasePage {
     private String dataSource = "Локальная витрина";
     private String dataSourceFiltration = "demo_agrotech_set";
 
-
+//    public String getCityName() {
+//
+//        WebElement cityName = driver.findElement(By.xpath("/html/body/div[1]/div/div[7]/div[2]/div/div[2]/div[2]"));
+//        String value = cityName.getText();
+//        System.out.println(value);
+//
+//        return value;
+//    }
 
     public String useMetricName() {
         // Retrieve the extracted value from the shared class
         String value = getMetricName();
 
-        // Perform actions with the extracted value (e.g., enter it into another field)
+
         return value;
     }
     public String useMetricCities() {

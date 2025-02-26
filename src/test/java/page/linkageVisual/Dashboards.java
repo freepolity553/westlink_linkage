@@ -33,7 +33,7 @@ public class Dashboards extends BasePage {
     private By selectOperation = By.xpath("//div[@class='slct__value-container slct__value-container--has-value css-1hwfws3']");
     private By enterDate =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pr-6']");
     private By datePicker = By.xpath("//div[@class='InputText-module_icon__8XMHv InputText-module_icon_inner__dPCVH InputText-module_icon_inner_right__cJwjN']");
-    private By oper = By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary mr-2']");
+    private By oper = By.xpath("//div[3]/div[3]/button[1]");
     private By metricCheckbox2 = By.xpath("//div[3]/div[2]/div[2]/div/div[1]/div/label");
     private By filterSettings1 = By.cssSelector("svg.FilterItem_checkBox__icon__hXCuZ");
     private By filterSettings2 = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Настроить созависимую фильтрацию'])[1]/following::*[name()='svg'][4]");
@@ -53,7 +53,7 @@ public class Dashboards extends BasePage {
     private By inputFilter2 = By.xpath("//div[3]/div[2]/div/div[2]/div/div/div/div[1]/div[2]/div/input");
     private By selectCity = By.xpath("//div[contains(text(),'Город')]");
     private By selectPoint = By.xpath("//div[contains(text(),'Точка')]");
-    private By connectBtn = By.xpath("//button[@class='Button-module_main__lxsaF Button-module_auto_width__Fgo4W Button-module_icon__xIuVv Button-module_icon_only__EcUq- FilterChains_chainBtn__67HiG FilterChains_chainBtn__error__SQn5w']//*[name()='svg']");
+    private By connectBtn = By.xpath("//div[1]/button[2]");
     private By selectField1 = By.xpath("//div[3]/div[2]/div/div/div/div/div/div[2]");
     private By selectField2 = By.xpath("//div[3]/div[2]/div/div[3]/div[2]/div[1]/div/div[1]/div[2]/div/input");
     private By field1 = By.xpath("//div[3]/div[2]/div/div/div[2]/div/div[2]/div/div");
@@ -117,7 +117,9 @@ public class Dashboards extends BasePage {
         click(addFilteringBtn);
         threadSleep(2000);
         click(checkbox);
+        threadSleep(1000);
         click(oper);
+//        click(oper);
         threadSleep(2000);
         click(dataFilter);
         threadSleep(2000);
@@ -154,7 +156,7 @@ public class Dashboards extends BasePage {
         click(statusReadyForWork);
         threadSleep(3000);
         save();
-        threadSleep(3000);
+        threadSleep(4000);
 
         return this;
     }
@@ -252,6 +254,7 @@ public class Dashboards extends BasePage {
 
         //setCodependentFiltering
         click(selectFilters);
+        threadSleep(3000);
         click(setCodependentFilteringBtn);
         threadSleep(2000);
         click(createConnectionBtn);
