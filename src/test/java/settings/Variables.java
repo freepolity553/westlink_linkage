@@ -13,7 +13,7 @@ public class Variables {
 
     public static String sqlCities = "SELECT public.cities.id,public.cities.city_name FROM public.cities";
 
-    public static String sqlPoints = "SELECT public.points.id ,public.points.point_name FROM public.points";
+    public static String sqlPoints = "SELECT public.points.id ,public.points.point_name,public.points.city_id  FROM public.points";
 
 
 }

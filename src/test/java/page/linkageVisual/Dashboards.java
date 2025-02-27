@@ -4,7 +4,6 @@ package page.linkageVisual;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
-import org.testng.Assert;
 import page.BasePage;
 
 import java.util.List;
@@ -35,17 +34,17 @@ public class Dashboards extends BasePage {
     private By datePicker = By.xpath("//div[@class='InputText-module_icon__8XMHv InputText-module_icon_inner__dPCVH InputText-module_icon_inner_right__cJwjN']");
     private By oper = By.xpath("//div[3]/div[3]/button[1]");
     private By metricCheckbox2 = By.xpath("//div[3]/div[2]/div[2]/div/div[1]/div/label");
-    private By filterSettings1 = By.cssSelector("svg.FilterItem_checkBox__icon__hXCuZ");
-    private By filterSettings2 = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Настроить созависимую фильтрацию'])[1]/following::*[name()='svg'][4]");
+    private By filterSettingsCity = By.cssSelector("svg.FilterItem_checkBox__icon__hXCuZ");
+    private By filterSettingsPoint = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='point_name'])[1]/following::*[name()='svg'][26]");
     private By filterMetricBtn = By.xpath("//div[@role='presentation']//div[3]//div[1]//label[1]");
     private By addMetricBtn = By.xpath("//button[contains(text(),'Добавить показатель')]");
-    private By inputMetric = By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pl-6' and @placeholder ='Введите название показателя' ]");
+    private By inputMetric = By.xpath("//div[5]/div/div[1]/div/div[1]/input");
     private By addMetric = By.xpath("//button[contains(text(),'Вставить')]");
     private By addKey = By.xpath("//div[2]/div/div/div[1]/div[2]/div/input");
     private By selectKey = By.xpath("//div[3]/div[2]/div/div/div/div/div/input");
     private By addName = By.xpath("//div[3]/div/div/div[1]/div[2]/div/input");
     private By selectName = By.xpath("//div[3]/div[3]/div/div/div/div/div/input");
-    private By save = By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary mr-2']");
+    private By save = By.xpath("//div[3]/div[3]/button[1]");
     private By selectFilters = By.xpath("//button[contains(text(),'Выбор фильтров')]");
     private By setCodependentFilteringBtn = By.xpath("//button[contains(text(),'Настроить созависимую фильтрацию')]");
     private By createConnectionBtn = By.xpath("//button[contains(text(),'Создать связь')]");
@@ -57,8 +56,10 @@ public class Dashboards extends BasePage {
     private By selectField1 = By.xpath("//div[3]/div[2]/div/div/div/div/div/div[2]");
     private By selectField2 = By.xpath("//div[3]/div[2]/div/div[3]/div[2]/div[1]/div/div[1]/div[2]/div/input");
     private By field1 = By.xpath("//div[3]/div[2]/div/div/div[2]/div/div[2]/div/div");
-    private By field2 = By.xpath("//div[2]/div/div[2]/div/div[2]");
+    private By selectKeyForPoint = By.xpath("//div[contains(text(),'city_id')]");
     private By back =By.cssSelector("svg.AddWidgetFilter_arrowBack__OXzcF > path");
+    public By checkboxCity =By.xpath("//div[1]/div/div[1]/div/label");
+    public By checkboxPoint =By.xpath("//div[2]/div/div[1]/div/label");
 
     private By firstDropdown = By.xpath("//div[4]/div/div[1]/div[1]/div[1]/div/div[1]/div/div");
     private By searchFirstDropdown = By.xpath("//div/div/div/div/div/div/input");
@@ -83,8 +84,8 @@ public class Dashboards extends BasePage {
     String widgetPointsName = w.useWidgetPointsName();
 
     Metrics m = new Metrics(driver);
-    String metricPoints = m.useMetricPoints();
-    String metricCities = m.useMetricCities();
+    public String metricPoints = m.useMetricPoints();
+    public String metricCities = m.useMetricCities();
 
 
     @Step(value = " ")
@@ -140,15 +141,21 @@ public class Dashboards extends BasePage {
 
         click(newDashboardtBtn );
         enterText(inputDashboardName,useDashboardAgrotech());
+        threadSleep(4000);
         click(addWidgetBtn);
+        threadSleep(2000);
         enterText(searchForWidget,widgetCitiesName);
         threadSleep(2000);
         click(checkboxWidget);
+        threadSleep(2000);
         click(addWidgetModalBtn);
+        threadSleep(2000);
         click(addWidgetBtn);
+        threadSleep(2000);
         enterText(searchForWidget, widgetPointsName);
         threadSleep(2000);
         click(checkboxWidget);
+        threadSleep(2000);
         click(addWidgetModalBtn);
         threadSleep(2000);
         click(draftBtn);
@@ -198,16 +205,22 @@ public class Dashboards extends BasePage {
     }
     @Step(value = " ")
     public Dashboards addCodependentFiltering(){
-        //Add Cities filter
+
         click(addFilteringBtn);
-        click(checkbox);
-        click(filterSettings1);
-        threadSleep(1000);
+
+
+
+//Add Cities filter
+        click(checkboxCity);
+        threadSleep(2000);
+        click(filterSettingsCity);
+        threadSleep(2000);
         click(filterMetricBtn);
+        threadSleep(2000);
         click(addMetricBtn);
-        threadSleep(1000);
+        threadSleep(2000);
         click(inputMetric);
-        threadSleep(1000);
+        threadSleep(2000);
         setMetricCities();
         threadSleep(1000);
         click(addMetric);
@@ -225,14 +238,18 @@ public class Dashboards extends BasePage {
         pressEnter(selectName);
         threadSleep(2000);
         click(save);
-
-        //Add Points filter
-        click(metricCheckbox2);
-        click(filterSettings2);
+        threadSleep(3000);
+//Add Points filter
+        click(checkboxPoint);
+        threadSleep(2000);
+        click(filterSettingsPoint);
         threadSleep(1000);
         click(filterMetricBtn);
+        threadSleep(2000);
         click(addMetricBtn);
+        threadSleep(2000);
         click(inputMetric);
+        threadSleep(2000);
         setMetricPoints();
         click(addMetric);
         threadSleep(3000);
@@ -248,6 +265,7 @@ public class Dashboards extends BasePage {
         pressEnter(selectName);
         threadSleep(2000);
         click(save);
+
         threadSleep(1000);
         click(save);
         threadSleep(3000);
@@ -275,7 +293,7 @@ public class Dashboards extends BasePage {
         threadSleep(1000);
         click(selectField2);
         click(selectField2);
-        click(field2);
+        click(selectKeyForPoint);
         click(save);
         click(save);
         click(back);

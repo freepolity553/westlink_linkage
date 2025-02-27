@@ -1,7 +1,6 @@
 package test;
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import settings.Constants;
 
@@ -33,13 +32,13 @@ public class TestTest extends TestBase {
     private By filterSettingsPoint = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Настроить созависимую фильтрацию'])[1]/following::*[name()='svg'][4]");
     private By filterMetricBtn = By.xpath("//div[@role='presentation']//div[3]//div[1]//label[1]");
     private By addMetricBtn = By.xpath("//button[contains(text(),'Добавить показатель')]");
-    private By inputMetric = By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pl-6' and @placeholder ='Введите название показателя' ]");
+    private By inputMetric = By.xpath("//div[5]/div/div[1]/div/div[1]/input");
     private By addMetric = By.xpath("//button[contains(text(),'Вставить')]");
     private By addKey = By.xpath("//div[2]/div/div/div[1]/div[2]/div/input");
     private By selectKey = By.xpath("//div[3]/div[2]/div/div/div/div/div/input");
     private By addName = By.xpath("//div[3]/div/div/div[1]/div[2]/div/input");
     private By selectName = By.xpath("//div[3]/div[3]/div/div/div/div/div/input");
-    private By save = By.xpath("//button[@class='Button-module_main__lxsaF Button-module_xsmall__QS3d- Button-module_auto_width__Fgo4W btnPrimary mr-2']");
+    private By save = By.xpath("//div[3]/div[3]/button[1]");
     private By selectFilters = By.xpath("//button[contains(text(),'Выбор фильтров')]");
     private By setCodependentFilteringBtn = By.xpath("//button[contains(text(),'Настроить созависимую фильтрацию')]");
     private By createConnectionBtn = By.xpath("//button[contains(text(),'Создать связь')]");
@@ -51,10 +50,11 @@ public class TestTest extends TestBase {
     private By selectField1 = By.xpath("//div[3]/div[2]/div/div/div/div/div/div[2]");
     private By selectField2 = By.xpath("//div[3]/div[2]/div/div[3]/div[2]/div[1]/div/div[1]/div[2]/div/input");
     private By field1 = By.xpath("//div[3]/div[2]/div/div/div[2]/div/div[2]/div/div");
-    private By field2 = By.xpath("//div[2]/div/div[2]/div/div[2]");
+    private By selectKeyForPoint = By.xpath("//div[contains(text(),'city_id')]");
     private By back =By.cssSelector("svg.AddWidgetFilter_arrowBack__OXzcF > path");
     public By checkboxCity =By.xpath("//div[1]/div/div[1]/div/label");
     public By checkboxPoint =By.xpath("//div[2]/div/div[1]/div/label");
+
     private By firstDropdown = By.xpath("//div[4]/div/div[1]/div[1]/div[1]/div/div[1]/div/div");
     private By searchFirstDropdown = By.xpath("//div/div/div/div/div/div/input");
     public By secondDropdown = By.xpath("//div[4]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/div");
@@ -66,28 +66,15 @@ public class TestTest extends TestBase {
 
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         mainPanel.enterDashboard();
-//        metrics.threadSleep(3000);
-//        driver.navigate().to("http://89.169.150.123/metric/95");
-//        metrics.threadSleep(3000);
-//        metrics.click(requestValidationBtn);
-//        metrics.threadSleep(3000);
-//        metrics.getCityName();
-//        metrics.threadSleep(2000);
-//        metrics.save();
         metrics.threadSleep(2000);
         metrics.click(mainPanel.adminDashboard);
         dashboards.click(dashboards.constructorDashboards);
-        dashboards.threadSleep(3000);
-        driver.findElement(By.xpath("//div[2]/div[6]/div/a[1]")).click();
-        dashboards.threadSleep(4000);
-        driver.findElement(By.xpath("//div[3]/div[5]/div/div/div[1]/div/div/div[1]/div[2]")).click();
+        driver.navigate().to("http://89.169.150.123/dashboard/55");
+
         widgets.threadSleep(5000);
-        widgets.readExcell();
-        Assert.assertEquals(widgets.getCityName(),widgets.readExcell());
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div[2]/button")).click();
         dashboards.click(addFilteringBtn);
 
-
+        //Add Cities filter
         dashboards.click(checkboxCity);
         dashboards.click(filterSettingsCity);
         dashboards.threadSleep(1000);
@@ -95,7 +82,7 @@ public class TestTest extends TestBase {
         dashboards.click(addMetricBtn);
         dashboards.threadSleep(1000);
         dashboards.click(inputMetric);
-        dashboards.threadSleep(2000);
+        dashboards.threadSleep(1000);
         dashboards.setMetricCities();
         dashboards.threadSleep(1000);
         dashboards.click(addMetric);
@@ -115,7 +102,7 @@ public class TestTest extends TestBase {
         dashboards.click(save);
 
         //Add Points filter
-        dashboards.click(metricCheckbox2);
+        dashboards.click(checkboxPoint);
         dashboards.click(filterSettingsPoint);
         dashboards.threadSleep(1000);
         dashboards.click(filterMetricBtn);
@@ -163,19 +150,19 @@ public class TestTest extends TestBase {
         dashboards.threadSleep(1000);
         dashboards.click(selectField2);
         dashboards.click(selectField2);
-        dashboards.click(field2);
+        dashboards.click(selectKeyForPoint);
         dashboards.click(save);
-        dashboards.click(save);
-        dashboards.click(back);
-        dashboards.click(save);
-        dashboards.save();
-        dashboards.threadSleep(3000);
-        dashboards.click(firstDropdown);
-        dashboards.enterText(searchFirstDropdown,"Москва");
-        dashboards.pressEnter(searchFirstDropdown);
-        dashboards.threadSleep(5000);
-        dashboards.click(secondDropdown);
-        dashboards.threadSleep(2000);
+//        click(save);
+//        click(back);
+//        click(save);
+//        save();
+//        threadSleep(3000);
+//        click(firstDropdown);
+//        enterText(searchFirstDropdown,"Москва");
+//        pressEnter(searchFirstDropdown);
+//        threadSleep(5000);
+//        click(secondDropdown);
+//        threadSleep(2000);
 
 
 

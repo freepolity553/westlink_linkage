@@ -184,7 +184,7 @@ public class Widgets extends BasePage {
         enterText(refreshField,"5");
         threadSleep(2000);
         getCityName();
-
+        threadSleep(2000);
         click(draftBtn);
         click(statusReadyForWork);
         save();

@@ -51,7 +51,7 @@ public class SharedData extends BasePage {
         return metricName;
     }
 
-    private static String metricCities = "Города " + randomInt(3);
+    private static String metricCities = "Город " + randomInt(3);
     public static void setMetricCities(String value) {
         metricCities = value;
     }
@@ -59,7 +59,7 @@ public class SharedData extends BasePage {
         return metricCities;
     }
 
-    private static String metricPoints = "Точки продажи " + randomInt(3);
+    private static String metricPoints = "Точка продажи " + randomInt(3);
     public static void setMetricPoints(String value) {
         metricPoints = value;
     }
