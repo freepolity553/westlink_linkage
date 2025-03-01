@@ -64,7 +64,7 @@ public class Dashboards extends BasePage {
     private By firstDropdown = By.xpath("//div[4]/div/div[1]/div[1]/div[1]/div/div[1]/div/div");
     private By searchFirstDropdown = By.xpath("//div/div/div/div/div/div/input");
     public By secondDropdown = By.xpath("//div[4]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/div");
-    public By secondDropdownList = By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[2]/div/div[2]");
+
 
 
 

@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import page.SharedData;
 import page.linkageAdministration.Groups;
@@ -119,8 +120,8 @@ public class TestBase {
 
 
     }
-//    @AfterClass
-//    public void tearDown(){
-//        driver.quit();
-//    }
+    @AfterClass
+    public void tearDown(){
+        driver.quit();
+    }
 }

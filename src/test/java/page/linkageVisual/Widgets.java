@@ -253,7 +253,7 @@ public class Widgets extends BasePage {
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
             XSSFSheet sheet = workbook.getSheetAt(0);
             Row row = sheet.getRow(1);
-            Cell cell = row.getCell(0);
+            Cell cell = row.getCell(1);
             String city = cell.getStringCellValue();
             System.out.println("City in excell-"+city);
 //            System.out.println(sheet.getRow(1).getCell(0));
