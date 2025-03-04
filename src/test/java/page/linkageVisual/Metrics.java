@@ -99,7 +99,7 @@ public class Metrics extends BasePage {
 
 
 
-    @Step(value = " ")
+    @Step("add SQL Metric ")
     public Metrics addSQLMetric (){
 
         click(newMetricBtn );
@@ -132,7 +132,7 @@ public class Metrics extends BasePage {
         return this;
     }
 
-    @Step(value = " ")
+    @Step("add Cities Metric ")
     public Metrics addCitiesMetric (){
 
         click(newMetricBtn );
@@ -166,7 +166,7 @@ public class Metrics extends BasePage {
         return this;
     }
 
-    @Step(value = " ")
+    @Step( "addPoints Metric ")
     public Metrics addPointsMetric (){
 
         click(newMetricBtn );

@@ -57,32 +57,23 @@ public class Widgets extends BasePage {
 
 
     public String useWidgetTableName() {
-        // Retrieve the extracted value from the shared class
         String value = getWidgetTableName();
 
-        // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
     }
 
     public String useWidgetDiagrammeName() {
-        // Retrieve the extracted value from the shared class
         String value = getWidgetDiagrammeName();
-
-        // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
     }
     public String useWidgetCitiesName() {
-        // Retrieve the extracted value from the shared class
-        String value = getWidgetCitiesName();
 
-        // Perform actions with the extracted value (e.g., enter it into another field)
+        String value = getWidgetCitiesName();
         return value;
     }
     public String useWidgetPointsName() {
-        // Retrieve the extracted value from the shared class
         String value = getWidgetPointsName();
 
-        // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
     }
     public void setGraphTableSelection() {
@@ -113,7 +104,7 @@ public class Widgets extends BasePage {
     }
 
 
-    @Step(value = " ")
+    @Step( "add Table Widget ")
     public Widgets addTableWidget (){
         Metrics m = new Metrics(driver);
         String metricName = m.useMetricName();
@@ -138,7 +129,7 @@ public class Widgets extends BasePage {
         return this;
     }
 
-    @Step(value = " ")
+    @Step("add Diagramme Widget ")
     public Widgets addDiagrammeWidget (){
         Metrics m = new Metrics(driver);
         String metricName = m.useMetricName();
@@ -168,7 +159,7 @@ public class Widgets extends BasePage {
         return this;
     }
 
-    @Step(value = " ")
+    @Step("add Cities Widget ")
     public Widgets addCitiesWidget () throws IOException {
         Metrics m = new Metrics(driver);
         String metricName = m.useMetricCities();
@@ -203,7 +194,7 @@ public class Widgets extends BasePage {
         return value;
     }
 
-    @Step(value = " ")
+    @Step("add Points Widget ")
     public Widgets addPointsWidget (){
         Metrics m = new Metrics(driver);
         String metricName = m.useMetricPoints();
@@ -238,6 +229,7 @@ public class Widgets extends BasePage {
         
         return this;
     }
+    @Step( "read Excell")
     public  String readExcell() throws IOException {
         String projectPath = System.getProperty("user.dir");
         File dir = new File(projectPath + "\\src\\test\\resources\\widgetXlsx");

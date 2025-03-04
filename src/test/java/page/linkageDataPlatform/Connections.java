@@ -47,19 +47,19 @@ public class Connections extends BasePage {
 
 
 
-    @Step(value = "Login with  {0} {1} ")
+    @Step("add DB Connection ")
     public Connections addConnection (){
 
         click(newConnectionBtn);
         threadSleep(1000);
-        enterText(connName, Constants.nameBD);
+        enterText(connName,Variables.nameBD);
 
         WebElement host1 = driver.findElement(host);
         new Actions(driver)
                 .moveToElement(host1)
                 .click()
                 .pause(Duration.ofSeconds(1))
-                    .sendKeys(Constants.host)
+                    .sendKeys(Variables.host)
                 .perform();
 
         WebElement port1 = driver.findElement(port);
@@ -67,7 +67,7 @@ public class Connections extends BasePage {
                 .moveToElement(port1)
                 .click()
                 .pause(Duration.ofSeconds(1))
-                .sendKeys(Constants.port)
+                .sendKeys(Variables.port)
                 .perform();
 
         WebElement nameBD1 = driver.findElement(nameBD);
@@ -75,7 +75,7 @@ public class Connections extends BasePage {
                 .moveToElement(nameBD1)
                 .click()
                 .pause(Duration.ofSeconds(1))
-                .sendKeys(Constants.nameBD)
+                .sendKeys(Variables.nameBD)
                 .perform();
 
         WebElement user1 = driver.findElement(user);
@@ -83,7 +83,7 @@ public class Connections extends BasePage {
                 .moveToElement(user1)
                 .click()
                 .pause(Duration.ofSeconds(1))
-                .sendKeys(Constants.user)
+                .sendKeys(Variables.user)
                 .perform();
 
         WebElement password1 = driver.findElement(password);
@@ -91,7 +91,7 @@ public class Connections extends BasePage {
                 .moveToElement(password1)
                 .click()
                 .pause(Duration.ofSeconds(1))
-                .sendKeys(Constants.password)
+                .sendKeys(Variables.password)
                 .perform();
 
         click(checkbox);

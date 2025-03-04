@@ -79,7 +79,7 @@ public class Workstation extends BasePage {
     String userLastName = u.useLastName();
 
 
-    @Step(value = " ")
+    @Step("add Workstation ")
     public Workstation addWorkstation(){
 
 

@@ -136,7 +136,7 @@ public class Dashboards extends BasePage {
         return this;
     }
 
-    @Step(value = " ")
+    @Step(" add Dashboard Agrotech")
     public Dashboards addDashboardAgrotech(){
 
         click(newDashboardtBtn );
@@ -164,10 +164,19 @@ public class Dashboards extends BasePage {
         threadSleep(3000);
         save();
         threadSleep(4000);
+        click(By.xpath("//button[1]//div[1]"));
+        threadSleep(2000);
+
+        //Export XLSX - to refactor after fix with button
+        click(By.xpath("//button[1]//div[1]"));//Click Preview
+        threadSleep(2000);
+        click(By.xpath("//p[contains(text(),'Cохранить')]"));//Click Save
+        click(By.xpath("/html/body/div[1]/div/div[3]/div[5]/div/div/div[1]/div/div/div[1]/div[2]"));//Click export button
+        threadSleep(3000);
 
         return this;
     }
-    @Step(value = " ")
+    @Step("add Filtering Data ")
     public Dashboards addFilteringData(){
         click(addFilteringBtn);
         click(checkbox);
@@ -183,6 +192,7 @@ public class Dashboards extends BasePage {
 
         return this;
     }
+    @Step("set Metric Cities")
     public void setMetricCities() {
         WebElement ulElement = driver.findElement(By.xpath("//ul[@class='MetricsDrawer_metricsUl__kI5dd mt-3']"));
         List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
@@ -193,6 +203,7 @@ public class Dashboards extends BasePage {
             }
         }
     }
+    @Step("set Metric Points")
     public void setMetricPoints() {
         WebElement ulElement = driver.findElement(By.xpath("//ul[@class='MetricsDrawer_metricsUl__kI5dd mt-3']"));
         List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
@@ -203,12 +214,10 @@ public class Dashboards extends BasePage {
             }
         }
     }
-    @Step(value = " ")
+    @Step(" add Codependent Filtering")
     public Dashboards addCodependentFiltering(){
 
         click(addFilteringBtn);
-
-
 
 //Add Cities filter
         click(checkboxCity);

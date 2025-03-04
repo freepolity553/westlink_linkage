@@ -33,7 +33,7 @@ public class Groups extends BasePage {
     private By permisionUser =By.xpath("//div[@class='SelectRadioInfo_inputSelectMain__menu_list__X7O8v']//div[1]//div[1]//label[1]");
 
 
-    @Step(value = "Permissions ")
+    @Step("enter Group Permissions")
     public Groups enterPermissions  (){
         click(permissionsTab);
         return this;
@@ -47,7 +47,7 @@ public class Groups extends BasePage {
         // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
     }
-    @Step(value = "Add ")
+    @Step("create Group ")
     public Groups createGroup (){
 
 

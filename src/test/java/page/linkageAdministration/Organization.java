@@ -44,7 +44,7 @@ public class Organization extends BasePage {
         return value;
     }
 
-    @Step(value = "")
+    @Step("add Organization")
     public Organization addOrg (){
 
         String orgName = useOrgName();
@@ -107,7 +107,7 @@ public class Organization extends BasePage {
 
         return this;
     }
-    @Step(value = "")
+    @Step("add Org Users")
     public Organization addOrgUsers (){
 
         Users user = new Users(driver);

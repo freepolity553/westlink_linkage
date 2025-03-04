@@ -15,6 +15,12 @@ public class Variables {
 
     public static String sqlPoints = "SELECT public.points.id ,public.points.point_name,public.points.city_id  FROM public.points";
 
+//Connection
+    public static final String host = "89.169.138.24";
+    public static final String port = "5432";
+    public static final String nameBD = "demo_agrotech_set";
+    public static final String user = "demo_view";
+    public static final String password = "rnOWV07pmx1AuCELVATb";
 
 }
 

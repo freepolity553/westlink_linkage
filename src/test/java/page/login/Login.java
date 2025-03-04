@@ -33,7 +33,7 @@ public class Login extends BasePage {
         return value;
     }
 
-    @Step(value = "Login with Admin Demo ")
+    @Step("Login with Admin Demo ")
     public Login loginAdminDemo(String username, String password){
 
 
@@ -43,13 +43,10 @@ public class Login extends BasePage {
             enterText(passwordInput,password);
             click(submitBtn);
 
-
-
-
             return this;
     }
 
-    @Step(value = "Login with New User ")
+    @Step("Login with New User ")
     public Login loginUser(){
         driver.get(Constants.URL_AUTH_DEMO);
         enterText(usernameInput,useLoginUser());
@@ -57,7 +54,7 @@ public class Login extends BasePage {
         click(submitBtn);
         return this;
     }
-    @Step(value = "Check elements of Login page")
+    @Step("Check elements of Login page")
     public Login  checkAllElementsOnPagePresent() {
         isElementDisplayed(By.xpath("//p[@class='SelectARM_welcomeText__hello__X3t-0'][contains(.,'Здравствуйте')]"));
         isElementDisplayed(By.xpath("//p[contains(@class,'SelectARM_cardName__ARdPm')]"));

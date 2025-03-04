@@ -49,12 +49,12 @@ public class Users extends BasePage {
 
 
 
-    @Step(value = "")
+    @Step("click Avatar")
     public Users clickAvatar (){
         click(avatar);
         return this;
     }
-    @Step(value = "")
+    @Step("logout")
     public Users logout (){
         click(logOut);
         return this;
@@ -86,7 +86,7 @@ public class Users extends BasePage {
         // Perform actions with the extracted value (e.g., enter it into another field)
         return value;
     }
-    @Step(value = "")
+    @Step( "create New User")
     public Users createNewUser (){
 
         click(addUserBtn);
@@ -103,7 +103,7 @@ public class Users extends BasePage {
         return this;
     }
 
-    @Step(value = "")
+    @Step( "add Group to User")
     public Users addGroup (){
 
         Groups group = new Groups(driver);
@@ -130,46 +130,7 @@ public class Users extends BasePage {
         //assertEquals(driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Группы пользователя'])[1]/following::p[1]")).getText(), groupName);
         return this;
     }
-//    @Step(value = "")
-//    public Users addUserOrg (){
-//
-//        String orgName = useOrgName();
-//
-//        enterText(searchOrg,orgName);
-//
-//        WebElement clickable = driver.findElement(By.cssSelector("svg.SelectInfiniteControl_chevron__PCOdq"));
-//                new Actions(driver)
-//                .moveToElement(clickable)
-//                .pause(Duration.ofSeconds(2))
-//                .click()
-////                .pause(Duration.ofSeconds(2))
-//                .perform();
-//
-//        //p[@class='SelectListItem_label__BfAON']
-//
-////        click(addOrgName);
-//
-////        WebElement clickable = driver.findElement(inputOrgName);
-////        new Actions(driver)
-////                .moveToElement(clickable)
-////                .pause(Duration.ofSeconds(2))
-////                .click()
-////                .sendKeys(orgName)
-////                .pause(Duration.ofSeconds(2))
-////                .perform();
-//
-////        save();
-////        back();
-////
-////
-////        WebElement elm = driver.findElement(By.xpath("//div[@role='gridcell' and @aria-colindex='1' and contains(@class, 'rdg-cell')]"));
-////        String newOrg  = elm.getText();
-////        System.out.println("Org name: " + newOrg);
-////
-////        assertEquals( orgName,newOrg);
-//
-//        return this;
-//    }
+
 }
 
 

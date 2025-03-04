@@ -23,11 +23,11 @@ public final class Constants {
     public static final String PASSWORD_ADMIN_DEMO = "welcome@linkage.ru1";
     public static final String PASSWORD_ADMIN_DEV = "welcome@linkage.ru";
 
-    public static final String host = "89.169.138.24";
-    public static final String port = "5432";
-    public static final String nameBD = "demo_agrotech_set";
-    public static final String user = "demo_view";
-    public static final String password = "rnOWV07pmx1AuCELVATb";
+//    public static final String host = "89.169.138.24";
+//    public static final String port = "5432";
+//    public static final String nameBD = "demo_agrotech_set";
+//    public static final String user = "demo_view";
+//    public static final String password = "rnOWV07pmx1AuCELVATb";
 
 
 }
