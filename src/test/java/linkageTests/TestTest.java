@@ -24,7 +24,7 @@ public class TestTest extends TestBase {
     private By addFilteringBtn = By.xpath("//div[@class='FiltersData_filterData__qnQxY']");
     private By dataFilter = By.xpath("//span[@class='ButtonFilter_label__t8Ut2']");
     private By selectOperation = By.xpath("//div[@class='slct__value-container slct__value-container--has-value css-1hwfws3']");
-    private By enterDate =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pr-6']");
+
     private By datePicker = By.xpath("//div[@class='InputText-module_icon__8XMHv InputText-module_icon_inner__dPCVH InputText-module_icon_inner_right__cJwjN']");
     private By oper = By.xpath("//div[3]/div[3]/button[1]");
     private By metricCheckbox2 = By.xpath("//div[3]/div[2]/div[2]/div/div[1]/div/label");
@@ -61,171 +61,24 @@ public class TestTest extends TestBase {
     public By secondDropdownList = By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[2]/div/div[2]");
 
 
+
     @Test(description = "", priority = 1)
     public void TestTest() throws IOException {
 
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         mainPanel.enterDashboard();
-        metrics.threadSleep(2000);
-        metrics.click(mainPanel.adminDashboard);
-        dashboards.click(dashboards.constructorDashboards);
-        driver.navigate().to("http://89.169.150.123/dashboard/55");
-
-        widgets.threadSleep(5000);
-        dashboards.click(addFilteringBtn);
-
-        //Add Cities filter
-        dashboards.click(checkboxCity);
-        dashboards.click(filterSettingsCity);
-        dashboards.threadSleep(1000);
-        dashboards.click(filterMetricBtn);
-        dashboards.click(addMetricBtn);
-        dashboards.threadSleep(1000);
-        dashboards.click(inputMetric);
-        dashboards.threadSleep(1000);
-        dashboards.setMetricCities();
-        dashboards.threadSleep(1000);
-        dashboards.click(addMetric);
-        dashboards.threadSleep(1000);
-        dashboards.click(addKey);
-        dashboards.threadSleep(2000);
-        dashboards.enterText(addKey,"id");
-        dashboards.threadSleep(2000);
-        dashboards.pressEnter(selectKey);
-        dashboards.threadSleep(2000);
-        dashboards.click(addName);
-        dashboards.threadSleep(2000);
-        dashboards.enterText(addName,"city_name");
-        dashboards.threadSleep(2000);
-        dashboards.pressEnter(selectName);
-        dashboards.threadSleep(2000);
-        dashboards.click(save);
-
-        //Add Points filter
-        dashboards.click(checkboxPoint);
-        dashboards.click(filterSettingsPoint);
-        dashboards.threadSleep(1000);
-        dashboards.click(filterMetricBtn);
-        dashboards.click(addMetricBtn);
-        dashboards.click(inputMetric);
-        dashboards.setMetricPoints();
-        dashboards.click(addMetric);
-        dashboards.threadSleep(3000);
-        dashboards.click(addKey);
-        dashboards.threadSleep(3000);
-        dashboards.enterText(addKey,"id");
-        dashboards.threadSleep(3000);
-        dashboards.pressEnter(selectKey);
-        dashboards.threadSleep(2000);
-        dashboards.click(addName);
-        dashboards.threadSleep(3000);
-        dashboards.enterText(addName,"point_name");
-        dashboards.pressEnter(selectName);
-        dashboards.threadSleep(2000);
-        dashboards.click(save);
-        dashboards.threadSleep(1000);
-        dashboards.click(save);
-        dashboards.threadSleep(3000);
-
-        //setCodependentFiltering
-        dashboards.click(selectFilters);
-        dashboards.threadSleep(3000);
-        dashboards.click(setCodependentFilteringBtn);
-        dashboards.threadSleep(2000);
-        dashboards.click(createConnectionBtn);
-        dashboards.threadSleep(2000);
-        dashboards.click(inputFilter1);
-        dashboards.threadSleep(2000);
-        dashboards.click(selectCity);
-        dashboards.click(inputFilter2);
-        dashboards.threadSleep(1000);
-        dashboards.click(inputFilter2);
-        dashboards.click(selectPoint);
-        dashboards.threadSleep(1000);
-        dashboards.click(connectBtn);
-        dashboards.threadSleep(2000);
-        dashboards.click(selectField1);
-        dashboards.threadSleep(3000);
-        dashboards.click(field1);
-        dashboards.threadSleep(1000);
-        dashboards.click(selectField2);
-        dashboards.click(selectField2);
-        dashboards.click(selectKeyForPoint);
-        dashboards.click(save);
-//        click(save);
-//        click(back);
-//        click(save);
-//        save();
-//        threadSleep(3000);
-//        click(firstDropdown);
-//        enterText(searchFirstDropdown,"Москва");
-//        pressEnter(searchFirstDropdown);
-//        threadSleep(5000);
-//        click(secondDropdown);
-//        threadSleep(2000);
-
-
-
-
-//        dashboards.click(selectFilters);
-//        dashboards.click(setCodependentFilteringBtn);
-//        dashboards.click(createConnectionBtn);
-//        dashboards.click(inputFilter1);
-//        dashboards.click(selectCity);
-//        dashboards.click(inputFilter2);
-//        dashboards.threadSleep(2000);
-//        dashboards.click(inputFilter2);
-//        dashboards.click(selectPoint);
-//        dashboards.threadSleep(1000);
-//        dashboards.click(connectBtn);
-//        dashboards.threadSleep(2000);
-//        dashboards.click(selectField1);
-//        dashboards.threadSleep(3000);
-//        dashboards.click(field1);
-//        dashboards.threadSleep(1000);
-//        dashboards.click(selectField2);
-//        dashboards.click(selectField2);
-//        dashboards.click(field2);
-//        dashboards.threadSleep(1000);
-//        dashboards.click(save);
-//        dashboards.threadSleep(1000);
-//        dashboards.click(save);
-//        dashboards.threadSleep(1000);
-//        driver.findElement(By.cssSelector("svg.AddWidgetFilter_arrowBack__OXzcF > path")).click();
-//        dashboards.threadSleep(2000);
-//        dashboards.click(save);
+//        metrics.threadSleep(2000);
+//        metrics.click(mainPanel.adminDashboard);
+//        dashboards.click(dashboards.constructorDashboards);
+//        driver.navigate().to("http://89.169.150.123/dashboard/55");
 //
-//        dashboards.save();
-//        dashboards.threadSleep(5000);
-
-//        driver.findElement(By.xpath("//button[1]//div[1]")).click();
-//        dashboards.threadSleep(2000);
-//        driver.findElement(By.xpath("//div[@id='root']/div/div[3]/div[5]/div/div/div[2]/div/div/div[2]/div/div[2]/div/canvas")).click();
-//        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).clear();
-//        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).sendKeys("Москва");
-//        driver.findElement(By.xpath("//div/div/div/div/div/div/input")).sendKeys(Keys.ENTER);
-//
-//        driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/div")).click();
-//        dashboards.threadSleep(3000);
-//
-//        dashboards.isTextDisplayed(secondDropdownList,"Москва");
-//        WebElement elm = driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[2]/div[1]/div[2]/div/div[2]"));
-//        String city = elm.getText();
-//        System.out.println(city);
-//        Assert.assertEquals(city,"Москва");
+//        widgets.threadSleep(5000);
+//        dashboards.click(addFilteringBtn);
+        visualization.addVisualTheme();
 
 
-//        WebElement city = driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[4]/div/div[1]/div[1]/label"));
-//
-//
-//        city.click(); //City
-//        dashboards.threadSleep(3000);
-//        city.sendKeys("Москва");
-//        city.sendKeys(Keys.ENTER);
-//
-//        dashboards.threadSleep(3000);
-//
-//        WebElement point =driver.findElement(By.xpath("//div[1]/div[2]/div[1]/div/div[1]/div/div/div[2]/div/input")); //Точка
+
+
 
 
 

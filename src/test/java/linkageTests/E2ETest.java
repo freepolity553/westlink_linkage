@@ -27,6 +27,8 @@ public class E2ETest extends TestBase {
 
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         mainPanel.enterDashboard();
+        visualization.addVisualTheme();
+        visualization.click(mainPanel.adminDashboard);
         connections.click(connections.constructorConnections);
         connections.addConnection();
         users.enterUsersPage();
@@ -65,15 +67,6 @@ public class E2ETest extends TestBase {
         widgets.click(mainPanel.adminDashboard);
         dashboards.click(dashboards.constructorDashboards);
         dashboards.addDashboardAgrotech();
-
-
-
-        dashboards.click(By.xpath("//button[1]//div[1]"));
-        dashboards.threadSleep(2000);
-        dashboards.click(By.xpath("//p[contains(text(),'Cохранить')]"));
-        dashboards.click(By.xpath("/html/body/div[1]/div/div[3]/div[5]/div/div/div[1]/div/div/div[1]/div[2]"));
-        dashboards.threadSleep(3000);
-
         widgets.readExcell();
         Assert.assertEquals(widgets.getCityName(),widgets.readExcell());
         dashboards.threadSleep(3000);
@@ -85,6 +78,7 @@ public class E2ETest extends TestBase {
         users.logout();
         login.loginUser();
         mainPanel.enterDashboard();
+
 
 
 

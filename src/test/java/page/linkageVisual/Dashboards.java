@@ -164,14 +164,14 @@ public class Dashboards extends BasePage {
         threadSleep(3000);
         save();
         threadSleep(4000);
-        click(By.xpath("//button[1]//div[1]"));
-        threadSleep(2000);
+
 
         //Export XLSX - to refactor after fix with button
         click(By.xpath("//button[1]//div[1]"));//Click Preview
         threadSleep(2000);
         click(By.xpath("//p[contains(text(),'Cохранить')]"));//Click Save
-        click(By.xpath("/html/body/div[1]/div/div[3]/div[5]/div/div/div[1]/div/div/div[1]/div[2]"));//Click export button
+        threadSleep(2000);
+        click(By.xpath("//div[5]/div/div/div[1]/div/div/div[1]/div[2]"));//Click export button
         threadSleep(3000);
 
         return this;

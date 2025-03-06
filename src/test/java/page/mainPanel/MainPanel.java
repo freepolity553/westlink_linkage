@@ -29,11 +29,7 @@ public class MainPanel extends BasePage {
 
         wait.until(ExpectedConditions.elementToBeClickable(selectAPMBtn));
         waitClickable(selectAPMBtn);
-//        threadSleep(10000);
         click(selectAPMBtn);
-//        driver.get(Constants.URL_MAIN);
-
-
 
         return this;
     }
@@ -62,20 +58,14 @@ public class MainPanel extends BasePage {
         isElementDisplayed(By.xpath("//a[@class='SidebarMenu_asideLink__0QbFE SidebarMenu_asideMin__4pP-U'][contains(.,'Рабочее время')]"));
         isElementDisplayed(By.xpath("//a[@class='SidebarMenu_asideLink__0QbFE SidebarMenu_asideMin__4pP-U'][contains(.,'Конструктор проектов')]"));
         isElementDisplayed(By.xpath("//a[@class='SidebarMenu_asideLink__0QbFE SidebarMenu_asideMin__4pP-U'][contains(.,'Динамическое распределение проектов')]"));
-
         isElementDisplayed(By.xpath("//p[contains(.,'Linkage Visual (Визуализация)')]"));
         isElementDisplayed(By.xpath("(//div[contains(.,'Конструктор показателей')])[9]"));
         isElementDisplayed(By.xpath("(//div[contains(.,'Конструктор виджетов')])[9]"));
         isElementDisplayed(By.xpath("(//div[contains(.,'Конструктор дашбордов')])[9]"));
-
         isElementDisplayed(By.xpath("(//div[contains(.,'Конструктор АРМ')])[9]"));
-
         isElementDisplayed(By.xpath("//p[contains(.,'Linkage Data Platform (Платформа данных)')]"));
-
         isElementDisplayed(By.xpath("//p[contains(.,'Linkage Administration (Администрирование)')]"));
-
         isElementDisplayed(By.xpath("//p[contains(.,'Linkage Digital Twin (Цифровой двойник)')]"));
-
         isElementDisplayed(By.xpath("//p[contains(.,'Linkage Configurator (Конфигуратор)')]"));
 
         return this;

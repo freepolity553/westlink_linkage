@@ -2,7 +2,7 @@ package page;
 
 public class SharedData extends BasePage {
 
-    private static String groupName = "Авто Группа-" + randomInt(4);
+    private static String groupName = "Группа(авто)-" + randomInt(4);
     ;
 
     public static void setGroupName(String value) {
@@ -14,7 +14,7 @@ public class SharedData extends BasePage {
         return groupName;
     }
 
-    private static String orgName = "ООО-" + randomInt(4);
+    private static String orgName = "ООО-(авто)" + randomInt(4);
 
     public static void setOrgName(String value) {
         orgName = value;
@@ -43,7 +43,7 @@ public class SharedData extends BasePage {
         return lastName;
     }
 
-    private static String metricName = "Показатель " + randomInt(3);
+    private static String metricName = "Показатель(авто) " + randomInt(3);
     public static void setMetricName(String value) {
         metricName = value;
     }
@@ -51,7 +51,7 @@ public class SharedData extends BasePage {
         return metricName;
     }
 
-    private static String metricCities = "Город " + randomInt(3);
+    private static String metricCities = "Город(авто) " + randomInt(3);
     public static void setMetricCities(String value) {
         metricCities = value;
     }
@@ -59,7 +59,7 @@ public class SharedData extends BasePage {
         return metricCities;
     }
 
-    private static String metricPoints = "Точка продажи " + randomInt(3);
+    private static String metricPoints = "Точка продажи(авто) " + randomInt(3);
     public static void setMetricPoints(String value) {
         metricPoints = value;
     }
@@ -71,7 +71,6 @@ public class SharedData extends BasePage {
     public static void setWidgetTableName(String value) {
         widgetTableName = value;
     }
-    // Getter for the extracted value
     public static String getWidgetTableName() {
         return widgetTableName;
     }
@@ -86,7 +85,7 @@ public class SharedData extends BasePage {
     }
 
 
-    private static String widgetCitiesName = "Города " + randomInt(3);
+    private static String widgetCitiesName = "Города(авто) " + randomInt(3);
     public static void setWidgetCitiesName(String value) {
         widgetCitiesName = value;
     }
@@ -95,7 +94,7 @@ public class SharedData extends BasePage {
     }
 
 
-    private static String widgetPointsName = "Точки продаж " + randomInt(3);
+    private static String widgetPointsName = "Точки продаж(авто) " + randomInt(3);
     public static void setWidgetPointsName(String value) {
         widgetPointsName = value;
     }
@@ -104,7 +103,7 @@ public class SharedData extends BasePage {
     }
 
 
-    private static String dashboardName = "Дашборд " + randomInt(3);
+    private static String dashboardName = "Дашборд(авто) " + randomInt(3);
     public static void setDashboardName(String value) {
         dashboardName = value;
     }
@@ -112,7 +111,7 @@ public class SharedData extends BasePage {
         return dashboardName;
     }
 
-    private static String dashboardAgrotech = "Агротех " + randomInt(3);
+    private static String dashboardAgrotech = "Агротех(авто) " + randomInt(3);
     public static void setDashboardAgrotech(String value) {
         dashboardAgrotech = value;
     }
@@ -120,7 +119,7 @@ public class SharedData extends BasePage {
         return dashboardAgrotech;
     }
 
-    private static String workstationName = "АРМ " + randomInt(3);
+    private static String workstationName = "АРМ(авто) " + randomInt(3);
     public static void setWorkstationName(String value) {
         workstationName = value;
     }

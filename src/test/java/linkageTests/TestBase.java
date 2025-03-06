@@ -13,6 +13,7 @@ import page.SharedData;
 import page.linkageAdministration.Groups;
 import page.linkageAdministration.Organization;
 import page.linkageAdministration.Users;
+import page.linkageAdministration.Visualization;
 import page.linkageDataPlatform.Connections;
 import page.linkageVisual.Dashboards;
 import page.linkageVisual.Metrics;
@@ -44,6 +45,7 @@ public class TestBase {
     public SharedData data;
     public Workstation workstation;
     public Connections connections;
+    public Visualization visualization;
     public WebDriverWait wait;
 
 
@@ -116,6 +118,8 @@ public class TestBase {
         dashboards = PageFactory.initElements(driver, Dashboards.class);
         workstation = PageFactory.initElements(driver, Workstation.class);
         connections = PageFactory.initElements(driver, Connections.class);
+        visualization = PageFactory.initElements(driver, Visualization.class);
+
 
 
     }
