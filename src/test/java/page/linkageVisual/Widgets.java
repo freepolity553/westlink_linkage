@@ -43,17 +43,19 @@ public class Widgets extends BasePage {
 
     private By addMetric = By.xpath("//button[contains(text(),'Вставить')]");
 
-    private By refreshField = By.xpath("//div[3]/div[1]/div[2]/div[2]/div[8]/div[2]/div/div/div/input");
+    private By refreshRateTable = By.xpath("//div[8]/div[2]/div/div/div/input");
+    private By refreshRateDiagramme = By.xpath("//div[9]/div[2]/div/div/div/input");
+
     private By stayInConstructorBtn =By.xpath("//button[@class='Button-module_main__lxsaF btnOutlinePrimary ConfirmationModal_btn__uOPAs']");
 
     private By statusSavedWidget  =By.xpath("//p[@class='WidgetTopBar_attention__nameDone__m1cSM']");
 
     private By metricSettingsBtn = By.xpath("//button[contains(text(),'Настройки показателей')]");
 
-    private By transferWidget  =By.xpath("//div[@id='root']/div/div[3]/div/div[2]/div[2]/div/div[2]/div/div[14]/div[2]/div/div[2]/label");
+    private By transferWidget  =By.xpath("//div[17]/div[2]/div[2]/div/label");
     private By searchForWidget =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv SelectInfiniteCore_inputClass__GpexQ pr-6' and @placeholder='Выберите виджет']");
 
-    private By selectTransferWidget = By.xpath("//div[2]/div[2]/div[2]/div[2]/div/p");
+    private By selectTransferWidget = By.xpath("//div[2]/div[2]/div/p");
 
 
     public String useWidgetTableName() {
@@ -117,12 +119,14 @@ public class Widgets extends BasePage {
         enterText(searchForMetric, metricName);
         click(metric);
         click(addMetric);
-        enterText(refreshField,"5");
+        enterText(refreshRateTable,"5");
         threadSleep(2000);
         click(draftBtn);
+        threadSleep(2000);
         click(statusReadyForWork);
+        threadSleep(2000);
         save();
-        threadSleep(3000);
+        threadSleep(15000);
         click(stayInConstructorBtn);
         back();
 
@@ -142,7 +146,7 @@ public class Widgets extends BasePage {
         enterText(searchForMetric, metricName);
         click(metric);
         click(addMetric);
-        enterText(refreshField,"5");
+        enterText(refreshRateDiagramme ,"5");
         click(metricSettingsBtn);
         click(transferWidget);
         enterText(searchForWidget, useWidgetTableName());
@@ -152,7 +156,7 @@ public class Widgets extends BasePage {
         click(draftBtn);
         click(statusReadyForWork);
         save();
-        threadSleep(2000);
+        threadSleep(15000);
         click(stayInConstructorBtn);
         back();
 
@@ -172,14 +176,14 @@ public class Widgets extends BasePage {
         enterText(searchForMetric, metricName);
         click(metric);
         click(addMetric);
-        enterText(refreshField,"5");
+        enterText(refreshRateTable,"5");
         threadSleep(2000);
         getCityName();
         threadSleep(2000);
         click(draftBtn);
         click(statusReadyForWork);
         save();
-        threadSleep(3000);
+        threadSleep(10000);
         click(stayInConstructorBtn);
         back();
 
@@ -207,13 +211,13 @@ public class Widgets extends BasePage {
         enterText(searchForMetric, metricName);
         click(metric);
         click(addMetric);
-        enterText(refreshField,"5");
+        enterText(refreshRateTable,"5");
         threadSleep(2000);
         click(draftBtn);
         click(statusReadyForWork);
         threadSleep(2000);
         save();
-        threadSleep(3000);
+        threadSleep(10000);
         click(stayInConstructorBtn);
         back();
 

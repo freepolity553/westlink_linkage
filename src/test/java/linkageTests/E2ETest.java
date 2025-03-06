@@ -10,6 +10,9 @@ import settings.Constants;
 import java.io.IOException;
 import java.time.Duration;
 
+import static utilites.TestDataCleaner.cleanTestDataFromNavigator;
+import static utilites.TestDataCleaner.cleanTestDataFromUsers;
+
 
 public class E2ETest extends TestBase {
 
@@ -24,13 +27,14 @@ public class E2ETest extends TestBase {
 
     @Test(invocationCount = 1)
     public void  E2ETest() throws IOException {
-
+        cleanTestDataFromNavigator();
+        cleanTestDataFromUsers();
         login.loginAdminDemo(Constants.USERNAME_ADMIN_DEMO, Constants.PASSWORD_ADMIN_DEMO);
         mainPanel.enterDashboard();
-        visualization.addVisualTheme();
-        visualization.click(mainPanel.adminDashboard);
-        connections.click(connections.constructorConnections);
-        connections.addConnection();
+//        visualization.addVisualTheme();
+//        visualization.click(mainPanel.adminDashboard);
+//        connections.click(connections.constructorConnections);
+//        connections.addConnection();
         users.enterUsersPage();
         groups.click(groups.groupsTab);
         groups.createGroup();
@@ -52,6 +56,10 @@ public class E2ETest extends TestBase {
         widgets.click(mainPanel.adminDashboard);
         dashboards.click(dashboards.constructorDashboards);
         dashboards.addDashboardSimple();
+//        dashboards.click(dashboards.editDashboardBtn);
+        dashboards.accessDashboard();
+        dashboards.addFilteringData();
+
         dashboards.click(mainPanel.adminDashboard);
         metrics.click(metrics.constructorMetrics);
         metrics.addCitiesMetric();

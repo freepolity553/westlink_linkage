@@ -126,7 +126,17 @@ public class Users extends BasePage {
         threadSleep(2000);
         click(save);
         threadSleep(2000);
+
+        try {
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (NoAlertPresentException e) {
+            System.out.println("No alert present");
+        }
+
+        threadSleep(2000);
         save();
+        threadSleep(3000);
         //assertEquals(driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Группы пользователя'])[1]/following::p[1]")).getText(), groupName);
         return this;
     }

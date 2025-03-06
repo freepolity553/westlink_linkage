@@ -109,7 +109,8 @@ public class Metrics extends BasePage {
         threadSleep(12000);
         click(dataSourceList);
         WebElement db = driver.findElement(dataSourceList1);
-        slowSendKeys(db, dataSource, 50); // 100ms delay between characters
+        slowSendKeys(db, dataSource, 70); // 100ms delay between characters
+        threadSleep(3000);
         db.sendKeys(Keys.ENTER);
         enterText(sqlTextArea, Variables.sqlBasic);
         click(addFlexFilterBtn);
@@ -126,7 +127,7 @@ public class Metrics extends BasePage {
         click(requestValidationBtn);
         threadSleep(2000);
         save();
-        threadSleep(5000);
+        threadSleep(10000);
         click(stayInConstractorBtn);
 
         return this;
@@ -160,7 +161,7 @@ public class Metrics extends BasePage {
         click(requestValidationBtn);
         threadSleep(2000);
         save();
-        threadSleep(5000);
+        threadSleep(10000);
         click(stayInConstractorBtn);
 
         return this;
@@ -205,7 +206,7 @@ public class Metrics extends BasePage {
         click(requestValidationBtn);
         threadSleep(2000);
         save();
-        threadSleep(3000);
+        threadSleep(10000);
         click(stayInConstractorBtn);
 
         return this;

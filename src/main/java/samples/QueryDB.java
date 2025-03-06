@@ -4,6 +4,8 @@ import java.sql.*;
 
 import static org.assertj.core.api.BDDAssumptions.given;
 
+
+
 public class QueryDB {
 
     // Declaration of the variables

@@ -27,6 +27,7 @@ public class Dashboards extends BasePage {
     private By searchForWidget =By.xpath("//input[@class='flex-grow InputText-module_input__GBLXv pl-6' and @placeholder='Введите название']");
     private By checkboxWidget = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Поиск по названию'])[1]/following::*[name()='svg'][2]");
     private By addWidgetModalBtn = By.xpath("//button[contains(text(),'Добавить на холст')]");
+    public By editDashboardBtn = By.xpath("//button[contains(text(),'Редактировать')]");
     private By addFilteringBtn = By.xpath("//div[@class='FiltersData_filterData__qnQxY']");
     private By dataFilter = By.xpath("//span[@class='ButtonFilter_label__t8Ut2']");
     private By selectOperation = By.xpath("//div[@class='slct__value-container slct__value-container--has-value css-1hwfws3']");
@@ -115,22 +116,6 @@ public class Dashboards extends BasePage {
         threadSleep(3000);
         save();
         threadSleep(5000);
-        click(addFilteringBtn);
-        threadSleep(2000);
-        click(checkbox);
-        threadSleep(1000);
-        click(oper);
-//        click(oper);
-        threadSleep(2000);
-        click(dataFilter);
-        threadSleep(2000);
-        click(selectOperation);
-        threadSleep(2000);
-        driver.findElement(By.xpath("//*/text()[normalize-space(.)='Равно']/parent::*")).click();
-        click(datePicker);
-        click(By.xpath("//button[contains(text(),'Готово')]"));
-        click(By.xpath("//button[contains(text(),'Применить')]"));
-        threadSleep(2000);
         back();
 
         return this;
@@ -170,12 +155,19 @@ public class Dashboards extends BasePage {
         click(By.xpath("//button[1]//div[1]"));//Click Preview
         threadSleep(2000);
         click(By.xpath("//p[contains(text(),'Cохранить')]"));//Click Save
-        threadSleep(2000);
+        threadSleep(10000);
         click(By.xpath("//div[5]/div/div/div[1]/div/div/div[1]/div[2]"));//Click export button
         threadSleep(3000);
 
         return this;
     }
+    @Step("access Dashboard in the list ")
+    public Dashboards accessDashboard(){
+
+        click(By.xpath("//div[@class='ActionsCellName_cell__q8iJq ActionsCellName_customCell__TvfAR'][contains(text(),'"+useDashboardName()+"')]"));
+        return this;
+    }
+
     @Step("add Filtering Data ")
     public Dashboards addFilteringData(){
         click(addFilteringBtn);
@@ -189,6 +181,8 @@ public class Dashboards extends BasePage {
         click(datePicker);
         click(By.xpath("//button[contains(text(),'Готово')]"));
         click(By.xpath("//button[contains(text(),'Применить')]"));
+        save();
+        threadSleep(4000);
 
         return this;
     }

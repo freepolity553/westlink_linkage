@@ -69,14 +69,15 @@ public class Organization extends BasePage {
         System.out.println("Using Last Name : " + user.useLastName());
         waitVisibility(addOrgDirector);
         click(addOrgDirector);
+        threadSleep(3000);
         WebElement clickable2 = driver.findElement(search);
         new Actions(driver)
                 .moveToElement(clickable2)
-                .pause(Duration.ofSeconds(2))
+                .pause(Duration.ofSeconds(4))
                 .click()
-                .pause(Duration.ofSeconds(2))
+                .pause(Duration.ofSeconds(4))
                 .sendKeys(lastName)
-                .pause(Duration.ofSeconds(2))
+                .pause(Duration.ofSeconds(4))
                 .perform();
         click(radioBtn);
         click(addBtn);

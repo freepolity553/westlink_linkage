@@ -64,27 +64,31 @@ public class TestBase {
 
         // Create ChromeOptions and set preferences
         ChromeOptions options = new ChromeOptions();
+
         //FirefoxOptions options = new FirefoxOptions();
         // Create a map to store Chrome preferences
         Map<String, Object> prefs = new HashMap<>();
-
         // Set the download directory
         prefs.put("download.default_directory", downloadPath);
-
         // Disable the download prompt
         prefs.put("download.prompt_for_download", false);
-
+        prefs.put("credentials_enable_service", false); // Disable password saving prompt
+        prefs.put("profile.password_manager_enabled", false); // Disable password manager
         prefs.put("select_file_dialogs.allowed", "false");
         prefs.put("download.directory_upgrade", true);
-        prefs.put("credentials_enable_service", Boolean.FALSE);
-        prefs.put("profile.password_manager_enabled", Boolean.FALSE);
         prefs.put("safebrowsing.enabled", true);
         prefs.put("safebrowsing.disable_download_protection", true);
-
         options.setExperimentalOption("prefs", prefs);
+
+        options.addArguments("--disable-infobars"); // Disable the "Chrome is being controlled by automated test software" infobar
+        options.addArguments("--disable-notifications"); // Disable notifications
+        options.addArguments("--disable-popup-blocking"); // Disable popup blocking
+        options.addArguments("--disable-extensions"); // Disable extensions
+//        options.addArguments("--incognito");
+
         options.addArguments("--disable-extensions");
-        options.addArguments("--disable-infobars");
         options.addArguments("--disable-notifications");
+        options.addArguments("--disable-features=PasswordLeakDetection");
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--unsafely-treat-insecure-origin-as-secure=http://89.169.150.123/");
@@ -92,6 +96,7 @@ public class TestBase {
         //options.addArguments("--headless=new");
         options.setAcceptInsecureCerts(true);
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+
 
         //Duration duration = Duration.of(2, ChronoUnit.SECONDS);
         //options.setImplicitWaitTimeout(duration);

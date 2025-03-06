@@ -27,7 +27,7 @@ public class SharedData extends BasePage {
 
 
 
-    private static String mockName = "test" + randomInt(4);
+    private static String mockName = "test" + randomInt(5);
     public static void setMockName(String value) {
         mockName = value;
     }
